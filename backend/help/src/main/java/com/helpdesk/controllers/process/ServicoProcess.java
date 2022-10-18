@@ -1,0 +1,33 @@
+package com.helpdesk.controllers.process;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+
+import com.helpdesk.models.dtos.TicketDTO;
+import com.helpdesk.models.entity.Servico;
+import com.helpdesk.models.entity.Ticket;
+import com.helpdesk.models.repositorys.ServicoRepository;
+import com.helpdesk.models.repositorys.TicketRepository;
+
+@Component
+public class ServicoProcess {
+	
+	@Autowired
+	private TicketRepository ticketRepository;
+	
+	public ResponseEntity<List<TicketDTO>> servicosAbertos() {
+		List<TicketDTO> lisTickets = new ArrayList<>();
+			
+	
+		for (Ticket ticket : ticketRepository.servicosAbertos()) {
+			lisTickets.add(new TicketDTO(ticket));
+		}
+		
+		return new ResponseEntity<>(lisTickets, HttpStatus.OK);
+	}
+}

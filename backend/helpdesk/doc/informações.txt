@@ -1,0 +1,26 @@
+SISTEMA DE GERENCIAMENTO DE CHAMADOS:
+
+
+# O QUE É?
+
+COMUM NO DEPARTAMENTO DO TI
+
+- SOLICITAR DEMANDA
+
+- APONTAR DIFICULDADE OU ERRO
+
+- AVALIADO E RESPONDIDO
+
+(FACILITAR A GESTÂO DA TI)
+
+
+# FUNCIONAMENTO DO SISTEMA
+
+- ABRIR UM TICKET
+	ira receber todas as informações necessárias do problema
+
+- ENCAMINHAMENTO DA DEMANDA
+	será encaminhado para um responsável tecnico
+
+- GERENCIAR AS INFORMAÇÔES
+	acompanhar e extrair relatorios

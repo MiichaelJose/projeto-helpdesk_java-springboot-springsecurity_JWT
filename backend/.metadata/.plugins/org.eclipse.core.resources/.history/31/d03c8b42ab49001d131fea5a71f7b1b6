@@ -1,0 +1,15 @@
+package com.helpdesk.controllers.process;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.helpdesk.models.repositorys.TecnicoTicketRepository;
+
+public class ServicoProcess {
+	
+	@Autowired
+	private TecnicoTicketRepository tecnicoTicket;
+	
+	public void servicosAbertos() {
+		
+	}
+}

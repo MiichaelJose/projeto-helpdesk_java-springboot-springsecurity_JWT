@@ -1,0 +1,32 @@
+package com.helpdesk.controllers.process;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.helpdesk.models.entity.TecnicoTicket;
+import com.helpdesk.models.entity.Ticket;
+import com.helpdesk.models.repositorys.TecnicoTicketRepository;
+import com.helpdesk.models.repositorys.TicketRepository;
+
+@Component
+public class ServicoProcess {
+	
+	@Autowired
+	private TecnicoTicketRepository tecnicoTicket;
+	
+	@Autowired
+	private TicketRepository ticketRepository;
+	
+	public void servicosAbertos() {
+		
+		List<Ticket> ticket = tecnicoTicket.servicosAbertosA();
+			
+	
+		for (Ticket ticketObject : ticket) {
+			System.out.println(ticketObject);
+		}
+	}
+}

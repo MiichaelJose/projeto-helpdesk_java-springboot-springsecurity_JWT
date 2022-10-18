@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+}
+
+h1, h2, h3, button {
+    font-family: 'Bebas Neue', cursive;
+}
+
+p, ul {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+}
+
+
+
+:root {
+    background-color: var(--vinho);
+    font-size: 1.125rem;
+    --roxo: #413B6B;
+    --cinza: #656273;
+    --vinho: #1D1016;
+    --alterar: #FFD452;
+    --vermelho: #FF2E5F;
+    --permitir: #5ADB94;
+    --visualizar: #24C0EB;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+main {
+    width: 80vw;
+    height: 90vh;
+    display: flex;
+    background-color: black;
+}
+
+nav {
+    width: 30%;
+    height: 100%;
+    background-color: var(--cinza);
+    color: white;
+}
+
+section {
+    height: 100%;
+    width: 80%;
+    background-color: white;
+}

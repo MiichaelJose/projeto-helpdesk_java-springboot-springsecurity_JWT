@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>main</title>
+</head>
+<body onload="buttons_options()">
+    <main>
+        <nav>
+           <div class="nav-header">
+                <h1>HELPDESK</h1>
+           </div>
+           <div class="sidebar-options">
+                <ul>
+                    <li id="1">criar ticket</li>
+                    <li id="2">funcionários</li>
+                    <li id="3">solicitações de acessos</li>
+                    <li id="4">atividades fechadas</li>
+                    <li id="5">atividades abertas</li>
+                </ul>
+            </div>
+            <div class="perfil-down">
+                <div class="perfil">
+                    <div class="imagem-perfil">
+
+                    </div>
+                    <div class="text-perfil">
+                        <p>Juliana da silva</p>
+                        <p style="font-style: italic;">Administradora</p>
+                        <p class="alterardados">alterar dados</p>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <section>
+            <div class="section-header" hidden>
+                <h1></h1>
+            </div>
+            <div class="container-section" hidden>
+                <div class="header-container">
+
+                </div>
+
+                <div class="area-container">
+
+                   
+
+                    
+                </div>   
+
+                <div class="area-enviar-mensagem">
+                    <input type="text" class="input-resposta">
+                    <div class="imagem-enviar" onclick="enviar_resposta()">
+                        <img src="../imagens/icons8-send-50.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="pergunta-mensagem">
+            <p>nome equipamento?</p>
+        </div>
+
+        <div class="resposta-mensagem">
+            <p>resposta...</p>
+            <div>
+                <p>computador</p>
+            </div>
+        </div>
+
+        <div class="modal-ativarchat">
+            <div class="center-modal">
+                <p>para criar um ticket, você precisa passar algumas informações.</p>
+                <div onclick="iniciar_chat()">
+                    <h3>OK</h3>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="criarmodal-script.js"></script>
+<script src="criarticket-script.js"></script>
+</html>

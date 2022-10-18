@@ -1,0 +1,216 @@
+/* https://cssloaders.github.io/ */
+@import url('/config/global-style.css');
+
+h1 {
+    font-size: 2rem;
+}
+
+.nav-header {
+    height: 20%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    box-sizing: border-box;
+    border-bottom: 5px solid var(--vinho);
+}
+
+.section-header {
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar-options {
+    height: 60%;
+    width: 80%;
+    margin-inline: auto;
+}
+
+.perfil-down {
+    height: 20%;
+}
+
+ul {
+    list-style: none;
+}
+
+.sidebar-options, ul, .perfil-down {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+li:nth-child(n+1){
+    margin-bottom: 40px;
+}
+
+li:nth-child(5) {
+    margin-bottom: 0px;
+}
+
+li:hover {
+    font-weight: bold;
+    border-bottom: 3px solid var(--vinho);
+}
+
+.perfil {
+    width: 80%;
+    height: 90%;
+    align-items: center;
+    display: flex;
+}
+
+.imagem-perfil {
+    width: 100px;
+    height: 100px;
+    background-color: aliceblue;
+}
+
+.text-perfil {
+    width: 50%;
+    height: 70%;
+    margin-left: 5%;
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+}
+
+.text-perfil p {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.alterardados {
+    color: #6F95FF;
+}
+
+.container-section {
+    height: 75%;
+    width: 85%;
+
+    background-color: var(--vinho);
+    margin-inline: auto;
+}
+
+.header-container {
+    height: 10%;
+    width: 100%;
+    background-color: var(--roxo);
+}
+
+.area-container {
+    height: 80%;
+    width: 100%;
+    max-width: 800px;
+    overflow-y: scroll;
+
+
+    margin: auto;
+    box-sizing: border-box;
+}
+
+
+.area-container::-webkit-scrollbar {
+    width: 5px;               /* width of the entire scrollbar */
+  }
+
+.area-container::-webkit-scrollbar-track {
+    background: var(--vinho); 
+}
+
+.modal-ativarchat {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    background-color: white ;
+    text-align: center;
+    opacity: 0.9;
+}
+
+.center-modal {
+    width: 50%;
+    height: 50%;
+}
+
+.center-modal > p {
+    margin-bottom: 15px;
+}
+
+.center-modal > div {
+    width: 80%;
+    height: 10%;
+    font-weight: bold;
+    background-color: aquamarine;
+    margin: auto;
+}
+
+.pergunta-mensagem {
+    width: fit-content;
+    padding: 15px;
+
+    margin: 15px 15px 15px 15px;
+    color: white;
+    background-color: var(--roxo);
+    border-radius: 50px;
+    display: none;
+}
+
+.area-enviar-mensagem {
+    width: 100%;
+    height: 10%;
+    display: none;
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+.input-resposta {
+    height: 35px;
+    width: 255px;
+
+    padding-inline: 15px;
+}
+
+.imagem-enviar {
+    height: 35px;
+    width: 35px;
+    background-color: white;
+}
+
+.imagem-enviar > img {
+    height: 35px;
+    width: 35px;
+}
+
+
+.resposta-mensagem {
+    width: 250px;
+    height: fit-content;
+    color: black;
+    background-color: white;
+    margin: 15px 0 15px auto;
+    padding-bottom: 5px;
+    display: none;
+}
+
+.resposta-mensagem > p {
+    text-indent: 5px;
+}
+
+.resposta-mensagem > div {
+    margin-top: 10px;
+
+    width: 225px;
+    margin-inline: auto;
+    background-color: var(--roxo);
+    color: white;
+    padding: 5px;
+}
+
+.resposta-mensagem > div > p {
+    text-indent: 15px;
+    font-size: 0.8rem;
+}
