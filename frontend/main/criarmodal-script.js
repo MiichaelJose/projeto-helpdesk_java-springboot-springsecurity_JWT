@@ -26,7 +26,7 @@ const modal = (id) => {
 }
 
 const limpar_modal_anterior  = () => {
-    if(contador_repostas == 6) {
+    if(contador_repostas == 7) {
         console.log('entrou');console.log('entrou');
         contador_pergunta = 0
         contador_repostas = 0
@@ -66,8 +66,3 @@ const ativar_modal = (id) => {
     }
 }
 
-const ativar_modal_chat = () => {
-    const modal_chat = modal_ativarchat.cloneNode(true)
-    modal_chat.style.display = 'flex'
-    area_container.appendChild(modal_chat)
-}

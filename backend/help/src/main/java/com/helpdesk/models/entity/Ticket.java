@@ -24,7 +24,7 @@ public class Ticket {
 	private Usuario idUsuario;
 
 	// o usuario vai definir ao nivel de importancia em que deve ser solucionado o seu problema
-	private String statusPrioridade;
+	private String prioridade;
 
 	// departamento em que se encontra o equipamento
 	private String departamento;
@@ -42,7 +42,7 @@ public class Ticket {
 	private String serial;
 
 	// nome do produto
-	private String nomeEquipamento;
+	private String equipamento;
 
 	// foto do produto ão obrigatório
 	private String imagem;

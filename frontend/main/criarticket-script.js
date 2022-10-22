@@ -1,26 +1,17 @@
 const mensagens = [
     "nome equipamento?",
-    "nome departamento?",
+    "qual o departamento?",
+    "cor do equipamento",
     "serial do equipamento? (opcional)",
-    "imagem do equipamento? (opcional)",
+    "status de prioridade para o equipamento?",
     "descrição do equipamento?",
-    "status de prioridade para o equipamento?"
+    "imagem do equipamento? (opcional)",
 ]
-
-const status_equipamento = [
-    "INDEFINIDO",
-    "MÉDIO",
-    "URGENTE"
-]
-
-let contador_pergunta = 0
-let contador_repostas = 0
-
 
 let ticket = {
-    "nomeEquipamento":"",
+    "equipamento":"",
     "departamento":"",
-    "statusPrioridade":"",
+    "prioridade":"",
     "cor":"",
     "data":"",
     "descricao":"",
@@ -28,7 +19,13 @@ let ticket = {
     "imagem":""
 }
 
+let contador_pergunta = 0
+let contador_repostas = 0
+
+
+
 const menu_chat = () => {
+    area_container.style.overflowY = 'scroll'
     // primeira pergunta
     criar_pergunta(mensagens[contador_pergunta])
 }
@@ -38,47 +35,47 @@ const proxima_pergunta = () => {
     criar_pergunta(mensagens[contador_pergunta])
 }
 
-
-
 const enviar_resposta = () => {
-    const input = document.querySelector('.input-resposta').value
-    
-    // no 5 encerra as perguntas
-    if(contador_repostas < 6) {
-        criar_resposta(input)
-        criar_json(contador_pergunta, input)
+    const input = document.querySelector('.input-resposta')
 
-        if(contador_repostas < 5) 
-            proxima_pergunta()
-        contador_repostas++
-    }
+    criar_resposta(input.value)
+    criar_json(contador_pergunta, input.value)
+
+    contador_repostas++
+
+    contador_repostas < 7 
+    ? proxima_pergunta() 
+    : menu_confirmar_dados()
 
     area_container.scroll(0, 500)
 }
 
-
 const criar_json = (n, value) => {
+    criar_texto_menudados(n, value)
+
     switch (n) {
         case 0:
-                ticket.nomeEquipamento  = value
+                ticket.equipamento      = value
             break;
         case 1:
                 ticket.departamento     = value
             break;
         case 2:
-                ticket.serial           = value
+                ticket.cor              = value
             break;
         case 3:
-                ticket.imagem           = value
+                ticket.serial           = value
             break;
         case 4:
-                ticket.descricao        = value
+                ticket.prioridade       = value 
             break;
         case 5:
-                ticket.statusPrioridade = value
+                ticket.descricao        = value
+            break;
+        case 6:
+                ticket.imagem           = value
             break;
     }
-    console.log(ticket);
 }
 
 const criar_resposta = (value) => {
@@ -103,29 +100,55 @@ const criar_pergunta = (mensagem) => {
     area_container.appendChild(pergunta)
 }
 
-const som_pergunta = () => {
-    let context = new AudioContext(),
-    oscillator = context.createOscillator(),
-    contextGain = context.createGain();
- 
+const menu_confirmar_dados = () => {
+    const container_section = document.querySelector('.container-section')
+    const modal_confirmardados = document.querySelector('.modal-confirmardados').cloneNode(true)
+    //const area_enviar_mensagem = document.querySelector('.area-enviar-mensagem')
 
-    oscillator.type = 'sine'
-    contextGain.gain.value = 0.2
+   
+    modal_confirmardados.style.display = 'flex'
+    area_container.style.display = 'none'
+    area_mensagem.style.display = 'none'
 
-    oscillator.connect(contextGain);
-    contextGain.connect(context.destination);
 
-    oscillator.start(0)
-    contextGain.gain.exponentialRampToValueAtTime(
-        0.00001, context.currentTime + 1
-    )
+    //area_enviar_mensagem.style.zIndex  = 1
+
+    container_section.appendChild(modal_confirmardados)
 }
 
+const criar_texto_menudados = (n, value) => {
+    const caixa_text = document.querySelector('.caixa-geral')
+    const descricao = document.querySelector('.textodescricao').querySelector('p')
+    const imagem_dispositivo = document.querySelector('#img-dispositivo')
+
+    const paragrafos = caixa_text.querySelectorAll('p')[n]
+
+    console.log(paragrafos);
+    if(n == 5) {
+        descricao.innerHTML = value
+        paragrafos.innerHTML = "21/10/2002"
+    }
+    else if(n == 6)
+        imagem_dispositivo.src  = ""
+    else 
+        paragrafos.innerHTML = '' + value
+} 
 
 
+const cadastrar_ticket = () => {
+    const url = "http://localhost:8080/ticket"
 
-const criar_ticket = () => {
-    console.log('oi 2');
+    fetch(url, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},     
+        body: JSON.stringify(ticket)
+    })
+    .then(resp => resp)
+    .then(data => {
+        if(data.status == 200) {
+
+        }
+    })
 }
 
 
@@ -144,4 +167,28 @@ const iniciar_chat = () => {
             enviar_resposta()
     })
     
+}
+
+const ativar_modal_chat = () => {
+    const modal_chat = modal_ativarchat.cloneNode(true)
+    modal_chat.style.display = 'flex'
+    area_container.appendChild(modal_chat)
+}
+
+const som_pergunta = () => {
+    let context = new AudioContext(),
+    oscillator = context.createOscillator(),
+    contextGain = context.createGain();
+ 
+
+    oscillator.type = 'sine'
+    contextGain.gain.value = 0.2
+
+    oscillator.connect(contextGain);
+    contextGain.connect(context.destination);
+
+    oscillator.start(0)
+    contextGain.gain.exponentialRampToValueAtTime(
+        0.00001, context.currentTime + 1
+    )
 }

@@ -12,7 +12,7 @@ public class TicketDTO {
 
 	private Long idUsuario;
 
-	private String statusPrioridade;
+	private String prioridade;
 
 	private String departamento;
 
@@ -24,7 +24,7 @@ public class TicketDTO {
 
 	private String serial;
 
-	private String nomeEquipamento;
+	private String equipamento;
 
 	private String imagem;
 	
@@ -33,12 +33,12 @@ public class TicketDTO {
 		id = ticket.getId();
 		idUsuario = ticket.getIdUsuario().getId();
 		descricao = ticket.getDescricao();
-		statusPrioridade = ticket.getStatusPrioridade();
+		prioridade = ticket.getPrioridade();
 		departamento = ticket.getDepartamento();
 		cor = ticket.getCor();
 		data = ticket.getData();
 		serial = ticket.getSerial();
-		nomeEquipamento = ticket.getNomeEquipamento();
+		equipamento = ticket.getEquipamento();
 		imagem = ticket.getImagem();
 	}
 	

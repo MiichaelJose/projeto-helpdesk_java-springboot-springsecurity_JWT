@@ -104,9 +104,6 @@ li:hover {
     height: 80%;
     width: 100%;
     max-width: 800px;
-    overflow-y: scroll;
-
-
     margin: auto;
     box-sizing: border-box;
 }
@@ -120,6 +117,25 @@ li:hover {
     background: var(--vinho); 
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MODAIS ------------------------- */
+
 .modal-ativarchat {
     width: 100%;
     height: 100%;
@@ -131,9 +147,81 @@ li:hover {
     opacity: 0.9;
 }
 
+.modal-confirmardados {
+    width: 100%;
+    height: 90%;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    text-align: center;
+}
+
 .center-modal {
-    width: 50%;
+    width: 70%;
     height: 50%;
+}
+
+
+.center-modalconfirmardados {
+    width: 70%;
+    height: 85%;
+    background-color: var(--roxo);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.center-modalconfirmardados > img {
+    margin: 15px 0 15px 0;
+}
+
+.texto-modalconfirmardados {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.caixa-geral {
+    justify-content: space-between;
+    width: fit-content;
+    max-width: 40%;
+    letter-spacing: 1px;
+}
+
+.caixa-geral  span {
+    margin-right: 2px;
+}
+
+.caixa-geral > div {
+    display: flex;
+}
+
+.texto-modalconfirmardados span {
+   letter-spacing: 2px;
+   font-size: 1rem;
+}
+.texto-modalconfirmardados p {
+    font-size: 0.9rem;
+}
+
+.caixa-descricao  {
+    width: 40%;
+    text-align: start;
+}
+
+.textodescricao > p {
+    text-align: justify;
+}
+
+
+.cadastrarticket-button {
+    margin-top: 5%;
+    background-color: var(--permitir);
+    width: 50%;
+    border-radius: 15px;
+    color: black;
 }
 
 .center-modal > p {

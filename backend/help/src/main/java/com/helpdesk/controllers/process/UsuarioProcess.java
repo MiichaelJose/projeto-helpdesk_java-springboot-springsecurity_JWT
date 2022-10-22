@@ -54,7 +54,15 @@ public class UsuarioProcess {
 
 	// listar
 	public ResponseEntity<List<Usuario>> listarUsuarios() {
-		return new ResponseEntity<>(repository.findAll(), HttpStatus.OK);
+		List<Usuario> lisUsuarios = new ArrayList<>();
+
+		for (Usuario usuario : repository.findAll()) {
+			if (!usuario.getCargo().equals("ADMIN")) {
+				lisUsuarios.add(usuario);
+			}
+		}
+
+		return new ResponseEntity<>(lisUsuarios, HttpStatus.OK);
 	}
 
 	// listar usuario que esta solicitando acesso

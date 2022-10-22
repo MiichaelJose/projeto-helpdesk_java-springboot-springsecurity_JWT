@@ -11,7 +11,7 @@
     <main>
         <nav>
            <div class="nav-header">
-                <h1>HELPDESK</h1>
+                <h1 onclick="menu_confirmar_dados()">HELPDESK</h1>
            </div>
            <div class="sidebar-options">
                 <ul>
@@ -44,6 +44,37 @@
 
                 </div>
 
+                <div class="modal-confirmardados">
+                    <div class="center-modalconfirmardados">
+                        <p>Dados do ticket gerado!</p>
+
+                        <img src="../imagens/icons8-lápis-100.png" alt="" width="75px" height="75px" id="img-dispositivo">
+
+                        <div class="texto-modalconfirmardados">
+                            <div class="caixa-geral">
+                                <div><span>Equipamento:</span> <p>computador</p></div>
+                                <div><span>Departamento:</span> <p>escritório</p></div>
+                                <div><span>Cor:</span> <p>black</p></div>
+                                <div><span>Serial:</span> <p>V124</p></div>
+                                <div><span>Prioridade:</span> <p>urgente</p></div>
+                                <div><span>Data:</span> <p>24/10/22</p></div>
+                            </div>
+                            <div class="caixa-descricao">
+                                <p><span>DESCRIÇÂO:</span></p>
+                                <div class="textodescricao">
+                                    <p>
+                                        computador desligou e não que ligar novamente
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="cadastrarticket-button">
+                            <h3>cadastrar</h3>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="area-container">
 
                    
@@ -59,6 +90,8 @@
                 </div>
             </div>
         </section>
+
+        <!-- MODELOS -->
 
         <div class="pergunta-mensagem">
             <p>nome equipamento?</p>
@@ -79,6 +112,9 @@
                 </div>
             </div>
         </div>
+
+        
+
     </main>
 </body>
 <script src="criarmodal-script.js"></script>
