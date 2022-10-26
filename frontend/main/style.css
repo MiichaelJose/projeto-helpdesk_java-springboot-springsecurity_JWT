@@ -302,3 +302,31 @@ li:hover {
     text-indent: 15px;
     font-size: 0.8rem;
 }
+
+.div-img {
+    height: 35px;
+    width: 255px;
+    background-color: aquamarine;
+    box-sizing: border-box;
+}
+
+input[type='file'] {
+    display: none
+}
+  
+  /* Aparência que terá o seletor de arquivo */
+label {
+    background-color: #3498db;
+    color: #fff;
+    cursor: pointer;
+    padding-inline: 15px;
+    display: none;
+    height: 35px;
+    width: 255px;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    letter-spacing: 2px;
+}
+
+

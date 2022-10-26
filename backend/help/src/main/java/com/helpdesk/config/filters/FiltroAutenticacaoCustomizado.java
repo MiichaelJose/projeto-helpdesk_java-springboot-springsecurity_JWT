@@ -25,6 +25,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.helpdesk.models.entity.Usuario;
+import com.helpdesk.models.services.UserDetailsPersonalizado;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -40,6 +41,7 @@ public class FiltroAutenticacaoCustomizado extends UsernamePasswordAuthenticatio
 			throws AuthenticationException {
 		
 		try {
+			System.out.println("ENTROU 1");
 			Usuario usuario = new ObjectMapper()
 			         .readValue(request.getInputStream(), Usuario.class);
 			
@@ -57,11 +59,16 @@ public class FiltroAutenticacaoCustomizado extends UsernamePasswordAuthenticatio
 	@Override
 	protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
 			Authentication authentication) throws IOException, ServletException {
-		User usuario = (User) authentication.getPrincipal();
-
+		System.out.println("ENTROU " + authentication.getPrincipal());
+		UserDetailsPersonalizado usuario = (UserDetailsPersonalizado) authentication.getPrincipal();
+		
+	
+			
 		Algorithm algoritmo = Algorithm.HMAC256("secret".getBytes());
 
-		String tokenAcesso = JWT.create().withSubject(usuario.getUsername())
+		String tokenAcesso = JWT.create()
+				.withClaim("id", usuario.getInt())
+				.withSubject(usuario.getUsername())
 				.withExpiresAt(new Date(System.currentTimeMillis() + 10 * 60 * 1000))
 				.withIssuer(request.getRequestURI().toString()).withClaim("roles", usuario.getAuthorities().stream()
 						.map(GrantedAuthority::getAuthority).collect(Collectors.toList()))

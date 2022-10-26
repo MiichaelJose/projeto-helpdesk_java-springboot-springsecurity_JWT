@@ -50,7 +50,7 @@ public class FiltroAutorizacaoCustomizado extends OncePerRequestFilter {
 					
 					Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
 					stream(roles).forEach(role -> {
-						System.out.println("role autorizacao" + role);
+						//System.out.println("role autorizacao" + role);
 						authorities.add(new SimpleGrantedAuthority(role));
 					});
 					

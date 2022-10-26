@@ -1,0 +1,5 @@
+package com.helpdesk.models.services;
+
+public class UserDetailsPersonalizado {
+
+}

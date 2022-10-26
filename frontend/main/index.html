@@ -43,55 +43,63 @@
                 <div class="header-container">
 
                 </div>
-
-                <div class="modal-confirmardados">
-                    <div class="center-modalconfirmardados">
-                        <p>Dados do ticket gerado!</p>
-
-                        <img src="../imagens/icons8-lápis-100.png" alt="" width="75px" height="75px" id="img-dispositivo">
-
-                        <div class="texto-modalconfirmardados">
-                            <div class="caixa-geral">
-                                <div><span>Equipamento:</span> <p>computador</p></div>
-                                <div><span>Departamento:</span> <p>escritório</p></div>
-                                <div><span>Cor:</span> <p>black</p></div>
-                                <div><span>Serial:</span> <p>V124</p></div>
-                                <div><span>Prioridade:</span> <p>urgente</p></div>
-                                <div><span>Data:</span> <p>24/10/22</p></div>
-                            </div>
-                            <div class="caixa-descricao">
-                                <p><span>DESCRIÇÂO:</span></p>
-                                <div class="textodescricao">
-                                    <p>
-                                        computador desligou e não que ligar novamente
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-        
-                        <div class="cadastrarticket-button">
-                            <h3>cadastrar</h3>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="area-container">
 
                    
 
                     
                 </div>   
-
                 <div class="area-enviar-mensagem">
                     <input type="text" class="input-resposta">
+                    <label for='selecao-arquivo' class="label-img">Selecionar um arquivo</label>
+                    <input id='selecao-arquivo' type='file' class="input-img">
                     <div class="imagem-enviar" onclick="enviar_resposta()">
                         <img src="../imagens/icons8-send-50.png" alt="">
                     </div>
                 </div>
+               
             </div>
         </section>
 
-        <!-- MODELOS -->
+        <!-- MODELOS AREA (TICKET) -->
+
+        
+
+
+        <div class="modal-confirmardados">
+            <div class="center-modalconfirmardados">
+                <p>Dados do ticket gerado!</p>
+
+                <img src="../imagens/icons8-lápis-100.png" alt="" onclick="cancelar_ticket(this)">
+
+                <img src="" alt="" width="75px" height="75px" id="img-dispositivo">
+
+                <div class="texto-modalconfirmardados">
+                    <div class="caixa-geral">
+                        <div><span>Equipamento:</span> <p>computador</p></div>
+                        <div><span>Departamento:</span> <p>escritório</p></div>
+                        <div><span>Cor:</span> <p>black</p></div>
+                        <div><span>Serial:</span> <p>V124</p></div>
+                        <div><span>Prioridade:</span> <p>urgente</p></div>
+                        <div><span>Data:</span> <p>24/10/22</p></div>
+                    </div>
+                    <div class="caixa-descricao">
+                        <p><span>DESCRIÇÂO:</span></p>
+                        <div class="textodescricao">
+                            <p>
+                                computador desligou e não que ligar novamente
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cadastrarticket-button">
+                    <h3>cadastrar</h3>
+                </div>
+            </div>
+        </div>
+
+        
 
         <div class="pergunta-mensagem">
             <p>nome equipamento?</p>
@@ -117,6 +125,8 @@
 
     </main>
 </body>
+<script src="../config/cookie.js"></script>
 <script src="criarmodal-script.js"></script>
 <script src="criarticket-script.js"></script>
+<script src="funcionario.js"></script>
 </html>

@@ -30,6 +30,8 @@ public class UserDetailsServicePersonalizado implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String usuario) throws UsernameNotFoundException {
 		Usuario usuarioRepository = repository.findByUsuario(usuario);
+		
+		
 		if (usuarioRepository == null) {
 			log.error("Usuario não foi encontrado no banco");
 			throw new UsernameNotFoundException("Usuario não foi encontrado no banco");
@@ -37,16 +39,16 @@ public class UserDetailsServicePersonalizado implements UserDetailsService {
 			log.error("Usuario foi encontrado no banco: {}", usuarioRepository);
 		}
 
-		Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
+		//Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
 
-		authorities.add(new SimpleGrantedAuthority(usuarioRepository.getCargo()));
-
+		//authorities.add(new SimpleGrantedAuthority(usuarioRepository.getCargo()));
+		/*
 		authorities.forEach(role -> {
 			System.out.println("role autorizacao 2" + role);
 		});
-
-		return new org.springframework.security.core.userdetails.User(usuarioRepository.getUsuario(),
-				usuarioRepository.getSenha(), authorities);
+		*/
+		
+		return new UserDetailsPersonalizado(usuarioRepository);
 	}
 
 }
