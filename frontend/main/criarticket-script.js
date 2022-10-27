@@ -153,7 +153,7 @@ const criar_texto_menudados = (n, value) => {
 
 const cadastrar_ticket = (ticket) => {
     const url = "http://localhost:8080/ticket"
-
+    console.log(pegar_token_cookie().token_acesso);
     fetch(url, {
         method: "POST",
         headers: {

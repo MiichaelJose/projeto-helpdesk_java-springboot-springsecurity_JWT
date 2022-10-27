@@ -29,7 +29,7 @@ public class UserDetailsServicePersonalizado implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String usuario) throws UsernameNotFoundException {
-		Usuario usuarioRepository = repository.findByUsuario(usuario);
+		Usuario usuarioRepository = repository.findByCpf(usuario);
 		
 		
 		if (usuarioRepository == null) {

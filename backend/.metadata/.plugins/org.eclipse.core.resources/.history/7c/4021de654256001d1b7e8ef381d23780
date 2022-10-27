@@ -1,0 +1,20 @@
+package com.helpdesk.models.services;
+
+import java.util.Set;
+
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
+
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+@RestControllerAdvice
+public class Exceptions {
+	
+	@ExceptionHandler(ConstraintViolationException.class)
+	public Set<ConstraintViolation<?>> test(ConstraintViolationException violation) {
+		
+		
+		return violation.getConstraintViolations();
+	}
+}

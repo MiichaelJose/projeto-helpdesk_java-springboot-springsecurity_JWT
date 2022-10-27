@@ -1,5 +1,6 @@
 package com.helpdesk.models.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -45,5 +46,6 @@ public class Ticket {
 	private String equipamento;
 
 	// foto do produto ão obrigatório
+	@Column(nullable = true, columnDefinition = "TEXT", length = 10000)
 	private String imagem;
 }

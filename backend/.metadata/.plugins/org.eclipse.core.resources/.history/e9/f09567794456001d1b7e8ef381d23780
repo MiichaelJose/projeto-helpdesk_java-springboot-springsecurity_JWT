@@ -1,0 +1,23 @@
+package com.helpdesk.models.services;
+
+import java.util.ArrayList;
+import java.util.Set;
+
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+@RestControllerAdvice
+public class Exceptions {
+	
+	@ExceptionHandler(ConstraintViolationException.class)
+	public ResponseEntity<?> test(ConstraintViolationException violation) {
+		
+		
+		System.out.println(violation.getMessage().intern());
+		return ResponseEntity.badRequest().body("cpf invalido");
+	}
+}

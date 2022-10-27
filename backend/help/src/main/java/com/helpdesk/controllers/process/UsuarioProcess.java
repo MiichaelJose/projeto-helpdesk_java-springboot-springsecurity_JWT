@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import org.springframework.validation.annotation.Validated;
 
 import com.helpdesk.models.dtos.UsuarioDTO;
 import com.helpdesk.models.entity.Usuario;
@@ -37,7 +38,7 @@ public class UsuarioProcess {
 
 	// cadastrar
 	// o usuario sera avaliado por admin, se sim, tera acesso a o sistema
-	public ResponseEntity<?> criarUsuario(Usuario usuario) {
+	public ResponseEntity<?> criarUsuario(@Validated Usuario usuario) {
 		try {
 			usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
 			if (repository.save(usuario) != null) {

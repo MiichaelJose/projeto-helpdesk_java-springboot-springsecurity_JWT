@@ -48,7 +48,7 @@ public class FiltroAutenticacaoCustomizado extends UsernamePasswordAuthenticatio
 			
 
 			UsernamePasswordAuthenticationToken tokenAutenticacao = new UsernamePasswordAuthenticationToken(
-					usuario.getUsuario(),usuario.getSenha());
+					usuario.getCpf(),usuario.getSenha());
 			
 			return authenticationManager.authenticate(tokenAutenticacao);
 		} catch (IOException e) {
