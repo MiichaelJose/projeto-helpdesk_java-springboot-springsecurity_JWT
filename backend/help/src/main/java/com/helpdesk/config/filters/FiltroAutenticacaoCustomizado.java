@@ -74,7 +74,8 @@ public class FiltroAutenticacaoCustomizado extends UsernamePasswordAuthenticatio
 						.map(GrantedAuthority::getAuthority).collect(Collectors.toList()))
 				.sign(algoritmo);
 
-		String tokenAtualizado = JWT.create().withSubject(usuario.getUsername())
+		String tokenAtualizado = JWT.create()
+				.withSubject(usuario.getUsername())
 				.withExpiresAt(new Date(System.currentTimeMillis() + 30 * 60 * 1000))
 				.withIssuer(request.getRequestURI().toString()).sign(algoritmo);
 		/*
