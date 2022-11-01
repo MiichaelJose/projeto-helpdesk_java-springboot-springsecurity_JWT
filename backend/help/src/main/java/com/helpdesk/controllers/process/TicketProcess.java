@@ -29,18 +29,13 @@ public class TicketProcess {
 
 	@Autowired
 	private TicketRepository repositoryTicket;
-	
+
 	@Autowired
 	private UsuarioRepository repositoryUsuario;
 
 	// cadastrar ticket
 	public ResponseEntity<?> criarTicket(Ticket ticketDTO) {
 		repositoryTicket.save(ticketDTO);
-		//Optional<Usuario> usuario = repositoryUsuario.findById(ticketDTO.getIdUsuario());
-		//Ticket ticket = new Ticket();
-		//log.info(" ", usuario );
-		//ticket.setIdUsuario(usuario.get());
-		//repositoryTicket.save(ticket);
 		return new ResponseEntity<String>("Cadastrado com sucesso!", HttpStatus.OK);
 	}
 
@@ -50,7 +45,7 @@ public class TicketProcess {
 			repositoryTicket.deleteById(id);
 			return new ResponseEntity<String>("deletado com sucesso!", HttpStatus.OK);
 		} catch (EmptyResultDataAccessException a) {
-			System.out.println("Tipo de informações não aceito!");
+			log.error("Tipo de informações não aceito!");
 			return new ResponseEntity<String>("recurso não encontrado!", HttpStatus.NOT_FOUND);
 		}
 	}
@@ -58,7 +53,7 @@ public class TicketProcess {
 	// listar todos os tickets
 	public ResponseEntity<List<TicketDTO>> listarTickets() {
 		List<TicketDTO> lisTickets = new ArrayList<>();
-		
+
 		for (Ticket ticket : repositoryTicket.findAll()) {
 			lisTickets.add(new TicketDTO(ticket));
 		}

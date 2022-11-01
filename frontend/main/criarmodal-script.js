@@ -60,6 +60,7 @@ const ativar_modal = (id) => {
                 title.innerHTML = options[1]
             break;
         case "3":
+                modal_solicitacoes()
                 title.innerHTML = options[2]
             break;
         case "4":

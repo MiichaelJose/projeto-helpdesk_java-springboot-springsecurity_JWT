@@ -71,9 +71,10 @@ public class UsuarioProcess {
 		List<Usuario> lisUsuarios = new ArrayList<>();
 
 		for (Usuario usuario : repository.findAll()) {
-			if (!usuario.getPermissao()) {
+			System.out.println(usuario.getPermissao());
+			//if (!usuario.getPermissao()) {
 				lisUsuarios.add(usuario);
-			}
+			//}
 		}
 
 		return new ResponseEntity<>(lisUsuarios, HttpStatus.OK);
@@ -84,7 +85,7 @@ public class UsuarioProcess {
 		Optional<Usuario> usuarioRepository = repository.findById(id);
 
 		Usuario usuario = usuarioRepository.get();
-
+		System.out.println("AQUI " + usuario);
 		return new ResponseEntity<>(new UsuarioDTO(usuario.getId(), usuario.getUsuario(), usuario.getCpf()),
 				HttpStatus.OK);
 	}
@@ -106,21 +107,21 @@ public class UsuarioProcess {
 			Usuario usuarioAtualizado = repository.findById(id).map(info -> {
 				info.setUsuario(usuario.getUsuario());
 				info.setSenha(passwordEncoder.encode(usuario.getSenha()));
-				
+
 				return repository.save(info);
 			}).orElse(null);
-			
+
 			if (usuarioAtualizado == null) {
 				return new ResponseEntity<>("Recurso não encontrado!", HttpStatus.NOT_FOUND);
 			}
-			
+
 			return new ResponseEntity<>("Recurso alterado!", HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>("Recurso não encontrado!", HttpStatus.BAD_REQUEST);
 		}
 
 	}
-	
+
 	// alterar permissao usuario
 	public ResponseEntity<?> alterarUsuarioPermissao(Long id, Usuario usuario) {
 		try {
@@ -128,11 +129,11 @@ public class UsuarioProcess {
 				info.setPermissao(usuario.getPermissao());
 				return repository.save(info);
 			}).orElse(null);
-			
+
 			if (usuarioPermissao == null) {
 				return new ResponseEntity<>("Recurso não encontrado!", HttpStatus.NOT_FOUND);
 			}
-			
+
 			return new ResponseEntity<>("Recurso alterado!", HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>("Recurso não encontrado!", HttpStatus.BAD_REQUEST);

@@ -13,26 +13,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
-
-public class UserDetailsPersonalizado implements UserDetails{
+@SuppressWarnings("serial")
+public class UserDetailsPersonalizado implements UserDetails {
 	private Usuario usuario;
 
-	
 	public UserDetailsPersonalizado(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	
+
 	public Long getInt() {
 		return usuario.getId();
 	}
-	
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
-
 		authorities.add(new SimpleGrantedAuthority(usuario.getCargo()));
-		
-		
 		return authorities;
 	}
 

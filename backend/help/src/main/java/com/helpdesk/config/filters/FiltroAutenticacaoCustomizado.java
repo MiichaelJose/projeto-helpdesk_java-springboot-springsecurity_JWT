@@ -39,20 +39,17 @@ public class FiltroAutenticacaoCustomizado extends UsernamePasswordAuthenticatio
 	@Override
 	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
 			throws AuthenticationException {
-		
+
 		try {
 			System.out.println("ENTROU 1");
-			Usuario usuario = new ObjectMapper()
-			         .readValue(request.getInputStream(), Usuario.class);
-			
-			
+			Usuario usuario = new ObjectMapper().readValue(request.getInputStream(), Usuario.class);
 
 			UsernamePasswordAuthenticationToken tokenAutenticacao = new UsernamePasswordAuthenticationToken(
-					usuario.getCpf(),usuario.getSenha());
-			
+					usuario.getCpf(), usuario.getSenha());
+
 			return authenticationManager.authenticate(tokenAutenticacao);
 		} catch (IOException e) {
-			 throw new RuntimeException(e);
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -61,22 +58,20 @@ public class FiltroAutenticacaoCustomizado extends UsernamePasswordAuthenticatio
 			Authentication authentication) throws IOException, ServletException {
 		System.out.println("ENTROU " + authentication.getPrincipal());
 		UserDetailsPersonalizado usuario = (UserDetailsPersonalizado) authentication.getPrincipal();
-		
-	
-			
+
 		Algorithm algoritmo = Algorithm.HMAC256("secret".getBytes());
 
-		String tokenAcesso = JWT.create()
-				.withClaim("id", usuario.getInt())
-				.withSubject(usuario.getUsername())
+		String tokenAcesso = JWT.create().withClaim("id", usuario.getInt()).withSubject(usuario.getUsername())
 				.withExpiresAt(new Date(System.currentTimeMillis() + 10 * 60 * 1000))
 				.withIssuer(request.getRequestURI().toString()).withClaim("roles", usuario.getAuthorities().stream()
 						.map(GrantedAuthority::getAuthority).collect(Collectors.toList()))
 				.sign(algoritmo);
 
-		String tokenAtualizado = JWT.create()
-				.withSubject(usuario.getUsername())
+		String tokenAtualizado = JWT.create().withSubject(usuario.getUsername())
 				.withExpiresAt(new Date(System.currentTimeMillis() + 30 * 60 * 1000))
+				// .withIssuer(request.getRequestURI().toString()).withClaim("roles",
+				// usuario.getAuthorities().stream()
+				// .map(GrantedAuthority::getAuthority).collect(Collectors.toList()))
 				.withIssuer(request.getRequestURI().toString()).sign(algoritmo);
 		/*
 		 * response.setHeader("access_token", access_token);
@@ -85,7 +80,7 @@ public class FiltroAutenticacaoCustomizado extends UsernamePasswordAuthenticatio
 		Map<String, String> tokens = new HashMap<>();
 		tokens.put("token_acesso", tokenAcesso);
 		tokens.put("token_atualizado", tokenAtualizado);
-		
+
 		response.setContentType(APPLICATION_JSON_VALUE);
 
 		new ObjectMapper().writeValue(response.getOutputStream(), tokens);

@@ -1,4 +1,4 @@
-.caixa-funcionario {
+.caixa-card {
     width: 95%;
     height: 100px;
     display: none;
@@ -6,10 +6,10 @@
     background-color: white;
 }
 
-.caixa-funcionario p {
+.caixa-card p {
 	font-size: 0.8rem;
 }
-.center-funcionario {
+.center-card {
 	width: 95%;
 	height: 100%;
 	margin-inline: auto;
@@ -18,7 +18,7 @@
 	justify-content: space-between;
 }
 
-.texto-funcionario {
+.texto-card {
 	width: fit-content;
 	display: flex;
 	justify-content: center;
@@ -26,14 +26,14 @@
 	height: 100%;
 }
 
-.buttons-funcionario {
+.buttons-card {
 	height: 100%;
 	width: 30%;
 	display: flex;
 	align-items: center;
 }
 
-.left-buttons-funcionario, .right-buttons-funcionario {
+.left-buttons-card, .right-buttons-card {
 	width: 50%;
 	height: 100%;
 	display: flex;
@@ -52,6 +52,67 @@
 
 button {
 	background-color: aqua;
+}
+
+.solicitacao, .funcionario {
+	display: none;
+}
+
+.toggler-wrapper {
+	display: block;
+	width: 45px;
+	height: 25px;
+	cursor: pointer;
+	position: relative;
+}
+
+.toggler-wrapper input[type="checkbox"] {
+	display: none;
+}
+
+
+.toggler-wrapper input[type="checkbox"]:checked+.toggler-slider {
+	background-color: #44cc66;
+}
+
+.toggler-wrapper .toggler-slider {
+	background-color: #ccc;
+	position: absolute;
+	border-radius: 100px;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	-webkit-transition: all 300ms ease;
+	transition: all 300ms ease;
+}
+
+.toggler-wrapper .toggler-knob {
+	position: absolute;
+	-webkit-transition: all 300ms ease;
+	transition: all 300ms ease;
+}
+
+
+.toggler-wrapper.style-21 input[type="checkbox"]:checked+.toggler-slider .toggler-knob {
+	left: calc(100% - 19px - 3px);
+	background-image: url(../imagens/shut-down-line-on.svg);
+}
+
+.toggler-wrapper.style-21 .toggler-slider {
+	background-color: #eb4f37;
+}
+
+.toggler-wrapper.style-21 .toggler-knob {
+	width: calc(25px - 6px);
+	height: calc(25px - 6px);
+	border-radius: 50%;
+	left: 3px;
+	top: 3px;
+	background-color: #fff;
+	background-image: url(../imagens/shut-down-line-off\ \(1\).svg);
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 /* 

@@ -28,9 +28,8 @@ public class UserDetailsServicePersonalizado implements UserDetailsService {
 	private UsuarioRepository repository;
 
 	@Override
-	public UserDetails loadUserByUsername(String usuario) throws UsernameNotFoundException {
-		Usuario usuarioRepository = repository.findByCpf(usuario);
-		
+	public UserDetails loadUserByUsername(String cpf) throws UsernameNotFoundException {
+		Usuario usuarioRepository = repository.findByCpf(cpf);
 		
 		if (usuarioRepository == null) {
 			log.error("Usuario não foi encontrado no banco");

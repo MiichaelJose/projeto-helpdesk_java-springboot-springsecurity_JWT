@@ -133,8 +133,6 @@ li:hover {
 
 
 
-
-
 /* MODAIS ------------------------- */
 
 .modal-ativarchat {
@@ -316,8 +314,8 @@ input[type='file'] {
 }
   
   /* Aparência que terá o seletor de arquivo */
-  /*
-label {
+
+.label-img {
     background-color: #3498db;
     color: #fff;
     cursor: pointer;

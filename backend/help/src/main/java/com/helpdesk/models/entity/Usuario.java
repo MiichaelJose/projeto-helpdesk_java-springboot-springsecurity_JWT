@@ -41,6 +41,7 @@ public class Usuario {
 	private String cargo;
 
 	// admin ira avaliar o cadastro do cliente ( e assim permitir o acesso ao sistema )
+	@Column(nullable = false)
 	private Boolean permissao;
 
 	/*

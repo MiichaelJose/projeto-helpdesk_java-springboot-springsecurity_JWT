@@ -46,19 +46,18 @@ public class FiltroAutorizacaoCustomizado extends OncePerRequestFilter {
 					DecodedJWT decodedJWT = verifier.verify(token);
 					String usuario = decodedJWT.getSubject();
 					String[] roles = decodedJWT.getClaim("roles").asArray(String.class);
-					
-					
+
 					Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
 					stream(roles).forEach(role -> {
-						//System.out.println("role autorizacao" + role);
+						// System.out.println("role autorizacao" + role);
 						authorities.add(new SimpleGrantedAuthority(role));
 					});
-					
+
 					// check username and role correct ?
 					UsernamePasswordAuthenticationToken autenticacaoToken = new UsernamePasswordAuthenticationToken(
 							usuario, null, authorities);
 					SecurityContextHolder.getContext().setAuthentication(autenticacaoToken);
-					
+
 					filterChain.doFilter(request, response);
 				} catch (Exception exception) {
 					log.error("Error logging in: {}", exception.getMessage());
