@@ -41,15 +41,21 @@ public class UsuarioProcess {
 	public ResponseEntity<?> criarUsuario(@Validated Usuario usuario) {
 		try {
 			usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
-			if (repository.save(usuario) != null) {
-				log.info("--- Usuario cadastrado!");
-				return new ResponseEntity<String>("Usuario cadastrado com sucesso", HttpStatus.CREATED);
-			}
 
-			return new ResponseEntity<String>("Error", HttpStatus.BAD_REQUEST);
+			if (repository.save(usuario) != null) {
+
+				log.info("--- Usuario cadastrado!");
+
+				return ResponseEntity.ok().build();
+			}
+			log.info("--- Usuario null!");
+
+			return ResponseEntity.badRequest().build();
 		} catch (DataIntegrityViolationException e) {
+
 			log.info("--- Usuario já cadastrado!");
-			return new ResponseEntity<String>("Usuario já cadastrado!", HttpStatus.BAD_REQUEST);
+
+			return ResponseEntity.badRequest().build();
 		}
 	}
 
@@ -63,7 +69,7 @@ public class UsuarioProcess {
 			}
 		}
 
-		return new ResponseEntity<>(lisUsuarios, HttpStatus.OK);
+		return ResponseEntity.ok().body(lisUsuarios);
 	}
 
 	// listar usuario que esta solicitando acesso
@@ -71,13 +77,12 @@ public class UsuarioProcess {
 		List<Usuario> lisUsuarios = new ArrayList<>();
 
 		for (Usuario usuario : repository.findAll()) {
-			System.out.println(usuario.getPermissao());
-			//if (!usuario.getPermissao()) {
+			if (!usuario.getCargo().equals("ADMIN")) {
 				lisUsuarios.add(usuario);
-			//}
+			}
 		}
 
-		return new ResponseEntity<>(lisUsuarios, HttpStatus.OK);
+		return ResponseEntity.ok().body(lisUsuarios);
 	}
 
 	// listar unico usuario
@@ -85,19 +90,22 @@ public class UsuarioProcess {
 		Optional<Usuario> usuarioRepository = repository.findById(id);
 
 		Usuario usuario = usuarioRepository.get();
-		System.out.println("AQUI " + usuario);
-		return new ResponseEntity<>(new UsuarioDTO(usuario.getId(), usuario.getUsuario(), usuario.getCpf()),
-				HttpStatus.OK);
+
+		return ResponseEntity.ok().body(new UsuarioDTO(usuario.getId(), usuario.getUsuario(), usuario.getCpf()));
 	}
 
 	// deletar
 	public ResponseEntity<?> deletarUsuario(Long id) {
 		try {
 			repository.deleteById(id);
-			return new ResponseEntity<String>("deletado com sucesso!", HttpStatus.OK);
+
+			log.info("--- Usuario deletado");
+
+			return ResponseEntity.ok().build();
 		} catch (EmptyResultDataAccessException a) {
-			System.out.println("Tipo de informações não aceito!");
-			return new ResponseEntity<String>("recurso não encontrado!", HttpStatus.NOT_FOUND);
+			log.info("--- Usuario não encontrado");
+
+			return ResponseEntity.notFound().build();
 		}
 	}
 
@@ -112,12 +120,18 @@ public class UsuarioProcess {
 			}).orElse(null);
 
 			if (usuarioAtualizado == null) {
-				return new ResponseEntity<>("Recurso não encontrado!", HttpStatus.NOT_FOUND);
+				log.info("--- Usuario não encontrado");
+				
+				return ResponseEntity.notFound().build();
 			}
 
-			return new ResponseEntity<>("Recurso alterado!", HttpStatus.OK);
+			log.info("--- Usuario alterado");
+			
+			return ResponseEntity.ok().build();
 		} catch (Exception e) {
-			return new ResponseEntity<>("Recurso não encontrado!", HttpStatus.BAD_REQUEST);
+			log.info("--- não encontrado");
+			
+			return ResponseEntity.badRequest().build();
 		}
 
 	}
@@ -131,12 +145,18 @@ public class UsuarioProcess {
 			}).orElse(null);
 
 			if (usuarioPermissao == null) {
-				return new ResponseEntity<>("Recurso não encontrado!", HttpStatus.NOT_FOUND);
+				log.info("--- Usuario não encontrado");
+				
+				return ResponseEntity.notFound().build();
 			}
 
-			return new ResponseEntity<>("Recurso alterado!", HttpStatus.OK);
+			log.info("--- Usuario alterado");
+			
+			return ResponseEntity.ok().build();
 		} catch (Exception e) {
-			return new ResponseEntity<>("Recurso não encontrado!", HttpStatus.BAD_REQUEST);
+			log.info("--- não encontrado");
+			
+			return ResponseEntity.badRequest().build();
 		}
 
 	}

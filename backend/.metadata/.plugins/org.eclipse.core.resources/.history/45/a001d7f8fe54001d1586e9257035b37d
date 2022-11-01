@@ -1,7 +1,0 @@
-package com.helpdesk.models.services;
-
-import org.springframework.security.core.userdetails.UserDetails;
-
-public class UserDetailsPersonalizado implements UserDetails{
-
-}

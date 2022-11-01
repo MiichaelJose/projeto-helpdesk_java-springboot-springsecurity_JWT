@@ -36,17 +36,24 @@ public class TicketProcess {
 	// cadastrar ticket
 	public ResponseEntity<?> criarTicket(Ticket ticketDTO) {
 		repositoryTicket.save(ticketDTO);
-		return new ResponseEntity<String>("Cadastrado com sucesso!", HttpStatus.OK);
+		
+		log.info("--- Ticket cadastrado");
+		
+		return ResponseEntity.ok().build();
 	}
 
 	// deletar ticket
 	public ResponseEntity<?> deletarTicket(Long id) {
 		try {
 			repositoryTicket.deleteById(id);
-			return new ResponseEntity<String>("deletado com sucesso!", HttpStatus.OK);
+					
+			log.info("--- Ticket deletado");
+			
+			return ResponseEntity.ok().build();
 		} catch (EmptyResultDataAccessException a) {
-			log.error("Tipo de informações não aceito!");
-			return new ResponseEntity<String>("recurso não encontrado!", HttpStatus.NOT_FOUND);
+			log.error("-- Ticket não encontrado");
+			
+			return ResponseEntity.notFound().build();
 		}
 	}
 
@@ -58,7 +65,7 @@ public class TicketProcess {
 			lisTickets.add(new TicketDTO(ticket));
 		}
 
-		return new ResponseEntity<>(lisTickets, HttpStatus.OK);
+		return ResponseEntity.ok().body(lisTickets);
 	}
 
 	// listar todos os tickets
@@ -67,6 +74,6 @@ public class TicketProcess {
 
 		Ticket ticket = ticketRepository.get();
 
-		return new ResponseEntity<>(new TicketDTO(ticket), HttpStatus.OK);
+		return ResponseEntity.ok().body(new TicketDTO(ticket));
 	}
 }

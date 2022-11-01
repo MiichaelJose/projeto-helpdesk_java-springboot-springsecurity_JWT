@@ -1,8 +1,0 @@
-package com.helpdesk.controllers.routers;
-
-import org.springframework.web.bind.annotation.RestController;
-
-@RestController
-public class ServicoRoute {
-
-}

@@ -55,6 +55,10 @@ li:hover {
     border-bottom: 3px solid var(--vinho);
 }
 
+
+
+
+
 .perfil {
     width: 80%;
     height: 90%;
@@ -122,9 +126,26 @@ li:hover {
 
 
 
+.container-token {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    background: rgba(29, 16, 22, 0.5);
+    position: absolute;
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    justify-content: center;
+    transition: 5s;
+    align-items: center;
+}
 
-
-
+.center-token {
+    width: 25%;
+    height: 50%;
+    
+    background-color: white;
+    
+}
 
 
 

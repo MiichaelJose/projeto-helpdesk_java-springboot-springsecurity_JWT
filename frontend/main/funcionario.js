@@ -31,9 +31,9 @@ const listar_funcionarios = () => {
 
 
 const caixa_funcionario = (data) =>  {
-    const caixa = document.querySelector('.caixa-card').cloneNode(true)
+    const caixa = document.querySelector('.funcionario').cloneNode(true)
     caixa.style.display = 'flex'
-    caixa.classList.remove('solicitacao')
+    caixa.classList.remove('funcionario')
     const textos = caixa.querySelectorAll('p')
 
     textos[0].innerHTML = data.usuario
