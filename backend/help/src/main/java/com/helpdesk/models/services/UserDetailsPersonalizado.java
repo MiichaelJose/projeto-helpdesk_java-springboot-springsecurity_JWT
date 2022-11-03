@@ -41,7 +41,7 @@ public class UserDetailsPersonalizado implements UserDetails {
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub
-		return usuario.getCpf();
+		return usuario.getUsuario();
 	}
 
 	@Override

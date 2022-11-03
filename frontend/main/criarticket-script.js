@@ -1,7 +1,7 @@
 let contador_pergunta = 0
 let contador_repostas = 0
 let imagem            = ''
-let id                = localStorage.getItem('id')
+var data              = JSON.parse(localStorage.getItem('data'))
 
 const mensagens = [
     "nome equipamento?",
@@ -15,7 +15,7 @@ const mensagens = [
 
 let ticket = {
     "idUsuario": {
-        "id":Number(id)
+        "id":Number(data.id)
     },
     "equipamento":"",
     "departamento":"",
@@ -26,9 +26,6 @@ let ticket = {
     "serial":"",
     "imagem":""
 }
-
-console.log(pegar_token_cookie());
-
 
 const inputimg = document.querySelector('.input-img')
 const labelimg = document.querySelector('.label-img')
@@ -127,7 +124,7 @@ const menu_confirmar_dados = () => {
     areamensagem.style.display          = 'none'
 
     container_section.appendChild(modal_confirmardados)
-
+  
     buttao_cadastrar.addEventListener('click', () => {
         cadastrar_ticket(ticket)
     })
@@ -153,7 +150,7 @@ const criar_texto_menudados = (n, value) => {
 
 const cadastrar_ticket = (ticket) => {
     const url = "http://localhost:8080/ticket"
-    console.log(pegar_token_cookie().token_acesso);
+   
     fetch(url, {
         method: "POST",
         headers: {

@@ -41,7 +41,6 @@ public class FiltroAutenticacaoCustomizado extends UsernamePasswordAuthenticatio
 			throws AuthenticationException {
 
 		try {
-			System.out.println("ENTROU 1");
 			Usuario usuario = new ObjectMapper().readValue(request.getInputStream(), Usuario.class);
 
 			UsernamePasswordAuthenticationToken tokenAutenticacao = new UsernamePasswordAuthenticationToken(
@@ -66,25 +65,18 @@ public class FiltroAutenticacaoCustomizado extends UsernamePasswordAuthenticatio
 		System.out.println("DATA E HORA ATUAL + MINUTOS "+new Date(System.currentTimeMillis() + 10 * 60 * 1000));
 		//System.out.println("TEMPO " + new Date(System.currentTimeMillis() + 10 * 60 * 1000));
 		
-		String tokenAcesso = JWT.create().withClaim("id", usuario.getInt()).withSubject(usuario.getUsername())
+		String tokenAcesso = JWT.create()
+				.withClaim("id", usuario.getInt())
+				.withSubject(usuario.getUsername())
 				.withExpiresAt(new Date(System.currentTimeMillis() + 30 * 60 * 1000))
-				.withIssuer(request.getRequestURI().toString()).withClaim("roles", usuario.getAuthorities().stream()
+				.withIssuer(request.getRequestURI().toString())
+				.withClaim("roles", usuario.getAuthorities().stream()
 						.map(GrantedAuthority::getAuthority).collect(Collectors.toList()))
 				.sign(algoritmo);
 
-		String tokenAtualizado = JWT.create().withSubject(usuario.getUsername())
-				.withExpiresAt(new Date(System.currentTimeMillis() + 30 * 60 * 1000))
-				// .withIssuer(request.getRequestURI().toString()).withClaim("roles",
-				// usuario.getAuthorities().stream()
-				// .map(GrantedAuthority::getAuthority).collect(Collectors.toList()))
-				.withIssuer(request.getRequestURI().toString()).sign(algoritmo);
-		/*
-		 * response.setHeader("access_token", access_token);
-		 * response.setHeader("refresh_token", refresh_token);
-		 */
+
 		Map<String, String> tokens = new HashMap<>();
 		tokens.put("token_acesso", tokenAcesso);
-		tokens.put("token_atualizado", tokenAtualizado);
 
 		response.setContentType(APPLICATION_JSON_VALUE);
 

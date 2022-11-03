@@ -16,7 +16,6 @@
     <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
     <fullyQualifiedTypeName name="com.helpdesk.models.repositorys.TicketRepository"/>
     <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.AutoConfigureOrder"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="com.helpdesk.models.entity.TecnicoTicket"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.Query"/>
     <fullyQualifiedTypeName name="java.util.Collection"/>
@@ -28,7 +27,6 @@
     <fullyQualifiedTypeName name="org.springframework.security.core.authority.SimpleGrantedAuthority"/>
     <fullyQualifiedTypeName name="lombok.RequiredArgsConstructor"/>
     <fullyQualifiedTypeName name="org.springframework.boot.web.embedded.undertow.UndertowServletWebServer"/>
-    <fullyQualifiedTypeName name="com.helpdesk.models.services.UserDetailsPersonalizado"/>
     <fullyQualifiedTypeName name="java.lang.Long"/>
     <fullyQualifiedTypeName name="org.hibernate.validator.constraints.br.CPF"/>
     <fullyQualifiedTypeName name="javax.validation.Valid"/>
@@ -45,4 +43,7 @@
     <fullyQualifiedTypeName name="com.helpdesk.models.services.Exceptions.Violation"/>
     <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
     <fullyQualifiedTypeName name="javax.persistence.Column"/>
+    <fullyQualifiedTypeName name="com.helpdesk.models.services.UserDetailsServicePersonalizado"/>
+    <fullyQualifiedTypeName name="com.helpdesk.models.services.UserDetailsPersonalizado"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 </qualifiedTypeNameHistroy>

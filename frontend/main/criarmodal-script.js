@@ -14,6 +14,8 @@ const area_mensagem     = document.querySelector(".area-enviar-mensagem")
 const buttons_options = () => {
     const buttons = document.querySelectorAll('li')
 
+    tempo_minutes(data)
+
     buttons.forEach(i => {
         i.addEventListener("click", () => modal(i.getAttribute('id')))
     })

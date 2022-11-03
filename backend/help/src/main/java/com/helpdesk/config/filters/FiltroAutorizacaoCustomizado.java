@@ -34,7 +34,7 @@ public class FiltroAutorizacaoCustomizado extends OncePerRequestFilter {
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
-		if (request.getServletPath().equals("/login") || request.getServletPath().equals("/api/token/refresh")) {
+		if (request.getServletPath().equals("/login") || request.getServletPath().equals("/token/refresh")) {
 			filterChain.doFilter(request, response);
 		} else {
 			String autorizacaoHeader = request.getHeader(AUTHORIZATION);
@@ -45,11 +45,12 @@ public class FiltroAutorizacaoCustomizado extends OncePerRequestFilter {
 					JWTVerifier verifier = JWT.require(algoritmo).build();
 					DecodedJWT decodedJWT = verifier.verify(token);
 					String usuario = decodedJWT.getSubject();
+					
 					String[] roles = decodedJWT.getClaim("roles").asArray(String.class);
 
 					Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
+					
 					stream(roles).forEach(role -> {
-						// System.out.println("role autorizacao" + role);
 						authorities.add(new SimpleGrantedAuthority(role));
 					});
 
@@ -63,8 +64,7 @@ public class FiltroAutorizacaoCustomizado extends OncePerRequestFilter {
 					log.error("Error logging in: {}", exception.getMessage());
 					response.setHeader("error", exception.getMessage());
 					response.setStatus(FORBIDDEN.value());
-//                    response.sendError(FORBIDDEN.value());
-
+					
 					Map<String, String> error = new HashMap<>();
 					error.put("error_message", exception.getMessage());
 					response.setContentType(APPLICATION_JSON_VALUE);

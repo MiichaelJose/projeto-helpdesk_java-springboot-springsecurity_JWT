@@ -28,7 +28,7 @@ public class UserDetailsServicePersonalizado implements UserDetailsService {
 	private UsuarioRepository repository;
 
 	@Override
-	public UserDetails loadUserByUsername(String cpf) throws UsernameNotFoundException {
+	public UserDetailsPersonalizado loadUserByUsername(String cpf) throws UsernameNotFoundException {
 		Usuario usuarioRepository = repository.findByCpf(cpf);
 		
 		if (usuarioRepository == null) {
@@ -38,15 +38,6 @@ public class UserDetailsServicePersonalizado implements UserDetailsService {
 			log.error("Usuario foi encontrado no banco: {}", usuarioRepository);
 		}
 
-		//Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
-
-		//authorities.add(new SimpleGrantedAuthority(usuarioRepository.getCargo()));
-		/*
-		authorities.forEach(role -> {
-			System.out.println("role autorizacao 2" + role);
-		});
-		*/
-		
 		return new UserDetailsPersonalizado(usuarioRepository);
 	}
 
