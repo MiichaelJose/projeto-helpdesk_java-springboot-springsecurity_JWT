@@ -4,12 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -121,16 +118,16 @@ public class UsuarioProcess {
 
 			if (usuarioAtualizado == null) {
 				log.info("--- Usuario não encontrado");
-				
+
 				return ResponseEntity.notFound().build();
 			}
 
 			log.info("--- Usuario alterado");
-			
+
 			return ResponseEntity.ok().build();
 		} catch (Exception e) {
 			log.info("--- não encontrado");
-			
+
 			return ResponseEntity.badRequest().build();
 		}
 
@@ -146,22 +143,19 @@ public class UsuarioProcess {
 
 			if (usuarioPermissao == null) {
 				log.info("--- Usuario não encontrado");
-				
+
 				return ResponseEntity.notFound().build();
 			}
 
 			log.info("--- Usuario alterado");
-			
+
 			return ResponseEntity.ok().build();
 		} catch (Exception e) {
 			log.info("--- não encontrado");
-			
+
 			return ResponseEntity.badRequest().build();
 		}
 
 	}
-	
-	
-	
 
 }

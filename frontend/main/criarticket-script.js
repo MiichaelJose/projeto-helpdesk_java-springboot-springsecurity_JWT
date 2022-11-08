@@ -151,6 +151,8 @@ const criar_texto_menudados = (n, value) => {
 const cadastrar_ticket = (ticket) => {
     const url = "http://localhost:8080/ticket"
    
+    const modal_confirmardados  = document.querySelector('.modal-confirmardados')
+
     fetch(url, {
         method: "POST",
         headers: {
@@ -163,7 +165,16 @@ const cadastrar_ticket = (ticket) => {
     .then(resp => resp)
     .then(data => {
         console.log(data.status);
-        if(data.status == 200) alert('cadastrado')
+        if(data.status == 200) {
+            alert('cadastrado')
+
+            // CRIAR UM PADRAO (INCOMPLETO)
+            modal_confirmardados.style.display = 'none'
+            area_container.innerHTML = ""
+            area_container.style.display = 'block'
+            area_mensagem.style.display = 'flex'
+            menu_chat()
+        }
     })
 }
 

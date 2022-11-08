@@ -129,7 +129,7 @@ li:hover {
 .container-token {
     width: 100vw;
     height: 100vh;
-    display: none;
+    display: flex;
     background: rgba(29, 16, 22, 0.5);
     position: absolute;
     backdrop-filter: blur(1px);
@@ -142,7 +142,9 @@ li:hover {
 .center-token {
     width: 25%;
     height: 50%;
-    
+    transition: 1s;
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
     background-color: white;
     
 }

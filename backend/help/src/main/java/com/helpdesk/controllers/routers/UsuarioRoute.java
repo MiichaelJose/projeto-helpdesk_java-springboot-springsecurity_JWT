@@ -100,13 +100,17 @@ public class UsuarioRoute {
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
             try {
                 String refresh_token = authorizationHeader.substring("Bearer ".length());
-                
+                System.out.println("REFRESH " + refresh_token);
                 Algorithm algorithm = Algorithm.HMAC256("secret".getBytes());
                 JWTVerifier verifier = JWT.require(algorithm).build();
                 DecodedJWT decodedJWT = verifier.verify(refresh_token);
                 String cpf = decodedJWT.getSubject();
+                
+                System.out.println("CPF "+cpf);
                 UserDetailsPersonalizado user = service.loadUserByUsername(cpf);
-        
+                
+                System.out.println("USUARIO " + user);
+                
                 String access_token = JWT.create()
                         .withSubject(user.getUsername())
                         .withExpiresAt(new Date(System.currentTimeMillis() + 10 * 60 * 1000))

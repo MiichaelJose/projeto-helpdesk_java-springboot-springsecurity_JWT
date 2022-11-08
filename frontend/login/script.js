@@ -18,7 +18,7 @@ function logar() {
     .then(data => {
         if(data.status == 200) {
             data.json().then( result => {
-                criar_cookie(result.token_acesso, result.token_atualizado)
+                criar_cookie(result.token_acesso)
                 const data_user = pegar_token_json(result.token_acesso);
                 const funcao_user = data_user.roles[0];
 

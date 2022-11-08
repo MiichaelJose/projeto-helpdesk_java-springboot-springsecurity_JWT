@@ -44,6 +44,6 @@
     <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
     <fullyQualifiedTypeName name="javax.persistence.Column"/>
     <fullyQualifiedTypeName name="com.helpdesk.models.services.UserDetailsServicePersonalizado"/>
-    <fullyQualifiedTypeName name="com.helpdesk.models.services.UserDetailsPersonalizado"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.helpdesk.models.services.UserDetailsPersonalizado"/>
 </qualifiedTypeNameHistroy>
