@@ -32,10 +32,13 @@ public class Servico {
 	// finalizado, analise, processo
 	private String statusServico;
 
+	// Tecnico aceitar servico (aceito, observacao, recusado) 
+	private String tecnicoAceitarServico;
+	
 	private String statusTicket;
 
-	private String dataInicializado;
+	private String dataServicoInicializado;
 
-	private String dataFinalizado;
+	private String dataServicoFinalizado;
 
 }

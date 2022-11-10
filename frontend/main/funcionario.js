@@ -1,11 +1,12 @@
-
+// prepaara o local para a listagem dos funcionarios 
 const modal_funcionario = () => {
     area_container.style.height = '90%'
     area_container.style.overflowY = 'scroll'
-    console.log('oi');
-   listar_funcionarios()
+  
+    listar_funcionarios()
 }
 
+// lista os funcionarios no banco e gera o card
 const listar_funcionarios = () => {
     const url = "http://localhost:8080/usuarios"
      
@@ -18,30 +19,27 @@ const listar_funcionarios = () => {
     .then(resp => resp)
     .then(data => {
         if(data.status == 200) {
-            data.json().then( result => {
-                
-                result.forEach(Element => {
-                    console.log(Element);
-                    caixa_funcionario(Element)
+            data.json().then(result => {
+                result.forEach(element => {
+                    caixa_funcionario(element)
                 });
             })
         }
     })
 }
 
-
+// cria o card do funcionario
 const caixa_funcionario = (data) =>  {
-    const caixa = document.querySelector('.funcionario').cloneNode(true)
+    const caixa     = document.querySelector('.funcionario').cloneNode(true)
+    const textos    = caixa.querySelectorAll('p')
+
     caixa.style.display = 'flex'
     caixa.classList.remove('funcionario')
-    const textos = caixa.querySelectorAll('p')
 
     textos[0].innerHTML = data.usuario
     textos[1].innerHTML = data.cargo
     textos[2].innerHTML = data.cpf
 
-
-    console.log(area_container);
     area_container.appendChild(caixa)
 }
 
@@ -55,13 +53,9 @@ const acesso_funcionario = () => {
 const check =  () => {
     const check = document.querySelector('#check')
 
-    
-
     if(check.checked) {
         check.checked = false
     } else if(!check.checked) {
         check.checked = true
     }
-
-    console.log(check.checked);
 }

@@ -12,7 +12,7 @@ import com.helpdesk.models.entity.Ticket;
 public interface TicketRepository extends JpaRepository<Ticket, Long>{
 	@Query(
 			nativeQuery = true,
-			value = "select * from ticket as t where not exists (select *  from tecnico_ticket as tt where t.id = tt.id_ticket)"
+			value = "select * from ticket as t where not exists (select *  from servico as s where t.id = s.id_ticket)"
 	)
 	List<Ticket> servicosAbertos();
 }

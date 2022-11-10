@@ -1,0 +1,3 @@
+const modal_atividades = () => {
+    
+}

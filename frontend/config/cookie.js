@@ -21,20 +21,20 @@ const tempo_minutes = (data_user) => {
     let data_atual = new Date().getTime() // data e hora atual em milisegundos
 
     let result = exp - data_atual // só o tempo de expiração em milisegundos  
-    let minutos = Math.trunc(result / 60000)
-    let segundo_finais = 60
+
+    let r = result - 120000
+
+    console.log(r)
+    console.log(result);;
 
     const container_token = document.querySelector('.container-token')
 
     container_token.style.display = 'none'
    
-    if(Math.sign(result) != '-1') {
+    if(Math.sign(r) != '-1') {
         setTimeout(function() {
-            console.log("entrou");
-            modal_refreshToken(segundo_finais)
-
-            //clearInterval(interval)
-        }, minutos * 55000) // 8m e 8s
+            modal_refreshToken(60)
+        }, r)
     }else {
         container_token.style.display = 'flex'
     }
@@ -64,7 +64,7 @@ const tempo_minutes = (data_user) => {
                 result = Math.ceil(result)
 
                 const interval2 = setInterval(function() {
-                    if (result > 60000) result -= 60000
+                    if (result > 60000) resulZ't -= 60000
 
                     if(result < 60000) {
                         console.log(result);
@@ -75,7 +75,7 @@ const tempo_minutes = (data_user) => {
                         clearInterval(interval)
                         clearInterval(interval2)
             
-                        tempo_segundo(segundo_finais)
+                        modal_refreshToken(segundo_finais)
                         console.log("menor q " + result);
                     }
                 }, 60000)
@@ -88,32 +88,22 @@ const tempo_minutes = (data_user) => {
    }
 }*/
 
-const tempo_segundo = (s) => {
-    let segundos =  s
-    modal_refreshToken(segundos)
-}
+
 
 const modal_refreshToken = (time) => {
-    let segundos = 30
+    let segundos = time
 
     const container_token = document.querySelector('.container-token')
+    const element_tempo = container_token.querySelector('h2')
 
     container_token.style.display = 'flex'
 
-    const element_tempo = container_token.querySelector('h2')
-
-    console.log("SEG "+segundos + " aqui " + Math.sign(segundos));
-
-    console.log(time);
     const interval = setInterval(function() {
         --segundos;
-        console.log("segundos" + segundos);
 
         element_tempo.innerHTML = segundos
 
         if(segundos == 0) {
-            // tempoToken = false
-            console.log("ACABOU OS SEGUNDOS");
             clearInterval(interval)
         }
     }, 1000)
@@ -133,7 +123,9 @@ const refreshToken = () => {
     .then(data => {
         if(data.status == 200) {
             data.json().then( result => {
-                console.log(result);
+                criar_cookie(result.token_acesso)
+                const container_token = document.querySelector('.container-token')
+                container_token.style.display = 'flex'
             })
         }
     })

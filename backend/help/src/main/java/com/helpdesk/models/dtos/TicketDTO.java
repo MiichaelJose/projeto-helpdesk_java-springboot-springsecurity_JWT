@@ -10,7 +10,7 @@ import lombok.Data;
 public class TicketDTO {
 	private Long id;
 
-	private Long idUsuario;
+	private UsuarioDTO usuario;
 
 	private String prioridade;
 
@@ -31,7 +31,7 @@ public class TicketDTO {
 	
 	public TicketDTO(Ticket ticket) {
 		id = ticket.getId();
-		idUsuario = ticket.getIdUsuario().getId();
+		usuario = new UsuarioDTO(ticket.getIdUsuario());
 		descricao = ticket.getDescricao();
 		prioridade = ticket.getPrioridade();
 		departamento = ticket.getDepartamento();

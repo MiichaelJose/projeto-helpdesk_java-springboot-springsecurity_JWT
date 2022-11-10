@@ -98,11 +98,52 @@ li:hover {
     margin-inline: auto;
 }
 
+
+/*  HEADER INICIO */
 .header-container {
     height: 10%;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
     background-color: var(--roxo);
 }
+
+.atividade-center-header, .input-center-header {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    margin: auto;
+    align-items: center;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.atividade-center-header {
+    justify-content: space-evenly;
+    display: flex;
+}
+
+.input-center-header {
+    justify-content: center;
+    display: none;
+    background-color: #fff;
+}
+
+#filtro-input, #filtro-atividade-input {
+    color: black;
+    width: 50%;
+    height: 25px;
+}
+
+.opcoes-atividade {
+    width: 20%;
+    color: white;
+    letter-spacing: 2px;
+}
+
+
+/*  HEADER  FIM */
 
 .area-container {
     height: 80%;
@@ -135,18 +176,13 @@ li:hover {
     backdrop-filter: blur(1px);
     -webkit-backdrop-filter: blur(1px);
     justify-content: center;
-    transition: 5s;
     align-items: center;
 }
 
 .center-token {
     width: 25%;
     height: 50%;
-    transition: 1s;
-    backdrop-filter: blur(1px);
-    -webkit-backdrop-filter: blur(1px);
     background-color: white;
-    
 }
 
 
@@ -353,3 +389,87 @@ input[type='file'] {
 }
 
 
+.atividade-fechada {
+    width: 500px;
+    max-width: 95%;
+    height: 350px;
+    display: flex;
+    margin: 25px auto 0 auto;
+    background-color: white;
+    justify-content: center;
+}
+
+
+.atividade-fechada p {
+    font-size: 0.8rem;
+}
+
+.status-servico-atividade {
+    height: 10%;
+    width: 95%;
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.status-servico-atividade > div {
+    display: flex;
+}
+
+.datas-atividades {
+    display: block;
+}
+
+.datas-atividades > div {
+    display: flex;
+}
+
+.status-servico-atividade div p {
+    margin-left: 5px;
+}
+
+.conteudo-servico-atividade {
+    display: flex;
+    height: 30%;
+    width: 95%;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.conteudo-servico-atividade > img {
+    width: 85px;
+    height: 75px;
+}
+
+.conteudo-atividade {
+    width: 30%;
+    height: 100%;
+   justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.conteudo-atividade div {
+    display: flex;
+}
+
+.conteudo-atividade div p {
+    margin-left: 5px;
+}
+
+
+.caixa-atividade {
+    padding-top: 5px;
+    border-top: 1px solid black;
+    width: 95%;
+    height: 25%;
+    display: flex;
+    margin-inline: auto;
+    align-items: center;
+	justify-content: space-between;
+}
+
+.center-atividade-fechada {
+    margin-inline: auto;
+    width: 95%;
+}

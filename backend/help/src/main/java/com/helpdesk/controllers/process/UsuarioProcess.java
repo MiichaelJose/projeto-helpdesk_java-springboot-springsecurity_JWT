@@ -130,7 +130,6 @@ public class UsuarioProcess {
 
 			return ResponseEntity.badRequest().build();
 		}
-
 	}
 
 	// alterar permissao usuario

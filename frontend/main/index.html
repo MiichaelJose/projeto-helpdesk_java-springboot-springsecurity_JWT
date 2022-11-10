@@ -21,9 +21,7 @@
                     <li id="1">Ticket</li>
                     <li id="2">Funcionários</li>
                     <li id="3">Acesso</li>
-                    <!--<li id="4">atividades fechadas</li>-->
-                     <!--<li id="5" class="atividades">atividades</li>-->
-                    <li id="4" class="atividades">Atividades</li>
+                    <li id="4">Atividades</li>
                     <li id="5">Cadastrar Funcionário</li>
                 </ul>
             </div>
@@ -46,12 +44,57 @@
             </div>
             <div class="container-section" hidden>
                 <div class="header-container">
-
+                    <div class="atividade-center-header">                        
+                        <h4>fechados</h4>
+                        <input type="text" id="filtro-atividade-input">
+                        <h4>abertos</h4>
+                    </div>
+                    <div class="input-center-header">
+                        
+                        <input type="text" id="filtro-input">
+                    </div>
                 </div>
                 <div class="area-container">
 
                     
-                   
+                   <div class="atividade-fechada">
+                        <div class="center-atividade-fechada">
+                            <h3>SERVIÇo</h3>
+                            <div class="status-servico-atividade">
+                                <div><span>status:</span> <p>aceito</p></div>
+                                <div><span>inicializado:</span> <p>10/11/2022</p></div>
+                                <div><span>finalizado:</span> <p>indefinido</p></div> 
+                            </div>
+                            <h3>TICKET</h3>
+                            <div class="conteudo-servico-atividade">
+                                <img src="../imagens/icons8-send-50.png" alt="">
+                                <div class="conteudo-atividade">
+                                    <div><span>Equipamento:</span> <p>computador</p></div>
+                                    <div><span>Departamento:</span> <p>escritório</p></div>
+                                    <div><span>Prioridade:</span> <p>urgente</p></div>
+                                    <div><span>Data:</span> <p>10/11/2022</p></div>
+                                </div>
+                            </div>  
+                            <h3>FUNCIONÁRIO</h3>
+                            <div class="caixa-atividade">
+                                <div class="texto-card">
+                                    <p>Michael José</p>
+                                    <p>Técnico</p>
+                                </div>
+                                <p>CPF: 031.294.514-04</p>
+                                <div class="buttons-card">
+                                    <div class="left-buttons-card">
+                                        <div class="circle" style="background-color: #24C0EB;"></div>
+                                        <p>alterar</p>
+                                    </div>
+                                    <div class="right-buttons-card">
+                                        <img src="../imagens/plano.png" alt="">
+                                        <p>deletar</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                   </div>
                    
                 </div>   
                 <div class="area-enviar-mensagem">
@@ -68,16 +111,11 @@
 
         <!-- MODAL TOKEN -->
         <div class="container-token">
-            
-
             <div class="center-token">
                 <h1>teste</h1>
                 <h2>0</h2>
-
                 <button onclick="refreshToken()">refresh</button>
             </div>
-
-            
         </div>
 
         <!-- MODAL AREA (SOLICITACOES ACESSO)-->
@@ -193,8 +231,9 @@
     </main>
 </body>
 <script src="../config/cookie.js"></script>
-<script src="criarmodal-script.js"></script>
-<script src="criarticket-script.js"></script>
+<script src="main.js"></script>
+<script src="ticket.js"></script>
 <script src="funcionario.js"></script>
-<script src="solicitacoes-acesso.js"></script>
+<script src="solicitacoes.js"></script>
+<script src="atividades.js"></script>
 </html>
