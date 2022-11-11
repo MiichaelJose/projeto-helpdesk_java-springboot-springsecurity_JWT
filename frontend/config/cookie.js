@@ -125,7 +125,7 @@ const refreshToken = () => {
             data.json().then( result => {
                 criar_cookie(result.token_acesso)
                 const container_token = document.querySelector('.container-token')
-                container_token.style.display = 'flex'
+                container_token.style.display = 'none'
             })
         }
     })

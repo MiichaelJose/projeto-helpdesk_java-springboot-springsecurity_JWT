@@ -14,7 +14,7 @@ const area_mensagem     = document.querySelector(".area-enviar-mensagem")
 const buttons_options = () => {
     const buttons = document.querySelectorAll('li')
 
-    tempo_minutes(data)
+    tempo_minutes(pegar_token_json(pegar_token_cookie().token_acesso))
 
     buttons.forEach(i => {
         i.addEventListener("click", () => modal(i.getAttribute('id')))
@@ -22,7 +22,7 @@ const buttons_options = () => {
 }
 
 const modal = (id) => {
-   // limpar_modal_anterior()
+    //limpar_modal_anterior()
     
     ativar_modal(id)
 }

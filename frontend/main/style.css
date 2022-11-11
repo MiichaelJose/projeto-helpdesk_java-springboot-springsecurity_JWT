@@ -5,6 +5,8 @@ h1 {
     font-size: 2rem;
 }
 
+/* NAV INICIO */
+
 .nav-header {
     height: 20%;
     justify-content: center;
@@ -12,13 +14,6 @@ h1 {
     display: flex;
     box-sizing: border-box;
     border-bottom: 5px solid var(--vinho);
-}
-
-.section-header {
-    height: 20%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .sidebar-options {
@@ -31,32 +26,12 @@ h1 {
     height: 20%;
 }
 
-ul {
-    list-style: none;
-}
-
 .sidebar-options, ul, .perfil-down {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
 }
-
-li:nth-child(n+1){
-    margin-bottom: 40px;
-}
-
-li:nth-child(5) {
-    margin-bottom: 0px;
-}
-
-li:hover {
-    font-weight: bold;
-    border-bottom: 3px solid var(--vinho);
-}
-
-
-
 
 
 .perfil {
@@ -90,6 +65,36 @@ li:hover {
     color: #6F95FF;
 }
 
+ul {
+    list-style: none;
+}
+
+
+
+li:nth-child(n+1){
+    margin-bottom: 40px;
+}
+
+li:nth-child(5) {
+    margin-bottom: 0px;
+}
+
+li:hover {
+    font-weight: bold;
+    border-bottom: 3px solid var(--vinho);
+}
+
+/* NAV FIM */
+
+/* SECTION INICIO */
+
+.section-header {
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .container-section {
     height: 75%;
     width: 85%;
@@ -98,8 +103,8 @@ li:hover {
     margin-inline: auto;
 }
 
+    /*  HEADER  SECTION */
 
-/*  HEADER INICIO */
 .header-container {
     height: 10%;
     width: 100%;
@@ -136,14 +141,15 @@ li:hover {
     height: 25px;
 }
 
+/*
 .opcoes-atividade {
     width: 20%;
     color: white;
     letter-spacing: 2px;
 }
+*/
 
-
-/*  HEADER  FIM */
+    /* CONTAINER SECTION */
 
 .area-container {
     height: 80%;
@@ -157,7 +163,7 @@ li:hover {
 .area-container::-webkit-scrollbar {
     width: 5px;               /* width of the entire scrollbar */
     box-sizing: border-box;
-  }
+}
 
 .area-container::-webkit-scrollbar-track {
     background: var(--vinho); 
@@ -166,6 +172,7 @@ li:hover {
 
 
 
+/* MODAL TOKEN INICIO */
 
 .container-token {
     width: 100vw;
@@ -185,25 +192,252 @@ li:hover {
     background-color: white;
 }
 
+/* MODAL TOKEN FIM */
 
+/* MODAL SOLICITAÇÕES INICIO */
 
+.caixa-card {
+    width: 95%;
+    height: 100px;
+    display: flex;
+    margin: 25px auto 0 auto;
+    background-color: white;
+}
 
+.solicitacao, .funcionario {
+	display: none;
+}
 
+.caixa-card p {
+	font-size: 0.8rem;
+}
 
+.center-card {
+	width: 95%;
+	height: 100%;
+	margin-inline: auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
 
+.texto-card {
+	width: fit-content;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	height: 100%;
+}
 
-/* MODAIS ------------------------- */
+.buttons-card {
+	height: 100%;
+	width: 30%;
+	display: flex;
+	align-items: center;
+}
 
-.modal-ativarchat {
-    width: 100%;
+.left-buttons-card, .right-buttons-card {
+	width: 50%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+}
+
+/* MODAL SOLICITAÇÕES FIM */
+
+/* MODAL ATIVIDADE ABERTA INICIO */
+
+.atividade-aberta {
+    width: 85%;
+    height: 150px;
+    display: none;
+    margin: 25px auto 0 auto;
+    background-color: white;
+    justify-content: center;
+}
+
+.center-card-atividade {
+    width: 95%;
     height: 100%;
+    display: flex;
     justify-content: center;
     align-items: center;
-    display: none;
-    background-color: white ;
-    text-align: center;
-    opacity: 0.9;
+    flex-direction: column;
+    margin-inline: auto;
 }
+
+.header-card-atividade {
+    width: 95%;
+    height: 50%;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.section-card-atividade {
+    width: 95%;
+    height: 50%;
+    align-items: center;
+    display: flex;
+}
+
+.section-card-atividade  {
+    border-top: 1px solid black;
+}
+
+.section-card-atividade >  img {
+    height: 90%;
+}
+
+.info-ticket-atividade-aberta {
+    width: 50%;
+    margin-left: 15px;
+}
+
+.info-ticket-atividade-aberta  > div {
+    display: flex;
+}
+
+.info-ticket-atividade-aberta p {
+    margin-left: 5px;
+}
+
+.conteudo-atividade-aberta > div {
+    display: flex;
+}
+
+.atividade-aberta span {
+    font-weight: bold;
+    font-size: 0.8rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.atividade-aberta p {
+    font-size: 0.8rem;
+}
+
+/* MODAL ATIVIDADE ABERTA FIM */
+
+
+
+/* MODAL ATIVIDADE FECHADO INICIO */
+
+.atividade-fechada {
+    width: 500px;
+    max-width: 95%;
+    height: 350px;
+    display: none;
+    margin: 25px auto 0 auto;
+    background-color: white;
+    justify-content: center;
+}
+
+.atividade-fechada p {
+    font-size: 0.8rem;
+}
+
+.atividade-fechada span {
+    font-weight: bold;
+    font-size: 0.8rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.status-servico-atividade {
+    height: 15%;
+    width: 95%;
+    display: flex;
+    border-top: 1px solid black;
+    justify-content: space-evenly;
+    padding-top: 5px;
+    align-items: center;
+}
+
+.status-servico-atividade > .status {
+    display: flex;
+}
+
+.datas-atividades {
+    display: flex;
+    width: fit-content;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.datas-atividades > div {
+    display: flex;
+}
+
+.status-servico-atividade div p {
+    margin-left: 5px;
+}
+
+.conteudo-servico-atividade {
+    border-top: 1px solid black;
+    display: flex;
+    height: 30%;
+    width: 95%;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.conteudo-servico-atividade > img {
+    width: 85px;
+    height: 75px;
+}
+
+.conteudo-atividade {
+    width: fit-content;
+    height: 100%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.conteudo-atividade div {
+    display: flex;
+}
+
+.conteudo-atividade div p {
+    margin-left: 5px;
+}
+
+.caixa-atividade {
+    padding-top: 5px;
+    border-top: 1px solid black;
+    width: 95%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+	justify-content: space-between;
+}
+
+.center-atividade-fechada {
+    margin-inline: auto;
+    width: 95%;
+}
+
+.buttons-card-atividade {
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.center-buttons-card {
+	width: fit-content;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+}
+
+/* MODAL ATIVIDADE FECHADO FIM */
+
+/* MODAL AREA TICKET INICIO */
 
 .modal-confirmardados {
     width: 100%;
@@ -213,12 +447,6 @@ li:hover {
     display: none;
     text-align: center;
 }
-
-.center-modal {
-    width: 70%;
-    height: 50%;
-}
-
 
 .center-modalconfirmardados {
     width: 70%;
@@ -260,6 +488,7 @@ li:hover {
    letter-spacing: 2px;
    font-size: 1rem;
 }
+
 .texto-modalconfirmardados p {
     font-size: 0.9rem;
 }
@@ -273,13 +502,79 @@ li:hover {
     text-align: justify;
 }
 
-
 .cadastrarticket-button {
     margin-top: 5%;
     background-color: var(--permitir);
     width: 50%;
     border-radius: 15px;
     color: black;
+}
+
+/* MODAL AREA TICKET FIM */
+
+/* MODAL PERGUNTA INICIO */
+
+.pergunta-mensagem {
+    width: fit-content;
+    padding: 15px;
+
+    margin: 15px 15px 15px 15px;
+    color: white;
+    background-color: var(--roxo);
+    border-radius: 50px;
+    display: none;
+}
+
+/* MODAL PERGUNTA FIM */
+
+/* MODAL RESPOSTA INICIO */
+
+.resposta-mensagem {
+    width: 250px;
+    height: fit-content;
+    color: black;
+    background-color: white;
+    margin: 15px 0 15px auto;
+    padding-bottom: 5px;
+    display: none;
+}
+
+.resposta-mensagem > p {
+    text-indent: 5px;
+}
+
+.resposta-mensagem > div {
+    margin-top: 10px;
+    width: 225px;
+    margin-inline: auto;
+    background-color: var(--roxo);
+    color: white;
+    padding: 5px;
+}
+
+.resposta-mensagem > div > p {
+    text-indent: 15px;
+    font-size: 0.8rem;
+}
+
+/* MODAL RESPOSTA FIM */
+
+/* MODAL ATIVAR CHAT INICIO */
+
+.modal-ativarchat {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    background-color: white ;
+    text-align: center;
+    opacity: 0.9;
+}
+
+.center-modal {
+    width: 70%;
+    height: 50%;
 }
 
 .center-modal > p {
@@ -294,16 +589,7 @@ li:hover {
     margin: auto;
 }
 
-.pergunta-mensagem {
-    width: fit-content;
-    padding: 15px;
-
-    margin: 15px 15px 15px 15px;
-    color: white;
-    background-color: var(--roxo);
-    border-radius: 50px;
-    display: none;
-}
+/* MODAL ATIVAR CHAT FIM */
 
 .area-enviar-mensagem {
     width: 100%;
@@ -332,41 +618,13 @@ li:hover {
 }
 
 
-.resposta-mensagem {
-    width: 250px;
-    height: fit-content;
-    color: black;
-    background-color: white;
-    margin: 15px 0 15px auto;
-    padding-bottom: 5px;
-    display: none;
-}
-
-.resposta-mensagem > p {
-    text-indent: 5px;
-}
-
-.resposta-mensagem > div {
-    margin-top: 10px;
-
-    width: 225px;
-    margin-inline: auto;
-    background-color: var(--roxo);
-    color: white;
-    padding: 5px;
-}
-
-.resposta-mensagem > div > p {
-    text-indent: 15px;
-    font-size: 0.8rem;
-}
-
 .div-img {
     height: 35px;
     width: 255px;
     background-color: aquamarine;
     box-sizing: border-box;
 }
+
 
 input[type='file'] {
     display: none
@@ -388,88 +646,15 @@ input[type='file'] {
     letter-spacing: 2px;
 }
 
+.circle {
+	width: 25px;
+	height: 25px;
+	border-radius: 100%;
+	background-color: black;
+}
 
-.atividade-fechada {
-    width: 500px;
-    max-width: 95%;
-    height: 350px;
-    display: flex;
-    margin: 25px auto 0 auto;
-    background-color: white;
-    justify-content: center;
+button {
+	background-color: aqua;
 }
 
 
-.atividade-fechada p {
-    font-size: 0.8rem;
-}
-
-.status-servico-atividade {
-    height: 10%;
-    width: 95%;
-    margin-top: 5px;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.status-servico-atividade > div {
-    display: flex;
-}
-
-.datas-atividades {
-    display: block;
-}
-
-.datas-atividades > div {
-    display: flex;
-}
-
-.status-servico-atividade div p {
-    margin-left: 5px;
-}
-
-.conteudo-servico-atividade {
-    display: flex;
-    height: 30%;
-    width: 95%;
-    justify-content: space-around;
-    margin-bottom: 10px;
-}
-
-.conteudo-servico-atividade > img {
-    width: 85px;
-    height: 75px;
-}
-
-.conteudo-atividade {
-    width: 30%;
-    height: 100%;
-   justify-content: center;
-    display: flex;
-    flex-direction: column;
-}
-
-.conteudo-atividade div {
-    display: flex;
-}
-
-.conteudo-atividade div p {
-    margin-left: 5px;
-}
-
-
-.caixa-atividade {
-    padding-top: 5px;
-    border-top: 1px solid black;
-    width: 95%;
-    height: 25%;
-    display: flex;
-    margin-inline: auto;
-    align-items: center;
-	justify-content: space-between;
-}
-
-.center-atividade-fechada {
-    margin-inline: auto;
-    width: 95%;
-}
