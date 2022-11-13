@@ -9,7 +9,7 @@ const options = [
 const modal_ativarchat  = document.querySelector(".modal-ativarchat")
 const area_container    = document.querySelector('.area-container')
 const area_mensagem     = document.querySelector(".area-enviar-mensagem")
-   
+const atividade_center_header = document.querySelector('.atividade-center-header')  
 
 const buttons_options = () => {
     const buttons = document.querySelectorAll('li')
@@ -22,7 +22,7 @@ const buttons_options = () => {
 }
 
 const modal = (id) => {
-    //limpar_modal_anterior()
+    limpar_modal_anterior()
     
     ativar_modal(id)
 }
@@ -37,9 +37,11 @@ const limpar_modal_anterior  = () => {
     }
 
     area_container.innerHTML            = ""
+    area_container.style.height         = '80%'
     area_mensagem.style.display         = 'none'
     modal_ativarchat.style.display      = 'none'
     modal_confirmardados.style.display  = 'none'
+    atividade_center_header.style.display  = 'none'
     labelimg.style.display              = 'none' 
     input.removeAttribute('hidden', 'hidden')
 }

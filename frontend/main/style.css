@@ -98,7 +98,8 @@ li:hover {
 .container-section {
     height: 75%;
     width: 85%;
-
+    display: flex;
+    flex-direction: column;
     background-color: var(--vinho);
     margin-inline: auto;
 }
@@ -126,7 +127,7 @@ li:hover {
 
 .atividade-center-header {
     justify-content: space-evenly;
-    display: flex;
+    display: none;
 }
 
 .input-center-header {
@@ -194,19 +195,20 @@ li:hover {
 
 /* MODAL TOKEN FIM */
 
-/* MODAL SOLICITAÇÕES INICIO */
+/* MODAL SOLICITAÇÕES E FUNCIONÁRIOS INICIO */
 
 .caixa-card {
     width: 95%;
     height: 100px;
-    display: flex;
+    display: none;
     margin: 25px auto 0 auto;
     background-color: white;
 }
-
+/*
 .solicitacao, .funcionario {
 	display: none;
 }
+*/
 
 .caixa-card p {
 	font-size: 0.8rem;
@@ -245,7 +247,7 @@ li:hover {
 	justify-content: center;
 }
 
-/* MODAL SOLICITAÇÕES FIM */
+/* MODAL SOLICITAÇÕES E FUNCIONÁRIOS FIM */
 
 /* MODAL ATIVIDADE ABERTA INICIO */
 
@@ -319,8 +321,6 @@ li:hover {
 }
 
 /* MODAL ATIVIDADE ABERTA FIM */
-
-
 
 /* MODAL ATIVIDADE FECHADO INICIO */
 
@@ -658,3 +658,93 @@ button {
 }
 
 
+/* MODAL SELECIONAR FUNCIONÁRIO INICIO */
+
+.selecionar-funcionario-caixa {
+    width: 50%;
+    height: 635px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: auto;
+    bottom: auto;
+    background-color: rgba(217, 217, 217, 0.45);
+}
+
+.center-selecionar-funcionario {
+    width: 70%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 5%;
+    text-align: center;
+    flex-direction: column;
+}
+
+#x {
+    margin-inline-start: 95%;
+}
+
+.caixa-button-selecionar-funcionar {
+    width: 100%;
+    height: 70%;
+    margin-top: auto;
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+}
+
+.selector-funcionario {
+    width: 45%;
+    height: 100%;
+    overflow-y: scroll;
+    background: #D9D9D9;
+    box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.25);
+}
+
+.selector-funcionario::-webkit-scrollbar { 
+    display: none;
+}
+
+.selector-funcionario > p {
+    margin-top: 15px;
+    border-bottom: 1px solid black;
+
+}
+
+.dados-funcionario {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dados-funcionario > * {
+    margin-bottom: 10px;
+}
+
+.img-funcionario {
+    width: 115px;
+    height: 115px;
+    border-radius: 100%;
+    background-image: url("../imagens/team.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-color: white;
+}
+
+.dados-funcionario > button {
+    width: 50%;
+    height: 35px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    background-color: var(--permitir);
+}
+
+
+/* MODAL SELECIONAR FUNCIONÁRIO FIM */

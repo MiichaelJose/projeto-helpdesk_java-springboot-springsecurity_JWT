@@ -30,11 +30,11 @@ const listar_funcionarios = () => {
 
 // cria o card do funcionario
 const caixa_funcionario = (data) =>  {
-    const caixa     = document.querySelector('.funcionario').cloneNode(true)
+    const caixa     = document.querySelector('#funcionario').cloneNode(true)
     const textos    = caixa.querySelectorAll('p')
 
     caixa.style.display = 'flex'
-    caixa.classList.remove('funcionario')
+    //caixa.classList.remove('funcionario')
 
     textos[0].innerHTML = data.usuario
     textos[1].innerHTML = data.cargo
@@ -42,6 +42,8 @@ const caixa_funcionario = (data) =>  {
 
     area_container.appendChild(caixa)
 }
+
+
 
 const alterar_funcionario = () => {
 

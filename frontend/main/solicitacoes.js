@@ -3,7 +3,7 @@
 const modal_solicitacoes = () => {
     area_container.style.height = '90%'
     area_container.style.overflowY = 'scroll'
-
+    
     listar_solicitacoes()
 }
 
@@ -32,11 +32,11 @@ const listar_solicitacoes = () => {
 
 // criar card de solicitacao
 const caixa_solicitacao = (data) =>  {
-    const caixa = document.querySelector('.solicitacao').cloneNode(true)
+    const caixa = document.querySelector('#solicitacao').cloneNode(true)
     const textos = caixa.querySelectorAll('p')
 
     caixa.style.display = 'flex'
-    caixa.classList.remove('solicitacao')
+    //caixa.classList.remove('solicitacao')
 
     textos[0].innerHTML = data.usuario
     textos[1].innerHTML = data.cargo
