@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -27,15 +28,21 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.helpdesk.models.entity.Usuario;
 import com.helpdesk.models.services.UserDetailsPersonalizado;
 
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@RequiredArgsConstructor
+///@RequiredArgsConstructor
 public class FiltroAutenticacaoCustomizado extends UsernamePasswordAuthenticationFilter {
 
+	
 	private final AuthenticationManager authenticationManager;
 
+	public FiltroAutenticacaoCustomizado(AuthenticationManager authenticationManager) {
+		this.authenticationManager = authenticationManager;
+	}	
+	
 	@Override
 	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
 			throws AuthenticationException {
@@ -55,20 +62,17 @@ public class FiltroAutenticacaoCustomizado extends UsernamePasswordAuthenticatio
 	@Override
 	protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
 			Authentication authentication) throws IOException, ServletException {
-		System.out.println("ENTROU " + authentication.getPrincipal());
+		
 		UserDetailsPersonalizado usuario = (UserDetailsPersonalizado) authentication.getPrincipal();
 
 		Algorithm algoritmo = Algorithm.HMAC256("secret".getBytes());
 
 		// data e hora local + minutos 
 	
-		System.out.println("DATA E HORA ATUAL + MINUTOS "+new Date(System.currentTimeMillis() + 30 * 60 * 1000));
-		//System.out.println("TEMPO " + new Date(System.currentTimeMillis() + 10 * 60 * 1000));
-		
 		String tokenAcesso = JWT.create()
 				.withClaim("id", usuario.getInt())
 				.withSubject(usuario.getUsername())
-				.withExpiresAt(new Date(System.currentTimeMillis() + 30 * 60 * 1000))
+				.withExpiresAt(new Date(System.currentTimeMillis() + 60 * 60 * 1000))
 				.withIssuer(request.getRequestURI().toString())
 				.withClaim("roles", usuario.getAuthorities().stream()
 						.map(GrantedAuthority::getAuthority).collect(Collectors.toList()))

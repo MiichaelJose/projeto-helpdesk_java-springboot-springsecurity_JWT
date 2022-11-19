@@ -55,6 +55,7 @@ public class UsuarioRoute {
 
 	@Autowired
 	private UsuarioProcess process;
+	
 	@Autowired
 	private UserDetailsServicePersonalizado service;
 

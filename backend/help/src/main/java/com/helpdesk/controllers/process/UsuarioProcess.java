@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.annotation.Validated;
@@ -16,22 +17,19 @@ import com.helpdesk.models.dtos.UsuarioDTO;
 import com.helpdesk.models.entity.Usuario;
 import com.helpdesk.models.repositorys.UsuarioRepository;
 
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-/**
- * @author Michael Dev
- *
- */
 @Component
 @Slf4j
-@RequiredArgsConstructor
 public class UsuarioProcess {
 
 	@Autowired
 	private UsuarioRepository repository;
-
-	private final PasswordEncoder passwordEncoder;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	// cadastrar
 	// o usuario sera avaliado por admin, se sim, tera acesso a o sistema

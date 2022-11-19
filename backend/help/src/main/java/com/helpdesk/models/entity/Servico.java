@@ -34,8 +34,6 @@ public class Servico {
 
 	// Tecnico aceitar servico (aceito, observacao, recusado) 
 	private String tecnicoAceitarServico;
-	
-	private String statusTicket;
 
 	private String dataServicoInicializado;
 

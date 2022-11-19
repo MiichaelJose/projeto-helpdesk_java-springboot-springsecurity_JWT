@@ -14,9 +14,7 @@ public class ServicoDTO {
 	
 	private String statusServico;
 
-	//private String tecnicoAceitarServico;
-	
-	//private String statusTicket;
+	private String tecnicoAceitarServico;
 
 	private String dataServicoInicializado;
 
@@ -26,6 +24,10 @@ public class ServicoDTO {
 		tecnico = new UsuarioDTO(s.getIdAdmin());
 		
 		ticket = new TicketDTO(s.getIdTicket());
+		
+		statusServico = s.getStatusServico();
+		
+		tecnicoAceitarServico = s.getTecnicoAceitarServico();
 		
 		dataServicoInicializado = s.getDataServicoInicializado();
 		

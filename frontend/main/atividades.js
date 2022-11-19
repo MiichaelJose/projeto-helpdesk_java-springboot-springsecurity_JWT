@@ -29,10 +29,40 @@ const listar_atividades_fechadas = () => {
 
 // cria o card do funcionario
 const caixa_atividade_fechada = (data) =>  {
+    const caixa = document.querySelector('.card-atividade-fechado').cloneNode(true)
+    const status_funcionario_caixa = caixa.querySelector('.bottom-margin-fechado')
+    const alterar_funcionario = caixa.querySelector('#alt-tecnico')
+    const textos    = caixa.querySelectorAll('p')
+
+    caixa.style.display = 'block'
+    console.log(data);
+    console.log(textos);
+    textos[0].innerHTML = data.ticket.equipamento
+    textos[1].innerHTML = data.ticket.departamento
+    textos[2].innerHTML = data.ticket.data
+    textos[3].innerHTML = data.ticket.prioridade
+
+    textos[5].innerHTML = data.tecnico.usuario
+    textos[6].innerHTML = "CPF: " + data.tecnico.cpf
+
+    if (data.tecnicoAceitarServico == "ACEITO") {
+        textos[7].innerHTML = "Status: " + data.statusServico
+        textos[8].innerHTML = "Data inicializado: " + data.dataServicoInicializado
+        textos[9].innerHTML = "Data finalizado: " + data.dataServicoFinalizado
+        status_funcionario_caixa.style.display = 'none'
+        alterar_funcionario.setAttribute('hidden', 'hidden')
+    }else {
+        console.log('entrou');
+        alterar_funcionario.removeAttribute('hidden')
+        status_funcionario_caixa.style.display = 'flex'
+    }
+    /*
     const caixa     = document.querySelector('.atividade-fechada').cloneNode(true)
     const textos    = caixa.querySelectorAll('p')
 
     caixa.style.display = 'flex'
+
+    console.log(textos);
 
     textos[0].innerHTML = data.ticket.equipamento
     textos[1].innerHTML = data.ticket.departamento
@@ -41,12 +71,13 @@ const caixa_atividade_fechada = (data) =>  {
 
     textos[4].innerHTML = data.tecnico.usuario
     textos[6].innerHTML = "CPF: " + data.tecnico.cpf
-    textos[7].innerHTML = data.statusServico
-    textos[8].innerHTML = data.dataServicoInicializado
-    textos[9].innerHTML = data.dataServicoFinalizado
+    textos[8].innerHTML = data.statusServico
+    textos[9].innerHTML = data.dataServicoInicializado
+    textos[10].innerHTML = data.dataServicoFinalizado
+    
+    */
     console.log(textos);
-    console.log(data);
-    area_container.appendChild(caixa)
+   area_container.appendChild(caixa)
 }
 
 let servico = {
@@ -99,7 +130,7 @@ const caixa_atividade_aberta = (data) =>  {
 
     caixa.style.display = 'flex'
     textos[0].innerHTML = data.usuario.usuario
-    textos[1].innerHTML = data.status
+    textos[1].innerHTML = data.prioridade
     textos[3].setAttribute('id', data.id)
     textos[4].innerHTML = data.equipamento
     textos[5].innerHTML = data.departamento

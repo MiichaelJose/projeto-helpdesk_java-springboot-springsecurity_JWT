@@ -2,10 +2,12 @@
 
 h1 {
     font-size: 3.5rem;
+    
 }
 
 h2 {
     font-size: 2rem;
+    color: white;
 }
 
 h3 {
@@ -16,6 +18,10 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+main {
+    height: 90%;
 }
 
 .section-top {
@@ -35,7 +41,7 @@ nav {
     width: 70%;
     height: 80%;
     margin: auto;
-    background-color: var(--roxo);
+    background-color: var(--marrom-medio);
     display: flex;
     justify-content: center;
 }
@@ -64,6 +70,7 @@ input {
     margin-bottom: auto;
     padding-left: 15px;
     font-size: 1rem;
+    border-radius: 50px;
 }
 
 input::placeholder {
@@ -78,6 +85,7 @@ input::placeholder {
     justify-content: center;
     background-color: white;
     color: black;
+    border-radius: 50px;
 }
 
 .button:hover {
