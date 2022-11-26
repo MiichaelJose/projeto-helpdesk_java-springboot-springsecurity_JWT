@@ -2,7 +2,7 @@
 function logar() {
     const url = "http://localhost:8080/login"
    
-    const usuario = document.getElementById("usuario").value
+    const cpf = document.getElementById("cpf").value
 
     const senha = document.getElementById("senha").value
 
@@ -10,14 +10,14 @@ function logar() {
         method: "POST",
         headers: {"Content-Type": "application/json"},     
         body: JSON.stringify({
-            'cpf':usuario,
+            'cpf':cpf,
             'senha':senha
         })
     })
     .then(resp => resp)
     .then(data => {
         if(data.status == 200) {
-            data.json().then( result => {
+            data.json().then(result => {
                 criar_cookie(result.token_acesso)
                 const data_user = pegar_token_json(result.token_acesso);
                 const funcao_user = data_user.roles[0];

@@ -11,10 +11,10 @@
 <body onload="buttons_options()">
     <main>
         <nav>
-           <div class="nav-header">
+           <div class="nav__header">
                 <h1 onclick="menu_confirmar_dados()">HELPDESK</h1>
            </div>
-           <div class="sidebar-options">
+           <div class="nav__options">
                 <ul>
                     <li id="1">Ticket</li>
                     <li id="2">Funcionários</li>
@@ -23,69 +23,269 @@
                     <li id="5">Cadastrar Funcionário</li>
                 </ul>
             </div>
-            <div class="perfil-down">
-                <div class="perfil">
-                    <div class="imagem-perfil">
+            <div class="nav__bottom">
+                <div class="nav__profile">
+                    <div class="profile__image">
                     </div>
-                    <div class="text-perfil">
+                    <div class="profile__data">
                         <p>Juliana da silva</p>
                         <p style="font-style: italic;">Administradora</p>
-                        <p class="alterardados">alterar dados</p>
+                        <p class="js-change-data">alterar dados</p>
                     </div>
                 </div>
             </div>
         </nav>
         <section>
-            <div class="section-header" hidden>
+            <div class="section__header" hidden>
                 <h1></h1>
             </div>
-            <div class="container-section">
-
-
-
-    
-
-                <div class="selecionar-funcionario-caixa">
-                    <div class="center-selecionar-funcionario">
-                        <img src="../imagens/x.png" alt="" id="x" onclick="fechar_modal_definir_funcionario()">
-                        <h3>FUNCIONÁRIO TÉCNICO</h3>
-                        <p>defina um funcionário quer ficara responsável pelo serviço.</p>
-                        <div class="caixa-button-selecionar-funcionar">
-                            <div class="selector-funcionario">
-                                
-
-                            </div>
-
-                            <div class="dados-funcionario">
-                                <div class="img-funcionario">
-                                   <!-- <img src="https://img.freepik.com/fotos-gratis/close-do-rosto-de-mulher-bonita-sensual_176420-17676.jpg?w=2000" alt="">
-                                
-                                   -->
-                                </div>
-                                <p></p>
-                                <p></p>
-                                <button onclick="cadastrar_servico()">
-                                    selecionar
-                                </button>
-                            </div>
-                        </div>
-                    
-                    </div>
-                </div>
-                <div class="header-container">
+            <div class="section__container">
+                
+                <div class="container__header">
+                    <!-- ATIVIDADE CENTER ALTERAR -->
                     <div class="atividade-center-header">                        
                         <h4 onclick="listar_atividades_fechadas()">fechados</h4>
                         <input type="text" id="filtro-atividade-input">
                         <h4 onclick="listar_atividades_abertas()">abertos</h4>
                     </div>
-                    <div class="input-center-header">
-                        <input type="text" id="filtro-input">
+                    <div class="header__input">
+                        <!--<input type="text" id="filtro-input">-->
+                        <div class="container__input">
+                            <div class="input__activity">
+                                <p>aberto</p>
+                                <div class="input__stick"></div>
+                                <p>fechado</p>
+                            </div>
+                            
+                            <input type="text" class="input__center" placeholder="Buscar...">
+                            
+                            <div class="input__filter" >
+                                <p>filtros</p>
+                                <img src="../imagens/setting.png" alt="">
+                            </div>
+
+                            <div class="input__activity-filter">
+                                <div class="input__date">
+                                    <img src="../imagens/calendar.png" alt="">
+                                    <p>recente</p>
+                                </div>
+                                <div class="input__stick"></div>
+                                <p>todos</p>
+                                <img src="../imagens/cross.png" alt="">
+                            </div>
+                            <div class="input__acess-filter"  style="display: none;">
+
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="area-container">  
+                <div class="container__main">  
                       
+                    <div class="open__activity" style="display: none;">
+                        <div class="open__head">
+                            <div class="head__left">
+                                <div class="activity__text">
+                                    <p style="font-weight: bold;">equipamento</p>
+                                    <p>computador</p>
+                                </div>
+                                <div class="activity__text">
+                                    <p style="font-weight: bold;">departamento</p>
+                                    <p>financeiro</p>
+                                </div>
+                                <div class="activity__text">
+                                    <p style="font-weight: bold;">gerado</p>
+                                    <p>24/10/2022</p>
+                                </div>
+                            </div>
+                            <div class="head__right">
+                                <div class="js-click-image">
+                                    <img src="/imagens/view_image.png" alt="view_image" style="height: 100px; width: 100px;">
+                                    <p style="font-style: italic; color: white;">click</p>
+                                </div>
+                                <p>urgente</p>
+                            </div>
+                        </div>
+                        <div class="open__bottom">
+                            <div class="bottom__button">
+                                <h3>definir funcionário</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="close__activity">
+                        <div class="close__head">
+                            <div class="head__left">
+                                <div class="activity__text">
+                                    <p style="font-weight: bold;">equipamento</p>
+                                    <p>computador</p>
+                                </div>
+                                <div class="activity__text">
+                                    <p style="font-weight: bold;">departamento</p>
+                                    <p>financeiro</p>
+                                </div>
+                                <div class="activity__text">
+                                    <p style="font-weight: bold;">gerado</p>
+                                    <p>24/10/2022</p>
+                                </div>
+                            </div>
+                            <div class="head__right">
+                                <div class="js-click-image">
+                                    <img src="/imagens/view_image.png" alt="view_image" style="height: 100px; width: 100px;">
+                                    <p style="font-style: italic; color: white;">click</p>
+                                </div>
+                                <p>urgente</p>
+                            </div>
+                        </div>
+                        <div class="close__bottom">
+                            <div class="close__left">
+                                <p style="font-weight: bold;">técnico</p>
+                                <div class="close__image">
+                                    <img src="../imagens/team.png" alt="">
+                                </div>
+                                <p>Michael José</p>
+                                <p>031.294.514-04</p>
+                                <div class="close__button">
+                                    <h3>alterar</h3>
+                                </div>
+                            </div>
+                            <div class="close__right">
+                                <div class="activity__text">
+                                    <p style="font-weight: bold;">serviço</p>
+                                    <p>aceito</p>
+                                </div>
+                                <div class="close__date">
+                                    <div class="date__left">
+                                        <div class="activity__text">
+                                            <p style="font-weight: bold;">inicio</p>
+                                            <p>24/10/2022</p>
+                                        </div>
+                                        <div class="activity__text">
+                                            <p style="font-weight: bold;">finalizado</p>
+                                            <p>24/10/2022</p>
+                                        </div>
+                                    </div>
+                                    <img src="../imagens/calendar.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="close__activity">
+                        <div class="close__head">
+                            <div class="head__left">
+                                <div class="activity__text">
+                                    <p style="font-weight: bold;">equipamento</p>
+                                    <p>computador</p>
+                                </div>
+                                <div class="activity__text">
+                                    <p style="font-weight: bold;">departamento</p>
+                                    <p>financeiro</p>
+                                </div>
+                                <div class="activity__text">
+                                    <p style="font-weight: bold;">gerado</p>
+                                    <p>24/10/2022</p>
+                                </div>
+                            </div>
+                            <div class="head__right">
+                                <div class="js-click-image">
+                                    <img src="/imagens/view_image.png" alt="view_image" style="height: 100px; width: 100px;">
+                                    <p style="font-style: italic; color: white;">click</p>
+                                </div>
+                                <p>urgente</p>
+                            </div>
+                        </div>
+                        <div class="close__bottom">
+                            <div class="close__left">
+                                <p style="font-weight: bold;">técnico</p>
+                                <div class="close__image">
+                                    <img src="../imagens/team.png" alt="">
+                                </div>
+                                <p>Michael José</p>
+                                <p>031.294.514-04</p>
+                                <div class="close__button">
+                                    <h3>alterar</h3>
+                                </div>
+                            </div>
+                            <div class="close__right">
+                                <div class="activity__text">
+                                    <p style="font-weight: bold;">serviço</p>
+                                    <p>aceito</p>
+                                </div>
+                                <div class="close__date">
+                                    <div class="date__left">
+                                        <div class="activity__text">
+                                            <p style="font-weight: bold;">inicio</p>
+                                            <p>24/10/2022</p>
+                                        </div>
+                                        <div class="activity__text">
+                                            <p style="font-weight: bold;">finalizado</p>
+                                            <p>24/10/2022</p>
+                                        </div>
+                                    </div>
+                                    <img src="../imagens/calendar.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="close__activity">
+                        <div class="close__head">
+                            <div class="head__left">
+                                <div class="activity__text">
+                                    <p style="font-weight: bold;">equipamento</p>
+                                    <p>computador</p>
+                                </div>
+                                <div class="activity__text">
+                                    <p style="font-weight: bold;">departamento</p>
+                                    <p>financeiro</p>
+                                </div>
+                                <div class="activity__text">
+                                    <p style="font-weight: bold;">gerado</p>
+                                    <p>24/10/2022</p>
+                                </div>
+                            </div>
+                            <div class="head__right">
+                                <div class="js-click-image">
+                                    <img src="/imagens/view_image.png" alt="view_image" style="height: 100px; width: 100px;">
+                                    <p style="font-style: italic; color: white;">click</p>
+                                </div>
+                                <p>urgente</p>
+                            </div>
+                        </div>
+                        <div class="close__bottom">
+                            <div class="close__left">
+                                <p style="font-weight: bold;">técnico</p>
+                                <div class="close__image">
+                                    <img src="../imagens/team.png" alt="">
+                                </div>
+                                <p>Michael José</p>
+                                <p>031.294.514-04</p>
+                                <div class="close__button">
+                                    <h3>alterar</h3>
+                                </div>
+                            </div>
+                            <div class="close__right">
+                                <div class="activity__text">
+                                    <p style="font-weight: bold;">serviço</p>
+                                    <p>aceito</p>
+                                </div>
+                                <div class="close__date">
+                                    <div class="date__left">
+                                        <div class="activity__text">
+                                            <p style="font-weight: bold;">inicio</p>
+                                            <p>24/10/2022</p>
+                                        </div>
+                                        <div class="activity__text">
+                                            <p style="font-weight: bold;">finalizado</p>
+                                            <p>24/10/2022</p>
+                                        </div>
+                                    </div>
+                                    <img src="../imagens/calendar.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>      
-                <div class="area-enviar-mensagem">
+                <div class="send-message">
                     <input type="text" class="input-resposta">
                     <label for='selecao-arquivo' class="label-img">Selecionar um arquivo</label>
                     <input id='selecao-arquivo' type='file' class="input-img">
@@ -106,7 +306,7 @@
         </div>
 
         <!-- MODAL AREA (SOLICITACOES ACESSO)-->
-        <div class="caixa-card" id="solicitacao">
+        <div class="caixa-card" id="requests">
             <div class="center-card">
                 <div class="texto-card">
                     <p>Michael José</p>
@@ -193,6 +393,8 @@
 
         <!-- MODAL ATIVIDADES ABERTA -->
         
+        
+        <!--
         <div class="atividade-aberta">
             <div class="center-card-atividade">
                 <div class="header-card-atividade">
@@ -215,6 +417,35 @@
                         <div><span>data:</span> <p>escritório</p></div>
                     </div>
                 </div>
+            </div>
+        </div>
+        -->
+        <!-- SELECIONAR FUNCIONARIO -->
+        <div class="selecionar-funcionario-caixa">
+            <div class="center-selecionar-funcionario">
+                <img src="../imagens/x.png" alt="" id="x" onclick="fechar_modal_definir_funcionario()">
+                <h3>FUNCIONÁRIO TÉCNICO</h3>
+                <p>defina um funcionário quer ficara responsável pelo serviço.</p>
+                <div class="caixa-button-selecionar-funcionar">
+                    <div class="selector-funcionario">
+                        
+
+                    </div>
+
+                    <div class="dados-funcionario">
+                        <div class="img-funcionario">
+                           <!-- <img src="https://img.freepik.com/fotos-gratis/close-do-rosto-de-mulher-bonita-sensual_176420-17676.jpg?w=2000" alt="">
+                        
+                           -->
+                        </div>
+                        <p></p>
+                        <p></p>
+                        <button onclick="cadastrar_servico()">
+                            selecionar
+                        </button>
+                    </div>
+                </div>
+            
             </div>
         </div>
 
@@ -302,9 +533,10 @@
 
         <div class="modal-ativarchat">
             <div class="center-modal">
-                <p>para criar um ticket, você precisa passar algumas informações.</p>
+                <h2>chatbot</h2>
+                <p>para cadastrar um chamado é necessário passar algumas informações para o chatbot.</p>
                 <div onclick="iniciar_chat()">
-                    <h3>OK</h3>
+                    <h3>INICIAR</h3>
                 </div>
             </div>
         </div>

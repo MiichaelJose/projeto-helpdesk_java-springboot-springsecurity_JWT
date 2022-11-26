@@ -124,9 +124,9 @@ const criar_pergunta = (mensagem) => {
 
 // modal avaliar dados de cadastro
 const menu_confirmar_dados = () => {
-    const container_section     = document.querySelector('.container-section')
+    const container_section     = document.querySelector('.section__container')
     const modal_confirmardados  = document.querySelector('.modal-confirmardados').cloneNode(true)
-    const areamensagem          = document.querySelector(".area-enviar-mensagem")
+    const areamensagem          = document.querySelector(".send-message")
     const buttao_cadastrar      = modal_confirmardados.querySelector('.cadastrarticket-button')
     // analisar essas 3 opções para melhor gerenciamento
     modal_confirmardados.style.display  = 'flex'
@@ -204,7 +204,7 @@ const cancelar_ticket = (e) => {
 // oculta o modal anterior e inicia a primeira pergunta
 const iniciar_chat = () => {
     const modal_ativarchat  = document.querySelector(".modal-ativarchat")
-    const area_mensagem     = document.querySelector(".area-enviar-mensagem")
+    const area_mensagem     = document.querySelector(".send-message")
     modal_ativarchat.style.display  = 'none'
     area_mensagem.style.display     = 'flex'
 
@@ -221,8 +221,9 @@ const iniciar_chat = () => {
 // ativando o modal para iniciar o chat de cadastro ticket 
 const ativar_modal_chat = () => {
     const modal_chat = modal_ativarchat.cloneNode(true)
+    const container_section = document.querySelector('.section__container')
     modal_chat.style.display = 'flex'
-    area_container.appendChild(modal_chat)
+    container_section.appendChild(modal_chat)
 }
 
 // efeito sonoro da pergunta

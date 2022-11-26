@@ -36,7 +36,7 @@ const tempo_minutes = (data_user) => {
             modal_refreshToken(60)
         }, r)
     }else {
-        container_token.style.display = 'flex'
+        //container_token.style.display = 'flex'
     }
 }
 

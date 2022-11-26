@@ -32,11 +32,11 @@ const listar_solicitacoes = () => {
 
 // criar card de solicitacao
 const caixa_solicitacao = (data) =>  {
-    const caixa = document.querySelector('#solicitacao').cloneNode(true)
+    const caixa = document.querySelector('#requests').cloneNode(true)
     const textos = caixa.querySelectorAll('p')
 
     caixa.style.display = 'flex'
-    //caixa.classList.remove('solicitacao')
+    //caixa.classList.remove('requests')
 
     textos[0].innerHTML = data.usuario
     textos[1].innerHTML = data.cargo

@@ -22,12 +22,14 @@ p, ul {
     --marrom-escuro: #302126;
     --marrom-claro: #705E64;
     --marrom-medio: #403036;
+    --marrom-extra-claro: #D9D9D9;
     /*--cinza: #656273;*/
     /*--vinho: #1D1016;*/
     --alterar: #FFD452;
     --vermelho: #FF2E5F;
     --permitir: #5ADB94;
     --visualizar: #24C0EB;
+    --azul: #00AAFF;
 }
 
 body {

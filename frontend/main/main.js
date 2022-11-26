@@ -7,8 +7,8 @@ const options = [
 ]
 
 const modal_ativarchat  = document.querySelector(".modal-ativarchat")
-const area_container    = document.querySelector('.area-container')
-const area_mensagem     = document.querySelector(".area-enviar-mensagem")
+const area_container    = document.querySelector('.container__main')
+const area_mensagem     = document.querySelector(".send-message")
 const atividade_center_header = document.querySelector('.atividade-center-header')  
 
 const buttons_options = () => {
@@ -47,8 +47,8 @@ const limpar_modal_anterior  = () => {
 }
 
 const ativar_modal = (id) => {
-    const header_section    = document.querySelector('.section-header')
-    const container_section = document.querySelector('.container-section')
+    const header_section    = document.querySelector('.section__header')
+    const container_section = document.querySelector('.section__container')
     header_section.removeAttribute("hidden")
     container_section.removeAttribute("hidden")
 

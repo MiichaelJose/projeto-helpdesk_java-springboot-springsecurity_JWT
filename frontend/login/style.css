@@ -24,40 +24,32 @@ main {
     height: 90%;
 }
 
-.section-top {
-    width: 100%;
-    height: 20%;
+section {
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 
-.section-bot {
-    width: 100%;
-    height: 80%;
-}
-
 .form {
-    width: 70%;
-    height: 80%;
+    width: 400px;
+    height: 70%;
     margin: auto;
     background-color: var(--marrom-medio);
     display: flex;
     justify-content: center;
 }
 
-.form-div {
-    width: 70%;
-    height: 70%;
+.form__div {
+    width: 90%;
+    height: fit-content;
     margin: auto;
     flex-direction: column;
     align-items: center;
     display: flex;
 }
 
-.form-buttons {
+.form__buttons {
     width: 100%;
-    height: 30%;
+    height: fit-content;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -66,11 +58,11 @@ main {
 
 input {
     width: 90%;
-    height: 15%;
-    margin-bottom: auto;
+    height: 55px;
+    margin-bottom: 75px;
     padding-left: 15px;
     font-size: 1rem;
-    border-radius: 50px;
+    border-radius: 5px;
 }
 
 input::placeholder {
@@ -79,7 +71,7 @@ input::placeholder {
 
 .button {
     width: 50%;
-    height: 50%;
+    height: 55px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,8 +84,6 @@ input::placeholder {
     background-color: var(--permitir);
     color: white;
 }
-
-
 
 .cadastrar:hover {
     border-bottom: 3px solid black;
@@ -126,13 +116,13 @@ input::placeholder {
 
     main {
         width: 100vw;
+        height: 100%;
     }
 
     nav {
         width: 100%;
     }
-
-    .form {
-        width: 90%;
+    .form__div{
+        width: 100%;
     }
 }
