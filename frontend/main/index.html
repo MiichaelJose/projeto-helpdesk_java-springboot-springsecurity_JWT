@@ -50,16 +50,16 @@
                     </div>
                     <div class="header__input">
                         <!--<input type="text" id="filtro-input">-->
-                        <div class="container__input">
+                        <div class="container__input container-activity">
                             <div class="input__activity">
-                                <p>aberto</p>
+                                <p onclick="listar_atividades_abertas()">aberto</p>
                                 <div class="input__stick"></div>
-                                <p>fechado</p>
+                                <p onclick="listar_atividades_fechadas()">fechado</p>
                             </div>
                             
-                            <input type="text" class="input__center" placeholder="Buscar...">
+                            <input type="text" class="input__center input-activity" placeholder="Buscar...">
                             
-                            <div class="input__filter" >
+                            <div class="input__filter js-activity-filter" onclick="open_activity_filter()">
                                 <p>filtros</p>
                                 <img src="../imagens/setting.png" alt="">
                             </div>
@@ -71,13 +71,36 @@
                                 </div>
                                 <div class="input__stick"></div>
                                 <p>todos</p>
-                                <img src="../imagens/cross.png" alt="">
-                            </div>
-                            <div class="input__acess-filter"  style="display: none;">
-
+                                <img src="../imagens/cross.png" alt="" onclick="close_activity_filter()">
                             </div>
                         </div>
+                    
+                        <div class="container__input container-acess">      
+                            <input type="text" class="input__center input-acess" placeholder="Buscar...">
+                            
+                            <div class="input__filter js-acess-filter" onclick="open_acess_filter()">
+                                <p>filtros</p>
+                                <img src="../imagens/setting.png" alt="">
+                            </div>
+
+                           <div class="input__acess-filter">
+                                <div class="input__permission">
+                                    <div style="width: 20px; height: 20px; background-color: var(--permitir);"></div>
+                                    <p>permitido</p>
+                                </div>
+                                <div class="input__permission">
+                                    <div style="width: 20px; height: 20px; background-color: var(--vermelho);"></div>
+                                    <p>negado</p>
+                                </div>
+                                <div class="input__stick"></div>
+                                <p>todos</p>
+                                <img src="../imagens/cross.png" alt="" onclick="close_acess_filter()">
+                           </div>
+
+                        </div>
+                        
                     </div>
+                    
                 </div>
                 <div class="container__main">  
                       
@@ -548,4 +571,5 @@
 <script src="funcionario.js"></script>
 <script src="solicitacoes.js"></script>
 <script src="atividades.js"></script>
+<script src="input.js"></script>
 </html>

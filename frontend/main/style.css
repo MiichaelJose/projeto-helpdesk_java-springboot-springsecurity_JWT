@@ -123,9 +123,6 @@ section {
 }
 
 
-
-
-
 .atividade-center-header, .header__input {
     width: 100%;
     height: 100%;
@@ -145,18 +142,17 @@ section {
     display: flex;
 }
 
+/* INPUTS */
+
 .container__input {
-    width: 80%;
     height: 70%;
     border-radius: 50px;
     background-color: var(--marrom-extra-claro);
     border: 3px solid #B0B0B0;
     box-sizing: border-box;
-    display: flex;
 }
 
 .input__center {
-    width: 60%;
     background-color: var(--marrom-extra-claro);
     padding-left: 15px;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -164,14 +160,22 @@ section {
 
 .input__center::placeholder {
     font-style: italic;
-    margin-left: 15p;
+    margin-left: 15px;
 }
 
-.input__acess-filter, .input__activity-filter {
-    width: 30%;
+.input__filter {
+    width: 25%;
+    justify-content: center;
 }
 
-.input__activity, .input__filter, .input__activity-filter {
+.container__input p {
+    font-size: 0.7rem;
+    font-style: italic;
+    font-weight: bold;
+    color: black;
+}
+
+.input__activity, .input__filter, .input__activity-filter, .input__acess-filter {
     height: 100%;
     display: flex;
     align-items: center;
@@ -186,36 +190,27 @@ section {
     background-color: black;
 }
 
+    /* ACTIVITY */
+
+.container-activity {
+    width: 80%;
+    display: flex;
+}
+
+.input-activity {
+    width: 50%;
+}
+
 .input__activity {
     width: 25%;
     display: flex;
     justify-content: space-evenly;
 }
 
-.input__activity > p {
-    font-size: 0.7rem;
-    font-style: italic;
-    font-weight: bold;
-    color: black;
-}
-
-.input__filter {
-    width: 25%;
-    justify-content: center;
-    display: none;
-}
-
-.input__filter > p {
-    font-size: 0.7rem;
-    font-style: italic;
-    font-weight: bold;
-    color: black;
-}
-
 .input__activity-filter {
     justify-content: space-around;
-    display: flex;
-    width: 35%;
+    display: none;
+    width: 30%;
 }
 
 .input__activity-filter p {
@@ -238,11 +233,33 @@ section {
     width: 20px;
 }
 
-.input__acess-filter {
+    /* ACESS */
 
+.container-acess {
+    width: 50%;
+    display: none;
 }
 
+.input-acess {
+    width: 70%;
+    border-radius: 20px 0 0 20px;
+}
 
+.input__acess-filter {
+    width: 60%;
+    display: none;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.input__permission {
+    display: flex;
+    align-items: center;
+}
+
+.input__acess-filter > img {
+    width: 32px;
+}
 
 #filtro-input, #filtro-atividade-input {
     color: black;
