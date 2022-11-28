@@ -1,11 +1,18 @@
 const modal_atividades = () => {
-    area_container.style.height = '90%'
-    area_container.style.overflowY = 'scroll'
-    atividade_center_header.style.display  = 'flex'
+    let container_main      = document.querySelector('.container__main')
+    let container_header    = document.querySelector('.container__header')
+    let container_activity  = document.querySelector('.container-activity')
+    
+    container_main.style.display            = 'flex'
+    container_header.style.display          = 'flex'
+    container_activity.style.display        = 'flex'
+    //atividade_center_header.style.display   = 'flex'
 }
 
 const listar_atividades_fechadas = () => {
-    area_container.innerHTML = ""
+    let container_main  = document.querySelector('.container__main')
+    
+    container_main.innerHTML = ""
 
     const url = "http://localhost:8080/servico/fechados"
      
@@ -56,28 +63,8 @@ const caixa_atividade_fechada = (data) =>  {
         alterar_funcionario.removeAttribute('hidden')
         status_funcionario_caixa.style.display = 'flex'
     }
-    /*
-    const caixa     = document.querySelector('.atividade-fechada').cloneNode(true)
-    const textos    = caixa.querySelectorAll('p')
-
-    caixa.style.display = 'flex'
-
-    console.log(textos);
-
-    textos[0].innerHTML = data.ticket.equipamento
-    textos[1].innerHTML = data.ticket.departamento
-    textos[2].innerHTML = data.ticket.prioridade
-    textos[3].innerHTML = data.ticket.data
-
-    textos[4].innerHTML = data.tecnico.usuario
-    textos[6].innerHTML = "CPF: " + data.tecnico.cpf
-    textos[8].innerHTML = data.statusServico
-    textos[9].innerHTML = data.dataServicoInicializado
-    textos[10].innerHTML = data.dataServicoFinalizado
-    
-    */
-    console.log(textos);
-   area_container.appendChild(caixa)
+   
+    area_container.appendChild(caixa)
 }
 
 let servico = {
@@ -99,7 +86,9 @@ let servico = {
 
 
 const listar_atividades_abertas = () => {
-    area_container.innerHTML = ""
+    let container_main  = document.querySelector('.container__main')
+    
+    container_main.innerHTML = ""
 
     const url = "http://localhost:8080/servico/abertos"
      
@@ -124,23 +113,24 @@ const listar_atividades_abertas = () => {
 
 // cria o card do funcionario
 const caixa_atividade_aberta = (data) =>  {
-    const caixa     = document.querySelector('.atividade-aberta').cloneNode(true)
-    const button    = caixa.querySelector('.circle')
+    let container_main = document.querySelector('.container__main')
+    const caixa     = document.querySelector('.open__activity').cloneNode(true)
+    const button    = caixa.querySelector('.bottom__button')
     const textos    = caixa.querySelectorAll('p')
 
-    caixa.style.display = 'flex'
-    textos[0].innerHTML = data.usuario.usuario
-    textos[1].innerHTML = data.prioridade
-    textos[3].setAttribute('id', data.id)
-    textos[4].innerHTML = data.equipamento
-    textos[5].innerHTML = data.departamento
-    textos[6].innerHTML = data.descricao
-    textos[7].innerHTML = data.data
-   
-    area_container.appendChild(caixa)
+    caixa.style.display = 'block'
 
-    console.log(button);
+    console.log(data);
 
+    //textos[0].innerHTML = data.usuario.usuario
+    textos[1].innerHTML = data.equipamento
+    textos[3].innerHTML = data.departamento
+    textos[5].innerHTML = data.data
+    //textos[3].setAttribute('id', data.id)
+    textos[7].innerHTML = data.prioridade
+
+    container_main.appendChild(caixa)
+    
     button.addEventListener('click', () => {
        // const idTicket = document.querySelector('.idTicket')
 

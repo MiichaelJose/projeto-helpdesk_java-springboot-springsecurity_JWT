@@ -14,8 +14,6 @@ const open_acess_filter = () => {
     let op_acess = document.querySelector('.input__acess-filter')
 
     op_acess.style.display = "flex"
-
-    console.log(filter);
 }
 
 const close_acess_filter = () => {
@@ -39,6 +37,14 @@ const close_acess_filter = () => {
 
 
 const open_activity_filter = () => {
+    let input_op_activity = document.querySelector('.input__activity')
+
+    input_op_activity.style.width = '30%'
+
+    let input_activity= document.querySelector('.input-activity')
+
+    input_activity.style.width = '40%'
+    
     let filter = document.querySelector('.js-activity-filter')
 
     filter.style.display = 'none'
@@ -46,11 +52,17 @@ const open_activity_filter = () => {
     let op_acess = document.querySelector('.input__activity-filter')
 
     op_acess.style.display = "flex"
-
-    console.log(filter);
 }
 
 const close_activity_filter = () => {
+    let input_op_activity = document.querySelector('.input__activity')
+
+    input_op_activity.style.width = '25%'
+
+    let input_activity= document.querySelector('.input-activity')
+
+    input_activity.style.width = '50%'
+
     let filter = document.querySelector('.js-activity-filter')
 
     filter.style.display = 'flex'
@@ -58,6 +70,4 @@ const close_activity_filter = () => {
     let op_acess = document.querySelector('.input__activity-filter')
 
     op_acess.style.display = "none"
-
-    console.log(filter);
 }

@@ -28,12 +28,12 @@ let ticket = {
 }
 
 const inputimg = document.querySelector('.input-img')
-const labelimg = document.querySelector('.label-img')
 
 // 3
 // inicia primeira pergunta
 const primeira_pergunta = () => {
-    area_container.style.overflowY = 'scroll'
+    let container_ticket = document.querySelector('.container__ticket')
+    container_ticket.style.overflowY = 'scroll'
     criar_pergunta(mensagens[contador_pergunta])
 }
 
@@ -46,7 +46,9 @@ const proxima_pergunta = () => {
 //4
 // assim que enviar a primeira resposta, ira gerar a proxima pergunta
 const enviar_resposta = () => {
-    const input = document.querySelector('.input-resposta')
+    let container_ticket    = document.querySelector('.container__ticket')
+    let input               = document.querySelector('.input-resposta')
+    let labelimg            = document.querySelector('.label-img')
 
     //if(input.value != '' || inputimg.value != '') {
         criar_resposta(input.value) // cria resposta 
@@ -66,7 +68,7 @@ const enviar_resposta = () => {
     //}
    
     //input.value = ''
-    area_container.scroll(0, 500)
+    container_ticket.scroll(0, 500)
 }
 
 // salvar dados da resposta
@@ -100,42 +102,48 @@ const criar_json = (n, value) => {
 
 // cria modal resposta
 const criar_resposta = (value) => {
-    const resposta = document.querySelector('.resposta-mensagem').cloneNode(true)
+    let container_ticket    = document.querySelector('.container__ticket')
 
-    resposta.querySelectorAll("p")[1].innerHTML = value
+    let resposta            = document.querySelector('.resposta-mensagem').cloneNode(true)
 
-    resposta.style.display = 'block'
+    resposta.querySelector("p").innerHTML = value
 
-    area_container.appendChild(resposta)
+    resposta.style.display  = 'flex'
+
+    container_ticket.appendChild(resposta)
 }
 
 // cria modal pergunta
 const criar_pergunta = (mensagem) => {
+    let container_ticket    = document.querySelector('.container__ticket')
+    
     som_pergunta()
     
-    const pergunta = document.querySelector('.pergunta-mensagem').cloneNode(true)
+    let pergunta            = document.querySelector('.pergunta-mensagem').cloneNode(true)
 
     pergunta.querySelector("p").innerHTML = mensagem
 
-    pergunta.style.display = 'flex'
+    pergunta.style.display  = 'flex'
 
-    area_container.appendChild(pergunta)
+    container_ticket.appendChild(pergunta)
 }
 
 // modal avaliar dados de cadastro
 const menu_confirmar_dados = () => {
-    const container_section     = document.querySelector('.section__container')
-    const modal_confirmardados  = document.querySelector('.modal-confirmardados').cloneNode(true)
-    const areamensagem          = document.querySelector(".send-message")
-    const buttao_cadastrar      = modal_confirmardados.querySelector('.cadastrarticket-button')
+    let section             = document.querySelector('.section__container')
+    let confimar_dados      = document.querySelector('.confirm-data').cloneNode(true)
+    let area_mensagem       = document.querySelector(".container__input-mensagem")
+    let button_cadastrar    = confimar_dados.querySelector('.buttons-cadastrar')
+    let container_ticket    = document.querySelector('.container__ticket')
+    
     // analisar essas 3 opções para melhor gerenciamento
-    modal_confirmardados.style.display  = 'flex'
-    area_container.style.display        = 'none'
-    areamensagem.style.display          = 'none'
+    confimar_dados.style.display  = 'flex'
+    container_ticket.style.display        = 'none'
+    area_mensagem.style.display          = 'none'
 
-    container_section.appendChild(modal_confirmardados)
+    section.appendChild(confimar_dados)
   
-    buttao_cadastrar.addEventListener('click', () => {
+    button_cadastrar.addEventListener('click', () => {
         cadastrar_ticket(ticket)
     })
 }
@@ -189,23 +197,27 @@ const cadastrar_ticket = (ticket) => {
 
 // cancelar ticket
 const cancelar_ticket = (e) => {
-    let confirmardados = e.parentElement.parentElement
-    
+    let confirmar_dados = e.parentElement.parentElement.parentElement
+    let labelimg = document.querySelector('.label-img')
+
+    labelimg.innerHTML = "Selecionar um arquivo"
+
     limpar_modal_anterior()
 
-    confirmardados.style.display    = 'none'
-    area_container.style.display    = 'block'
-    area_container.style.overflowY  = 'hidden'
-
+    confirmar_dados.style.display    = 'none'
+    
     ativar_modal_chat()
 }
 
 // 2
 // oculta o modal anterior e inicia a primeira pergunta
 const iniciar_chat = () => {
-    const modal_ativarchat  = document.querySelector(".modal-ativarchat")
-    const area_mensagem     = document.querySelector(".send-message")
-    modal_ativarchat.style.display  = 'none'
+    let ativar_chat = document.querySelector(".modal-ativarchat")
+    let area_mensagem     = document.querySelector(".container__input-mensagem")
+    let container_ticket = document.querySelector('.container__ticket')
+
+    ativar_chat.style.display  = 'none'
+    container_ticket.style.display = 'flex'
     area_mensagem.style.display     = 'flex'
 
     primeira_pergunta() // primeira pergunta
@@ -220,10 +232,13 @@ const iniciar_chat = () => {
 // 1
 // ativando o modal para iniciar o chat de cadastro ticket 
 const ativar_modal_chat = () => {
-    const modal_chat = modal_ativarchat.cloneNode(true)
-    const container_section = document.querySelector('.section__container')
-    modal_chat.style.display = 'flex'
-    container_section.appendChild(modal_chat)
+    let ativar_chat = document.querySelector(".modal-ativarchat")
+    //let modal_chat = ativar_chat.cloneNode(true)
+    let section = document.querySelector('.section__container')
+    
+    //modal_chat.style.display = 'flex'
+    ativar_chat.style.display = 'flex'
+   // section.appendChild(ativar_chat)
 }
 
 // efeito sonoro da pergunta
@@ -248,6 +263,8 @@ const som_pergunta = () => {
 inputimg.addEventListener("change", (e) => {
     let file            = e.target.files[0];
     let reader          = new FileReader();
+
+    let labelimg = document.querySelector('.label-img')
     labelimg.innerHTML  = file.name
 
     reader.onload = (data) => {

@@ -108,6 +108,11 @@ section {
     background-color: var(--marrom-medio);
     margin-inline: auto;
     border-radius: 25px;
+    overflow-y: scroll;
+}
+
+.section__container::-webkit-scrollbar { 
+	display: none;
 }
 
     /*  HEADER  SECTION */
@@ -115,7 +120,7 @@ section {
 .container__header {
     height: 10%;
     width: 95%;
-    display: block;
+    display: flex;
     align-items: center;
     justify-content: space-around;
     background-color: var(--roxo);
@@ -190,11 +195,25 @@ section {
     background-color: black;
 }
 
+    /* EMPLOYEE */
+
+.container-employee {
+    width: 50%;
+    display: none;
+}
+
+.input-employee {
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    box-sizing: border-box;
+}
+
     /* ACTIVITY */
 
 .container-activity {
     width: 80%;
-    display: flex;
+    display: none;
 }
 
 .input-activity {
@@ -278,23 +297,30 @@ section {
     /* CONTAINER SECTION */
 
 .container__main {
-    height: 80%;
+    height: 90%;
     width: 95%;
     display: flex;
     margin-inline: auto;
     box-sizing: border-box;
     flex-wrap: wrap;
-    justify-content: space-between;
-    overflow-y: scroll;
+    justify-content: space-around;
+}
+
+.container__ticket {
+    width: 90%;
+    height: 90%;
+    flex-direction: column;
+    display: none;
+    margin-inline: auto;
 }
 
 
-.container__main::-webkit-scrollbar {
+.container__ticket::-webkit-scrollbar {
     width: 5px;               /* width of the entire scrollbar */
     box-sizing: border-box;
 }
 
-.container__main::-webkit-scrollbar-track {
+.container__ticket::-webkit-scrollbar-track {
     background: var(--vinho); 
 }
 
@@ -323,54 +349,114 @@ section {
 
 /* MODAL SOLICITAÇÕES E FUNCIONÁRIOS INICIO */
 
-.caixa-card {
-    width: 95%;
-    height: 100px;
-    display: none;
-    margin: 25px auto 0 auto;
+.box {
+    width: 40%;
+    max-width: 300px;
+    height: 350px;
     background-color: white;
+    border-radius: 20px;
+    border: 3px solid var(--cinza);
+    margin-top: 15px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }
-/*
-.requests, .funcionario {
+
+.circle-image {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border: 3px solid var(--cinza);
+    border-radius: 100%;
+}
+
+.circle-image > img {
+    width: 85px;
+    height: 85px;
+}
+
+.box p {
+    color: black;
+}
+
+.box__button-alterar {
+    width: 35%;
+    height: 10%;
+    background-color: var(--azul);
+    border-radius: 50px;
+    text-align: center;
+    list-style: 1rem;
+    display: none;
+}
+
+.box__button-acesso {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.box__button-acesso > p {
+    font-style: italic;
+    color: var(--cinza);
+}
+
+.toggler-wrapper {
+	display: block;
+	width: 60px;
+	height: 25px;
+	cursor: pointer;
+	position: relative;
+}
+
+.toggler-wrapper input[type="checkbox"] {
 	display: none;
 }
-*/
 
-.caixa-card p {
-	font-size: 0.8rem;
+.toggler-wrapper input[type="checkbox"]:checked+.toggler-slider {
+	background-color: #44cc66;
 }
 
-.center-card {
-	width: 95%;
+.toggler-wrapper .toggler-slider {
+	background-color: #ccc;
+	position: absolute;
+	border-radius: 100px;
+	top: 0;
+	left: 0;
+	width: 100%;
 	height: 100%;
-	margin-inline: auto;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+	-webkit-transition: all 300ms ease;
+	transition: all 300ms ease;
 }
 
-.texto-card {
-	width: fit-content;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	height: 100%;
+.toggler-wrapper .toggler-knob {
+	position: absolute;
+	-webkit-transition: all 300ms ease;
+	transition: all 300ms ease;
 }
 
-.buttons-card {
-	height: 100%;
-	width: 30%;
-	display: flex;
-	align-items: center;
+.toggler-wrapper.style-21 input[type="checkbox"]:checked+.toggler-slider .toggler-knob {
+	left: calc(100% - 19px - 3px);
+	background-image: url(../imagens/shut-down-line-on.svg);
 }
 
-.left-buttons-card, .right-buttons-card {
-	width: 50%;
-	height: 100%;
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	justify-content: center;
+.toggler-wrapper.style-21 .toggler-slider {
+	background-color: #eb4f37;
+}
+
+.toggler-wrapper.style-21 .toggler-knob {
+	width: calc(25px - 6px);
+	height: calc(25px - 6px);
+	border-radius: 50%;
+	left: 3px;
+	top: 3px;
+	background-color: #fff;
+	background-image: url(../imagens/shut-down-line-off\ \(1\).svg);
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 /* MODAL SOLICITAÇÕES E FUNCIONÁRIOS FIM */
@@ -378,6 +464,7 @@ section {
 /* MODAL ATIVIDADE ABERTA INICIO */
 
 .open__activity {
+    display: none;
     width: 45%;
     height: 350px;
     margin-top: 15px;
@@ -452,83 +539,9 @@ section {
     background-color: var(--marrom-claro);
     margin-bottom: 10px;
 }
-/*
-.atividade-aberta {
-    width: 85%;
-    height: 150px;
-    display: none;
-    margin: 25px auto 0 auto;
-    background-color: white;
-    justify-content: center;
-}
-
-.center-card-atividade {
-    width: 95%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-inline: auto;
-}
-
-.header-card-atividade {
-    width: 95%;
-    height: 50%;
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-}
-
-.section-card-atividade {
-    width: 95%;
-    height: 50%;
-    align-items: center;
-    display: flex;
-}
-
-.section-card-atividade  {
-    border-top: 1px solid black;
-}
-
-.section-card-atividade >  img {
-    height: 90%;
-}
-
-.info-ticket-atividade-aberta {
-    width: 50%;
-    margin-left: 15px;
-}
-
-.info-ticket-atividade-aberta  > div {
-    display: flex;
-}
-
-.info-ticket-atividade-aberta p {
-    margin-left: 5px;
-}
-
-.conteudo-atividade-aberta > div {
-    display: flex;
-}
-
-.atividade-aberta span {
-    font-weight: bold;
-    font-size: 0.8rem;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.atividade-aberta p {
-    font-size: 0.8rem;
-}
-*/
-
-/* MODAL ATIVIDADE ABERTA FIM */
-
-/* MODAL ATIVIDADE FECHADO INICIO */
-
 
 .close__activity {
+    display: none;
     width: 45%;
     height: 470px;
     margin-top: 15px;
@@ -634,247 +647,13 @@ section {
     display: none;
 }
 
-/*
-.card-atividade-fechado * {
-    font-family: 'Montserrat', sans-serif;
-}
-
-.top-fechado {
-    width: 90%;
-    height: 50%;
-    margin-inline: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.top-fechado > img {
-    height: 75px;
-}
-
-.bottom-fechado {
-    width: 100%;
-    height: 50%;
-    background-color: var(--cinza);
-    border-radius: 0 0px 20px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.left-top-fechado {
-    width: 45%;
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.left-top-fechado > div {
-    display: flex;
-    margin-bottom: 10px;
-}
-
-.left-top-fechado > div span {
-    font-weight: bold;
-    margin-right: 5px;
-}
-
-.left-top-fechado > p{
-    width: fit-content;
-    color: var(--cinza);
-    font-weight: bold;
-    border-bottom: 1px solid var(--cinza);
-}
-
-.right-top-fechado {
-    width: 45%;
-    height: 90%;
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbTHeHJZVf7_H5Y81VaKZJBCSmJdEqLFgQ0Q&usqp=CAU');
-    object-fit: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.margin-bottom-fechado {
-    margin-inline: auto;
-    width: 90%;
-    height: 80%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.left-bottom-fechado, .right-bottom-fechado {
-    width: 45%;
-    height: 100%;
-    color: white;
-    padding-top: 5%;
-}
-
-.stick {
-    width: 1%;
-    height: 50%;
-    background-color: white;
-}
-
-.left-bottom-fechado > h4 {
-    text-align: center;
-    margin-bottom: 5px;
-   
-}
-
-.left-bottom-fechado > p {
-    text-align: left;
-    margin-bottom: 5px;
-}
-
-.left-bottom-fechado  > a {
-    border-bottom: 1px solid white;
-}
-
-.right-bottom-fechado > h4 {
-    text-align: center;
-    margin-bottom: 5px;
-}
-
-.right-bottom-fechado > p {
-    text-align: left;
-}
-
-.bottom-margin-fechado {
-    height: 20%;
-    width: 50%;
-    border-radius:40px 40px 0 0 ;
-    margin-inline: auto;
-    background-color: #D9D9D9;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-}
-
-/*
-.atividade-fechada {
-    width: 500px;
-    max-width: 95%;
-    height: 350px;
-    display: none;
-    margin: 25px auto 0 auto;
-    background-color: white;
-    justify-content: center;
-}
-
-.atividade-fechada p {
-    font-size: 0.8rem;
-}
-
-.atividade-fechada span {
-    font-weight: bold;
-    font-size: 0.8rem;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.status-servico-atividade {
-    height: 15%;
-    width: 95%;
-    display: flex;
-    border-top: 1px solid black;
-    justify-content: space-evenly;
-    padding-top: 5px;
-    align-items: center;
-}
-
-.status-servico-atividade > .status {
-    display: flex;
-}
-
-.datas-atividades {
-    display: flex;
-    width: fit-content;
-    height: 100%;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.datas-atividades > div {
-    display: flex;
-}
-
-.status-servico-atividade div p {
-    margin-left: 5px;
-}
-
-.conteudo-servico-atividade {
-    border-top: 1px solid black;
-    display: flex;
-    height: 30%;
-    width: 95%;
-    justify-content: space-around;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.conteudo-servico-atividade > img {
-    width: 85px;
-    height: 75px;
-}
-
-.conteudo-atividade {
-    width: fit-content;
-    height: 100%;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-}
-
-.conteudo-atividade div {
-    display: flex;
-}
-
-.conteudo-atividade div p {
-    margin-left: 5px;
-}
-
-.caixa-atividade {
-    padding-top: 5px;
-    border-top: 1px solid black;
-    width: 95%;
-    height: 20%;
-    display: flex;
-    align-items: center;
-	justify-content: space-between;
-}
-
-.center-atividade-fechada {
-    margin-inline: auto;
-    width: 95%;
-}
-
-.buttons-card-atividade {
-	height: 100%;
-	display: flex;
-	align-items: center;
-}
-
-.center-buttons-card {
-	width: fit-content;
-	height: 100%;
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	justify-content: center;
-}
-*/
-
 /* MODAL ATIVIDADE FECHADO FIM */
 
 /* MODAL AREA TICKET INICIO */
 
-.modal-confirmardados {
+.confirm-data {
     width: 100%;
-    height: 90%;
+    height: 100%;
     justify-content: center;
     align-items: center;
     display: none;
@@ -935,59 +714,67 @@ section {
     text-align: justify;
 }
 
-.cadastrarticket-button {
+.confirm-data__buttons {
+    display: flex;
     margin-top: 5%;
-    background-color: var(--permitir);
-    width: 50%;
+    justify-content: space-between;
+    width: 60%;
     border-radius: 15px;
     color: black;
 }
 
+.buttons-cancelar {
+    width: 25%;
+    width: 150px;
+    height: 100%;
+    border-radius: 50px;
+    background-color: var(--vermelho);
+}
+
+.buttons-cadastrar {
+    width: 150px;
+    height: 100%;
+    border-radius: 50px;
+    background-color: var(--permitir);
+}
+
 /* MODAL AREA TICKET FIM */
 
-/* MODAL PERGUNTA INICIO */
 
-.pergunta-mensagem {
-    width: fit-content;
+/* MENSAGEM */
+
+.message {
     padding: 15px;
-
     margin: 15px 15px 15px 15px;
-    color: white;
-    background-color: var(--roxo);
+    color: black;
     border-radius: 50px;
+    box-sizing: border-box;
     display: none;
 }
 
-/* MODAL PERGUNTA FIM */
+    /* MODAL PERGUNTA INICIO */
 
-/* MODAL RESPOSTA INICIO */
+.pergunta-mensagem {
+    width: max-content;
+    background-color: white;
+    border: 3px solid var(--cinza);
+}
+
+    /* MODAL PERGUNTA FIM */
+
+    /* MODAL RESPOSTA INICIO */
 
 .resposta-mensagem {
     width: 250px;
     height: fit-content;
-    color: black;
-    background-color: white;
-    margin: 15px 0 15px auto;
-    padding-bottom: 5px;
-    display: none;
+    background-color: var(--cinza);
+    margin-left: auto;
 }
 
 .resposta-mensagem > p {
-    text-indent: 5px;
-}
-
-.resposta-mensagem > div {
-    margin-top: 10px;
-    width: 225px;
-    margin-inline: auto;
-    background-color: var(--roxo);
-    color: white;
-    padding: 5px;
-}
-
-.resposta-mensagem > div > p {
-    text-indent: 15px;
     font-size: 0.8rem;
+    text-align: justify;
+    max-width: 200px;
 }
 
 /* MODAL RESPOSTA FIM */
@@ -1033,7 +820,7 @@ section {
 
 /* MODAL ATIVAR CHAT FIM */
 
-.send-message {
+.container__input-mensagem {
     width: 100%;
     height: 10%;
     display: none;
@@ -1041,24 +828,32 @@ section {
     justify-content: center;
 }
 
+.send-message {
+    height: 70%;
+    width: 300px;
+    padding-inline: 1%;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border: 5px solid var(--cinza);
+    background-color: var(--marrom-extra-claro);
+}
+
 .input-resposta {
-    height: 35px;
-    width: 255px;
-
+    height: 100%;
+    width: 85%;
+    background-color: var(--marrom-extra-claro);
     padding-inline: 15px;
+    border-radius: 50px 0 0 50px;
 }
 
-.imagem-enviar {
-    height: 35px;
-    width: 35px;
-    background-color: white;
+.circle-send {
+    height: 30px;
+    width: 10%;
+    border-radius: 100%;
+    border: 3px solid var(--cinza);
 }
-
-.imagem-enviar > img {
-    height: 35px;
-    width: 35px;
-}
-
 
 .div-img {
     height: 35px;
@@ -1071,12 +866,15 @@ section {
 input[type='file'] {
     display: none
 }
+
+.input-resposta::placeholder {
+    font-style: italic;
+}
   
   /* Aparência que terá o seletor de arquivo */
 
 .label-img {
-    background-color: #3498db;
-    color: #fff;
+    color: black;
     cursor: pointer;
     padding-inline: 15px;
     display: none;

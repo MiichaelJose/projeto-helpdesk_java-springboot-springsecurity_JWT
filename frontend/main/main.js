@@ -6,13 +6,10 @@ const options = [
     "ATIVIDADES ABERTAS"
 ]
 
-const modal_ativarchat  = document.querySelector(".modal-ativarchat")
-const area_container    = document.querySelector('.container__main')
-const area_mensagem     = document.querySelector(".send-message")
-const atividade_center_header = document.querySelector('.atividade-center-header')  
-
 const buttons_options = () => {
-    const buttons = document.querySelectorAll('li')
+    let buttons = document.querySelectorAll('li')
+
+    //ativar_modal_chat()
 
     tempo_minutes(pegar_token_json(pegar_token_cookie().token_acesso))
 
@@ -28,31 +25,54 @@ const modal = (id) => {
 }
 
 const limpar_modal_anterior  = () => {
-    const modal_confirmardados  = document.querySelector('.modal-confirmardados')
-    const input                 = document.querySelector('.input-resposta')
-   
+    let container_main      = document.querySelector('.container__main')
+    let confimar_dados      = document.querySelector('.confirm-data')
+    let input               = document.querySelector('.input-resposta')
+    let container_ticket    = document.querySelector('.container__ticket')
+    let area_mensagem       = document.querySelector(".container__input-mensagem")
+    let labelimg            = document.querySelector('.label-img')
+    let ativar_chat         = document.querySelector('.modal-ativarchat')
+    let container_header    = document.querySelector('.container__header')
+    let container_employee  = document.querySelector('.container-employee')
+    let container_acess     = document.querySelector('.container-acess')
+    let container_activity  = document.querySelector('.container-activity')
+    let cofirm_data         = document.querySelector('.confirm-data')
+    
     if(contador_repostas == 7) {
         contador_pergunta = 0
         contador_repostas = 0
     }
 
-    area_container.innerHTML            = ""
-    area_container.style.height         = '80%'
-    area_mensagem.style.display         = 'none'
-    modal_ativarchat.style.display      = 'none'
-    modal_confirmardados.style.display  = 'none'
-    atividade_center_header.style.display  = 'none'
-    labelimg.style.display              = 'none' 
+    // inputs
+    container_header.style.display      = 'none'
+    container_employee.style.display    = 'none'
+    container_acess.style.display       = 'none'
+    container_activity.style.display    = 'none'
     input.removeAttribute('hidden', 'hidden')
+
+    // ticket
+    container_ticket.innerHTML          = ''
+    container_ticket.style.display      = 'none'
+    ativar_chat.style.display           = 'none'
+    confimar_dados.style.display        = 'none'
+    labelimg.style.display              = 'none' 
+
+    // main
+    container_main.innerHTML            = ''
+    container_main.style.display        = 'none'
+    area_mensagem.style.display         = 'none'
+
+    cofirm_data.style.display           = 'none'
 }
 
 const ativar_modal = (id) => {
-    const header_section    = document.querySelector('.section__header')
-    const container_section = document.querySelector('.section__container')
-    header_section.removeAttribute("hidden")
-    container_section.removeAttribute("hidden")
+    let header      = document.querySelector('.section__header')
+    let section     = document.querySelector('.section__container')
+    
+    header.removeAttribute("hidden")
+    section.removeAttribute("hidden")
 
-    let title = header_section.querySelector("h1")
+    let title = header.querySelector("h1")
     
     switch (id) {
         case "1":

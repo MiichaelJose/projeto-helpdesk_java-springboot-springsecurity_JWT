@@ -1,8 +1,13 @@
 // prepaara o local para a listagem dos funcionarios 
 const modal_funcionario = () => {
-    area_container.style.height = '90%'
-    area_container.style.overflowY = 'scroll'
-  
+    let container_main      = document.querySelector('.container__main')
+    let container_header    = document.querySelector('.container__header')
+    let container_employee       = document.querySelector('.container-employee')
+    
+    container_main.style.display = 'flex'
+    container_header.style.display = 'flex'
+    container_employee.style.display = 'flex'
+
     listar_funcionarios()
 }
 
@@ -30,17 +35,25 @@ const listar_funcionarios = () => {
 
 // cria o card do funcionario
 const caixa_funcionario = (data) =>  {
-    const caixa     = document.querySelector('#funcionario').cloneNode(true)
+    let container_main = document.querySelector('.container__main')
+    const caixa     = document.querySelector('.box').cloneNode(true)
     const textos    = caixa.querySelectorAll('p')
 
     caixa.style.display = 'flex'
-    //caixa.classList.remove('funcionario')
+    
+    let button_alterar = caixa.querySelector('.box__button-alterar')
+    
+    button_alterar.style.display = 'block'
+
+    let button_acess = caixa.querySelector('.box__button-acesso')
+    
+    button_acess.style.display = 'none'
 
     textos[0].innerHTML = data.usuario
-    textos[1].innerHTML = data.cargo
-    textos[2].innerHTML = data.cpf
+    textos[1].innerHTML = data.cpf
+    textos[2].innerHTML = data.cargo
 
-    area_container.appendChild(caixa)
+    container_main.appendChild(caixa)
 }
 
 

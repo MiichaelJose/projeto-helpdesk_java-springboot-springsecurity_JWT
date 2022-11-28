@@ -1,9 +1,14 @@
 
 // prepara o local para a listagem das solicitacoes
 const modal_solicitacoes = () => {
-    area_container.style.height = '90%'
-    area_container.style.overflowY = 'scroll'
+    let container_main      = document.querySelector('.container__main')
+    let container_header    = document.querySelector('.container__header')
+    let container_acess     = document.querySelector('.container-acess')
     
+    container_main.style.display = 'flex'
+    container_header.style.display = 'flex'
+    container_acess.style.display = 'flex'
+
     listar_solicitacoes()
 }
 
@@ -32,15 +37,24 @@ const listar_solicitacoes = () => {
 
 // criar card de solicitacao
 const caixa_solicitacao = (data) =>  {
-    const caixa = document.querySelector('#requests').cloneNode(true)
+    let container_main = document.querySelector('.container__main')
+    const caixa = document.querySelector('.box').cloneNode(true)
     const textos = caixa.querySelectorAll('p')
 
     caixa.style.display = 'flex'
     //caixa.classList.remove('requests')
 
+    let button_acess = caixa.querySelector('.box__button-acesso')
+    
+    button_acess.style.display = 'flex'
+
+    let button_alterar = caixa.querySelector('.box__button-alterar')
+    
+    button_alterar.style.display = 'none'
+
     textos[0].innerHTML = data.usuario
-    textos[1].innerHTML = data.cargo
-    textos[2].innerHTML = data.cpf
+    textos[1].innerHTML = data.cpf
+    textos[2].innerHTML = data.cargo
 
     const check     = caixa.querySelector('#check')
 
@@ -50,7 +64,7 @@ const caixa_solicitacao = (data) =>  {
         alterar_acesso(data.id, element.target)
     })
 
-    area_container.appendChild(caixa)
+    container_main.appendChild(caixa)
 }
 
 // button para alterar acesso do funcionario

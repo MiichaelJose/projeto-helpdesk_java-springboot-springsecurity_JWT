@@ -37,19 +37,16 @@
         </nav>
         <section>
             <div class="section__header" hidden>
-                <h1></h1>
+                <h1>CRIAR TICKET</h1>
             </div>
             <div class="section__container">
-                
                 <div class="container__header">
-                    <!-- ATIVIDADE CENTER ALTERAR -->
-                    <div class="atividade-center-header">                        
-                        <h4 onclick="listar_atividades_fechadas()">fechados</h4>
-                        <input type="text" id="filtro-atividade-input">
-                        <h4 onclick="listar_atividades_abertas()">abertos</h4>
-                    </div>
                     <div class="header__input">
-                        <!--<input type="text" id="filtro-input">-->
+                        <div class="container__input container-employee">
+                            <input type="text" class="input__center input-employee" placeholder="Buscar...">
+                        </div>
+
+                        <!-- ACTIVITY -->
                         <div class="container__input container-activity">
                             <div class="input__activity">
                                 <p onclick="listar_atividades_abertas()">aberto</p>
@@ -74,7 +71,7 @@
                                 <img src="../imagens/cross.png" alt="" onclick="close_activity_filter()">
                             </div>
                         </div>
-                    
+                        <!-- ACESS -->
                         <div class="container__input container-acess">      
                             <input type="text" class="input__center input-acess" placeholder="Buscar...">
                             
@@ -96,224 +93,32 @@
                                 <p>todos</p>
                                 <img src="../imagens/cross.png" alt="" onclick="close_acess_filter()">
                            </div>
-
                         </div>
-                        
-                    </div>
-                    
+                    </div> 
                 </div>
-                <div class="container__main">  
-                      
-                    <div class="open__activity" style="display: none;">
-                        <div class="open__head">
-                            <div class="head__left">
-                                <div class="activity__text">
-                                    <p style="font-weight: bold;">equipamento</p>
-                                    <p>computador</p>
-                                </div>
-                                <div class="activity__text">
-                                    <p style="font-weight: bold;">departamento</p>
-                                    <p>financeiro</p>
-                                </div>
-                                <div class="activity__text">
-                                    <p style="font-weight: bold;">gerado</p>
-                                    <p>24/10/2022</p>
-                                </div>
-                            </div>
-                            <div class="head__right">
-                                <div class="js-click-image">
-                                    <img src="/imagens/view_image.png" alt="view_image" style="height: 100px; width: 100px;">
-                                    <p style="font-style: italic; color: white;">click</p>
-                                </div>
-                                <p>urgente</p>
-                            </div>
-                        </div>
-                        <div class="open__bottom">
-                            <div class="bottom__button">
-                                <h3>definir funcionário</h3>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="close__activity">
-                        <div class="close__head">
-                            <div class="head__left">
-                                <div class="activity__text">
-                                    <p style="font-weight: bold;">equipamento</p>
-                                    <p>computador</p>
-                                </div>
-                                <div class="activity__text">
-                                    <p style="font-weight: bold;">departamento</p>
-                                    <p>financeiro</p>
-                                </div>
-                                <div class="activity__text">
-                                    <p style="font-weight: bold;">gerado</p>
-                                    <p>24/10/2022</p>
-                                </div>
-                            </div>
-                            <div class="head__right">
-                                <div class="js-click-image">
-                                    <img src="/imagens/view_image.png" alt="view_image" style="height: 100px; width: 100px;">
-                                    <p style="font-style: italic; color: white;">click</p>
-                                </div>
-                                <p>urgente</p>
-                            </div>
-                        </div>
-                        <div class="close__bottom">
-                            <div class="close__left">
-                                <p style="font-weight: bold;">técnico</p>
-                                <div class="close__image">
-                                    <img src="../imagens/team.png" alt="">
-                                </div>
-                                <p>Michael José</p>
-                                <p>031.294.514-04</p>
-                                <div class="close__button">
-                                    <h3>alterar</h3>
-                                </div>
-                            </div>
-                            <div class="close__right">
-                                <div class="activity__text">
-                                    <p style="font-weight: bold;">serviço</p>
-                                    <p>aceito</p>
-                                </div>
-                                <div class="close__date">
-                                    <div class="date__left">
-                                        <div class="activity__text">
-                                            <p style="font-weight: bold;">inicio</p>
-                                            <p>24/10/2022</p>
-                                        </div>
-                                        <div class="activity__text">
-                                            <p style="font-weight: bold;">finalizado</p>
-                                            <p>24/10/2022</p>
-                                        </div>
-                                    </div>
-                                    <img src="../imagens/calendar.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="container__main">
 
-                    <div class="close__activity">
-                        <div class="close__head">
-                            <div class="head__left">
-                                <div class="activity__text">
-                                    <p style="font-weight: bold;">equipamento</p>
-                                    <p>computador</p>
-                                </div>
-                                <div class="activity__text">
-                                    <p style="font-weight: bold;">departamento</p>
-                                    <p>financeiro</p>
-                                </div>
-                                <div class="activity__text">
-                                    <p style="font-weight: bold;">gerado</p>
-                                    <p>24/10/2022</p>
-                                </div>
-                            </div>
-                            <div class="head__right">
-                                <div class="js-click-image">
-                                    <img src="/imagens/view_image.png" alt="view_image" style="height: 100px; width: 100px;">
-                                    <p style="font-style: italic; color: white;">click</p>
-                                </div>
-                                <p>urgente</p>
-                            </div>
-                        </div>
-                        <div class="close__bottom">
-                            <div class="close__left">
-                                <p style="font-weight: bold;">técnico</p>
-                                <div class="close__image">
-                                    <img src="../imagens/team.png" alt="">
-                                </div>
-                                <p>Michael José</p>
-                                <p>031.294.514-04</p>
-                                <div class="close__button">
-                                    <h3>alterar</h3>
-                                </div>
-                            </div>
-                            <div class="close__right">
-                                <div class="activity__text">
-                                    <p style="font-weight: bold;">serviço</p>
-                                    <p>aceito</p>
-                                </div>
-                                <div class="close__date">
-                                    <div class="date__left">
-                                        <div class="activity__text">
-                                            <p style="font-weight: bold;">inicio</p>
-                                            <p>24/10/2022</p>
-                                        </div>
-                                        <div class="activity__text">
-                                            <p style="font-weight: bold;">finalizado</p>
-                                            <p>24/10/2022</p>
-                                        </div>
-                                    </div>
-                                    <img src="../imagens/calendar.png" alt="">
-                                </div>
-                            </div>
+                </div>  
+
+                <div class="container__ticket"></div>
+
+                <div class="modal-ativarchat" style="display: none;">
+                    <div class="center-modal">
+                        <h2>chatbot</h2>
+                        <p>para cadastrar um chamado é necessário passar algumas informações para o chatbot.</p>
+                        <div onclick="iniciar_chat()">
+                            <h3>INICIAR</h3>
                         </div>
                     </div>
-                    <div class="close__activity">
-                        <div class="close__head">
-                            <div class="head__left">
-                                <div class="activity__text">
-                                    <p style="font-weight: bold;">equipamento</p>
-                                    <p>computador</p>
-                                </div>
-                                <div class="activity__text">
-                                    <p style="font-weight: bold;">departamento</p>
-                                    <p>financeiro</p>
-                                </div>
-                                <div class="activity__text">
-                                    <p style="font-weight: bold;">gerado</p>
-                                    <p>24/10/2022</p>
-                                </div>
-                            </div>
-                            <div class="head__right">
-                                <div class="js-click-image">
-                                    <img src="/imagens/view_image.png" alt="view_image" style="height: 100px; width: 100px;">
-                                    <p style="font-style: italic; color: white;">click</p>
-                                </div>
-                                <p>urgente</p>
-                            </div>
-                        </div>
-                        <div class="close__bottom">
-                            <div class="close__left">
-                                <p style="font-weight: bold;">técnico</p>
-                                <div class="close__image">
-                                    <img src="../imagens/team.png" alt="">
-                                </div>
-                                <p>Michael José</p>
-                                <p>031.294.514-04</p>
-                                <div class="close__button">
-                                    <h3>alterar</h3>
-                                </div>
-                            </div>
-                            <div class="close__right">
-                                <div class="activity__text">
-                                    <p style="font-weight: bold;">serviço</p>
-                                    <p>aceito</p>
-                                </div>
-                                <div class="close__date">
-                                    <div class="date__left">
-                                        <div class="activity__text">
-                                            <p style="font-weight: bold;">inicio</p>
-                                            <p>24/10/2022</p>
-                                        </div>
-                                        <div class="activity__text">
-                                            <p style="font-weight: bold;">finalizado</p>
-                                            <p>24/10/2022</p>
-                                        </div>
-                                    </div>
-                                    <img src="../imagens/calendar.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>      
-                <div class="send-message">
-                    <input type="text" class="input-resposta">
-                    <label for='selecao-arquivo' class="label-img">Selecionar um arquivo</label>
-                    <input id='selecao-arquivo' type='file' class="input-img">
-                    <div class="imagem-enviar" onclick="enviar_resposta()">
-                        <img src="../imagens/icons8-send-50.png" alt="">
+                </div>
+                    
+                <div class="container__input-mensagem">
+                    <div class="send-message">
+                        <input type="text" class="input-resposta"  placeholder="digite..">
+                        <label for='selecao-arquivo' class="label-img">Selecionar um arquivo</label>
+                        <input id='selecao-arquivo' type='file' class="input-img">
+                        <div class="circle-send" onclick="enviar_resposta()"></div>
                     </div>
                 </div>
             </div>
@@ -329,120 +134,123 @@
         </div>
 
         <!-- MODAL AREA (SOLICITACOES ACESSO)-->
-        <div class="caixa-card" id="requests">
-            <div class="center-card">
-                <div class="texto-card">
-                    <p>Michael José</p>
-                    <p>Técnico</p>
-                </div>
-                <p>CPF: 031.294.514-04</p>
-                <div class="buttons-card">
-                    <div class="left-buttons-card">
-                        <div class="circle" style="background-color: #FFD452;"></div>
-                        <p>alterar</p>
+         <!-- MODAL AREA (FUNCIONARIOS) -->
+
+        <div class="box">
+            <div class="circle-image">
+                <img src="../imagens/team.png" alt="">
+            </div>
+            <p>Michael José</p>
+            <p>CPF: 031.294.514-04</p>
+            <p>Técnico</p>
+
+            <div class="box__button-alterar">
+                <h3>alterar</h3>
+            </div>
+
+            <div class="box__button-acesso">
+                <label class="toggler-wrapper style-21">
+                    <input type="checkbox" id="check">
+                    <div class="toggler-slider">
+                        <div class="toggler-knob"></div>
                     </div>
-                    <div class="right-buttons-card">
-                        <label class="toggler-wrapper style-21">
-                            <input type="checkbox" id="check">
-                            <div class="toggler-slider">
-                                <div class="toggler-knob"></div>
-                            </div>
-                        </label>
-                        <p>acesso</p>
-                    </div>
-                </div>
+                </label>
+                <p>acesso</p>
             </div>
         </div>
-
 
         <!-- MODAL AtIVIDADE FECHADO -->
 
-        <div class="card-atividade-fechado">
-            <div class="top-fechado">
-                <div class="left-top-fechado">
-                    <div><span>equipamento:</span> <p>computador</p></div>
-                    <div><span>departamento:</span> <p>escritório</p></div>
-                    <div><span>data:</span> <p>computador</p></div>
-                    <div><span>status:</span> <p>urgente</p></div>
-                    <p>visualizar descrição</p>
+        <div class="close__activity">
+            <div class="close__head">
+                <div class="head__left">
+                    <div class="activity__text">
+                        <p style="font-weight: bold;">equipamento</p>
+                        <p>computador</p>
+                    </div>
+                    <div class="activity__text">
+                        <p style="font-weight: bold;">departamento</p>
+                        <p>financeiro</p>
+                    </div>
+                    <div class="activity__text">
+                        <p style="font-weight: bold;">gerado</p>
+                        <p>24/10/2022</p>
+                    </div>
                 </div>
-                <div class="right-top-fechado">
-
+                <div class="head__right">
+                    <div class="js-click-image">
+                        <img src="/imagens/view_image.png" alt="view_image" style="height: 100px; width: 100px;">
+                        <p style="font-style: italic; color: white;">click</p>
+                    </div>
+                    <p>urgente</p>
                 </div>
             </div>
-            <div class="bottom-fechado">
-                <div class="margin-bottom-fechado">
-                    <div class="left-bottom-fechado">
-                        <h4>TÉCNICO</h4>
-                        <p>Michael José</p>
-                        <p>CPF: 031.294.514-04</p>
-                        <a id="alt-tecnico" hidden>alterar técnico</a>
+            <div class="close__bottom">
+                <div class="close__left">
+                    <p style="font-weight: bold;">técnico</p>
+                    <div class="close__image">
+                        <img src="../imagens/team.png" alt="">
                     </div>
-                    <div class="stick"></div>
-                    <div class="right-bottom-fechado">
-                        <h4>SERVIÇO</h4>
-                        <p>Status: ---</p>
-                        <p>Data inicializado: ---</p>
-                        <p>Data finalizado: ---</p>
-                    </div>
-                    
-                </div>
-                <div class="bottom-margin-fechado">
-                    <p>ANÁLISE</p>
-                </div>
-            </div>
-        </div> 
-
-        <!-- MODAL AREA (FUNCIONARIOS) -->
-        <div class="caixa-card" id="funcionario">
-            <div class="center-card">
-                <div class="texto-card">
                     <p>Michael José</p>
-                    <p>Técnico</p>
-                </div>
-                <p>CPF: 031.294.514-04</p>
-                <div class="buttons-card">
-                    <div class="left-buttons-card">
-                        <div class="circle" style="background-color: #FFD452;"></div>
-                        <p>alterar</p>
+                    <p>031.294.514-04</p>
+                    <div class="close__button">
+                        <h3>alterar</h3>
                     </div>
-                    <div class="right-buttons-card">
-                        <div class="circle" style="background-color: #FF2E5F;"></div>
-                        <p>deletar</p>
+                </div>
+                <div class="close__right">
+                    <div class="activity__text">
+                        <p style="font-weight: bold;">serviço</p>
+                        <p>aceito</p>
+                    </div>
+                    <div class="close__date">
+                        <div class="date__left">
+                            <div class="activity__text">
+                                <p style="font-weight: bold;">inicio</p>
+                                <p>24/10/2022</p>
+                            </div>
+                            <div class="activity__text">
+                                <p style="font-weight: bold;">finalizado</p>
+                                <p>24/10/2022</p>
+                            </div>
+                        </div>
+                        <img src="../imagens/calendar.png" alt="">
                     </div>
                 </div>
             </div>
         </div>
-
+       
         <!-- MODAL ATIVIDADES ABERTA -->
-        
-        
-        <!--
-        <div class="atividade-aberta">
-            <div class="center-card-atividade">
-                <div class="header-card-atividade">
-                    <div class="conteudo-atividade-aberta">
-                        <div><span>gerado:</span> <p>computador</p></div>
-                        <div><span>status:</span> <p>escritório</p></div>
+        <div class="open__activity">
+            <div class="open__head">
+                <div class="head__left">
+                    <div class="activity__text">
+                        <p style="font-weight: bold;">equipamento</p>
+                        <p>computador</p>
                     </div>
-                    <div class="center-buttons-card">
-                        <div class="circle" style="background-color: black;"></div>
-                        <p>definir funcionário</p>
+                    <div class="activity__text">
+                        <p style="font-weight: bold;">departamento</p>
+                        <p>financeiro</p>
+                    </div>
+                    <div class="activity__text">
+                        <p style="font-weight: bold;">gerado</p>
+                        <p>24/10/2022</p>
                     </div>
                 </div>
-                <div class="section-card-atividade">
-                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAYGBgYGBgYHBwYJCgkKCQ0MCwsMDRQODw4PDhQfExYTExYTHxshGxkbIRsxJiIiJjE4Ly0vOEQ9PURWUVZwcJYBBgYGBgYGBgcHBgkKCQoJDQwLCwwNFA4PDg8OFB8TFhMTFhMfGyEbGRshGzEmIiImMTgvLS84RD09RFZRVnBwlv/CABEIAccC2AMBIQACEQEDEQH/xAAdAAEBAAIDAQEBAAAAAAAAAAAAAgYIAwUHBAEJ/9oACAEBAAAAANZLAAAAAAAAAAAAAABFgAAAAAAAAAAAAAAiwAAAAAAAAAAAAAARYAAAAAAAAAAAAAAIsAAAAAAAAAAAAAAEWAAAAAAAAAAAAAACLAAAAAAAAAAAAAABFgAAAAAAAAAAAAAAiwAAAAAAAAAAAAAARYAAAAAAAAAAAAAAIsAAAAAAAAAAAAAAEWAAAAAAAAAAAAAACLAAAAAAAAAAAAAABFgAAAAAAAAAAAAAAiwAAAAAAAAAAAAAARYAAAAAAAAAAAAAAIsAAAAAAAAAAAAAAEWAAAAAAAAAAAAAACLAAAAAAAAAAAAAABFgAAAAAAAAAAAAAAiwAAAAAAAAAAAAAARYAAAAAAAAAAAAAAIsAAAAAAAGT9J8YAAAAAAiwAD9+j5jl4gAAAMk+rusL6sAABygJgAIsAA2T2V/n/i+cek+H9cAAADJM/8AIeIAAA2H2lBw/wA3+EAIsAA9J3x058L/AKN67a2foAAGc7Jddx5hqPivGAAAPadygY3/AD14gAiwAB23uGB5/r1xgAAHN+bNefeQgAAA9J3qBgGhYAIsAAPTPU9YAAAAe4/X4GAAABkOy4MN14/QAiwABzbCdJ5T0wAAB+bA5P45nHfeH4qAAAO07XmD58YABFgAH5sJ4T8ew2vAAAB7Z6bjmI4Xh/GAAAHdfTQR03zABFgAFZFjbvelgAAAAAAADsKA+TgACLAAAAAAAAAAAAAABFgAAAAAAAAAAAAAAiwAAAAAAAAAAAAAARYAAAAAAAAAAAAAAIsAAAAAAAAAAAAAAEWAAAAAAAAAAAAAACLAAAAAAAAAAAAAABFgAAAAAAAAAAAAAAiwAAAAAAAAAAAAAARYAAAAAAAAAAAAAAIsAAAAAAAAAAAAAAEWAAAAAAAAAAAAAACLAAAAAAAAAAAAAABFgAAAAAAAAAAAAAAiwAAAAAAAAAAAAAARYAAAAAAAAAAAAAAIsAAAAAAAAAAAAAAEWAAAAAAAAAAAAAACLAAAAAAAAAAAAAABFgAAAAAAAAAAAAAAiwAAAAAAAAAAAAAARYAAAAAAAAAAAAAAIsAAAAAAAAAAAAAAEWAAAAAAAAAAAAAACLAAAAAAAAAAAAAABx2AAAAAAAAAAAAAD6Ptn9P/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAQL/2gAIAQIQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFAAAAAAAmLP/8QAFwEBAQEBAAAAAAAAAAAAAAAAAAEDBP/aAAgBAxAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIUAAAAAADTvP/xAAnEAABAQcE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" alt="">
-                    <div class="info-ticket-atividade-aberta">
-                        <p class="idTicket" hidden>id</p>
-                        <div><span>equipamento:</span> <p>computador</p></div>
-                        <div><span>departamento:</span> <p>escritório</p></div>
-                        <div><span>descrição:</span> <p>computador</p></div>
-                        <div><span>data:</span> <p>escritório</p></div>
+                <div class="head__right">
+                    <div class="js-click-image">
+                        <img src="/imagens/view_image.png" alt="view_image" style="height: 100px; width: 100px;">
+                        <p style="font-style: italic; color: white;">click</p>
                     </div>
+                    <p>urgente</p>
+                </div>
+            </div>
+            <div class="open__bottom">
+                <div class="bottom__button">
+                    <h3>definir funcionário</h3>
                 </div>
             </div>
         </div>
-        -->
+    
         <!-- SELECIONAR FUNCIONARIO -->
         <div class="selecionar-funcionario-caixa">
             <div class="center-selecionar-funcionario">
@@ -511,13 +319,10 @@
             </div>
        </div>
 
-        
-
         <!-- MODELOS AREA (TICKET) -->
-        <div class="modal-confirmardados">
+        <div class="confirm-data">
             <div class="center-modalconfirmardados">
                 <p>Dados do ticket gerado!</p>
-                <img src="../imagens/icons8-lápis-100.png" alt="" onclick="cancelar_ticket(this)">
                 <img src="" alt="" width="75px" height="75px" id="img-dispositivo">
                 <div class="texto-modalconfirmardados">
                     <div class="caixa-geral">
@@ -537,32 +342,27 @@
                         </div>
                     </div>
                 </div>
-                <div class="cadastrarticket-button">
-                    <h3>cadastrar</h3>
+                <div class="confirm-data__buttons">
+                    <div class="buttons-cancelar" onclick="cancelar_ticket(this)">
+                        <h3>cancelar</h3>
+                    </div>
+
+                    <div class="buttons-cadastrar">
+                        <h3>cadastrar</h3>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="pergunta-mensagem">
-            <p>nome equipamento?</p>
+        <div class="pergunta-mensagem message">
+            <p></p>
         </div>
 
-        <div class="resposta-mensagem">
-            <p>resposta...</p>
-            <div>
-                <p>computador</p>
-            </div>
+        <div class="resposta-mensagem message">
+            <p></p>
         </div>
 
-        <div class="modal-ativarchat">
-            <div class="center-modal">
-                <h2>chatbot</h2>
-                <p>para cadastrar um chamado é necessário passar algumas informações para o chatbot.</p>
-                <div onclick="iniciar_chat()">
-                    <h3>INICIAR</h3>
-                </div>
-            </div>
-        </div>
+       
     </main>
 </body>
 <script src="../config/cookie.js"></script>
