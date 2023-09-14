@@ -39,4 +39,70 @@ public class Servico {
 
 	private String dataServicoFinalizado;
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Usuario getIdTecnico() {
+		return idTecnico;
+	}
+
+	public void setIdTecnico(Usuario idTecnico) {
+		this.idTecnico = idTecnico;
+	}
+
+	public Usuario getIdAdmin() {
+		return idAdmin;
+	}
+
+	public void setIdAdmin(Usuario idAdmin) {
+		this.idAdmin = idAdmin;
+	}
+
+	public Ticket getIdTicket() {
+		return idTicket;
+	}
+
+	public void setIdTicket(Ticket idTicket) {
+		this.idTicket = idTicket;
+	}
+
+	public String getStatusServico() {
+		return statusServico;
+	}
+
+	public void setStatusServico(String statusServico) {
+		this.statusServico = statusServico;
+	}
+
+	public String getTecnicoAceitarServico() {
+		return tecnicoAceitarServico;
+	}
+
+	public void setTecnicoAceitarServico(String tecnicoAceitarServico) {
+		this.tecnicoAceitarServico = tecnicoAceitarServico;
+	}
+
+	public String getDataServicoInicializado() {
+		return dataServicoInicializado;
+	}
+
+	public void setDataServicoInicializado(String dataServicoInicializado) {
+		this.dataServicoInicializado = dataServicoInicializado;
+	}
+
+	public String getDataServicoFinalizado() {
+		return dataServicoFinalizado;
+	}
+
+	public void setDataServicoFinalizado(String dataServicoFinalizado) {
+		this.dataServicoFinalizado = dataServicoFinalizado;
+	}
+
+	
+	
 }

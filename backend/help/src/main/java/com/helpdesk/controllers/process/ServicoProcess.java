@@ -22,7 +22,6 @@ import com.helpdesk.models.repositorys.TicketRepository;
 import lombok.extern.slf4j.Slf4j;
 
 @Component
-@Slf4j
 public class ServicoProcess {
 
 	@Autowired
@@ -36,7 +35,6 @@ public class ServicoProcess {
 
 		servicoRepository.save(servico);
 
-		log.info("--- servico cadastrado");
 
 		return ResponseEntity.ok().build();
 	}
@@ -71,11 +69,9 @@ public class ServicoProcess {
 		try {
 			servicoRepository.deleteById(id);
 
-			log.info("--- Servico deletado");
 
 			return ResponseEntity.ok().build();
 		} catch (EmptyResultDataAccessException a) {
-			log.error("-- Servico não encontrado");
 
 			return ResponseEntity.notFound().build();
 		}
@@ -108,16 +104,13 @@ public class ServicoProcess {
 			}).orElse(null);
 
 			if (servicoAtualizado == null) {
-				log.info("--- servico não encontrado");
 
 				return ResponseEntity.notFound().build();
 			}
 
-			log.info("--- servico alterado");
 
 			return ResponseEntity.ok().build();
 		} catch (Exception e) {
-			log.info("--- não encontrado");
 
 			return ResponseEntity.badRequest().build();
 		}

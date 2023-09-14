@@ -6,6 +6,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\micha\OneDrive\Área de Trabalho\projeto-helpdesk_java-springboot-springsecurity_JWT\backend\help"/>
 			<item value="C:\Users\Michael\Desktop\projeto-helpdesk_java-springboot-springsecurity_JWT\backend\help"/>
 			<item value="C:\Users\Michael\Desktop\help\work-helpdesk\backend\help"/>
 			<item value="C:\Users\Michael\Desktop\help\work-helpdesk\backend\helpdesk"/>

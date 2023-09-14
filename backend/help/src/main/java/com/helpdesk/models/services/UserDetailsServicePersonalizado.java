@@ -18,9 +18,7 @@ import com.helpdesk.models.repositorys.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-
 @Service
-@Slf4j
 public class UserDetailsServicePersonalizado implements UserDetailsService {
 
 	@Autowired
@@ -29,12 +27,10 @@ public class UserDetailsServicePersonalizado implements UserDetailsService {
 	@Override
 	public UserDetailsPersonalizado loadUserByUsername(String cpf) throws UsernameNotFoundException {
 		Usuario usuarioRepository = repository.findByCpf(cpf);
-		
+
 		if (usuarioRepository == null) {
-			log.error("Usuario não foi encontrado no banco");
 			throw new UsernameNotFoundException("Usuario não foi encontrado no banco");
 		} else {
-			log.error("Usuario foi encontrado no banco: {}", usuarioRepository);
 		}
 
 		return new UserDetailsPersonalizado(usuarioRepository);

@@ -27,10 +27,14 @@ import lombok.RequiredArgsConstructor;
 
 @Configuration
 @EnableWebSecurity
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class Security {
 
 	private final AuthenticationConfiguration authenticationConfiguration;
+	
+	public Security(AuthenticationConfiguration authenticationConfiguration) {
+		this.authenticationConfiguration = authenticationConfiguration;
+	}
 
 	// acesso a autorização
 	@Bean

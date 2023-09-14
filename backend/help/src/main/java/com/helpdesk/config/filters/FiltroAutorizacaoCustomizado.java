@@ -29,7 +29,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 public class FiltroAutorizacaoCustomizado extends OncePerRequestFilter {
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
@@ -45,11 +44,11 @@ public class FiltroAutorizacaoCustomizado extends OncePerRequestFilter {
 					JWTVerifier verifier = JWT.require(algoritmo).build();
 					DecodedJWT decodedJWT = verifier.verify(token);
 					String usuario = decodedJWT.getSubject();
-					
+
 					String[] roles = decodedJWT.getClaim("roles").asArray(String.class);
 
 					Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
-					
+
 					stream(roles).forEach(role -> {
 						authorities.add(new SimpleGrantedAuthority(role));
 					});
@@ -61,10 +60,9 @@ public class FiltroAutorizacaoCustomizado extends OncePerRequestFilter {
 
 					filterChain.doFilter(request, response);
 				} catch (Exception exception) {
-					log.error("Error logging in: {}", exception.getMessage());
 					response.setHeader("error", exception.getMessage());
 					response.setStatus(FORBIDDEN.value());
-					
+
 					Map<String, String> error = new HashMap<>();
 					error.put("error_message", exception.getMessage());
 					response.setContentType(APPLICATION_JSON_VALUE);

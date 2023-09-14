@@ -23,7 +23,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Component
-@Slf4j
 public class TicketProcess {
 
 	@Autowired
@@ -35,9 +34,7 @@ public class TicketProcess {
 	// cadastrar ticket
 	public ResponseEntity<?> criarTicket(Ticket ticketDTO) {
 		repositoryTicket.save(ticketDTO);
-		
-		log.info("--- Ticket cadastrado");
-		
+
 		return ResponseEntity.ok().build();
 	}
 
@@ -45,13 +42,10 @@ public class TicketProcess {
 	public ResponseEntity<?> deletarTicket(Long id) {
 		try {
 			repositoryTicket.deleteById(id);
-					
-			log.info("--- Ticket deletado");
-			
+
 			return ResponseEntity.ok().build();
 		} catch (EmptyResultDataAccessException a) {
-			log.error("-- Ticket não encontrado");
-			
+
 			return ResponseEntity.notFound().build();
 		}
 	}

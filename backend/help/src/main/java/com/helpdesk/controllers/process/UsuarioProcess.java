@@ -22,12 +22,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Component
-@Slf4j
 public class UsuarioProcess {
 
 	@Autowired
 	private UsuarioRepository repository;
-	
+
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
@@ -39,16 +38,11 @@ public class UsuarioProcess {
 
 			if (repository.save(usuario) != null) {
 
-				log.info("--- Usuario cadastrado!");
-
 				return ResponseEntity.ok().build();
 			}
-			log.info("--- Usuario null!");
 
 			return ResponseEntity.badRequest().build();
 		} catch (DataIntegrityViolationException e) {
-
-			log.info("--- Usuario já cadastrado!");
 
 			return ResponseEntity.badRequest().build();
 		}
@@ -94,11 +88,8 @@ public class UsuarioProcess {
 		try {
 			repository.deleteById(id);
 
-			log.info("--- Usuario deletado");
-
 			return ResponseEntity.ok().build();
 		} catch (EmptyResultDataAccessException a) {
-			log.info("--- Usuario não encontrado");
 
 			return ResponseEntity.notFound().build();
 		}
@@ -115,16 +106,12 @@ public class UsuarioProcess {
 			}).orElse(null);
 
 			if (usuarioAtualizado == null) {
-				log.info("--- Usuario não encontrado");
 
 				return ResponseEntity.notFound().build();
 			}
 
-			log.info("--- Usuario alterado");
-
 			return ResponseEntity.ok().build();
 		} catch (Exception e) {
-			log.info("--- não encontrado");
 
 			return ResponseEntity.badRequest().build();
 		}
@@ -139,17 +126,12 @@ public class UsuarioProcess {
 			}).orElse(null);
 
 			if (usuarioPermissao == null) {
-				log.info("--- Usuario não encontrado");
 
 				return ResponseEntity.notFound().build();
 			}
 
-			log.info("--- Usuario alterado");
-
 			return ResponseEntity.ok().build();
 		} catch (Exception e) {
-			log.info("--- não encontrado");
-
 			return ResponseEntity.badRequest().build();
 		}
 
