@@ -2,10 +2,6 @@ package com.helpdesk.models.dtos;
 
 import com.helpdesk.models.entity.Usuario;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 public class UsuarioDTO {
 	private Long id;
 

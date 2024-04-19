@@ -3,23 +3,16 @@ package com.helpdesk.controllers.process;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.annotation.Validated;
-
 import com.helpdesk.models.dtos.UsuarioDTO;
 import com.helpdesk.models.entity.Usuario;
 import com.helpdesk.models.repositorys.UsuarioRepository;
-
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
 @Component
 public class UsuarioProcess {
@@ -43,7 +36,6 @@ public class UsuarioProcess {
 
 			return ResponseEntity.badRequest().build();
 		} catch (DataIntegrityViolationException e) {
-
 			return ResponseEntity.badRequest().build();
 		}
 	}

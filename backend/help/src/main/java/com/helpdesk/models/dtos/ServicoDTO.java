@@ -1,9 +1,6 @@
 package com.helpdesk.models.dtos;
 
 import com.helpdesk.models.entity.Servico;
-import com.helpdesk.models.entity.Usuario;
-
-import lombok.Data;
 
 public class ServicoDTO {
 

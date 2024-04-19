@@ -1,10 +1,6 @@
 package com.helpdesk.models.dtos;
 
 import com.helpdesk.models.entity.Ticket;
-import com.helpdesk.models.entity.Usuario;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
 
 public class TicketDTO {
 	private Long id;

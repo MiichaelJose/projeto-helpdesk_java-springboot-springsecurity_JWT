@@ -8,13 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.helpdesk.models.dtos.TicketDTO;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
 @Entity
-@Data
 public class Ticket {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
