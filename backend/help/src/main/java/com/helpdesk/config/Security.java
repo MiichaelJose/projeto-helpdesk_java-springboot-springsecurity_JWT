@@ -1,6 +1,7 @@
 package com.helpdesk.config;
 
-import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
+import com.helpdesk.config.filters.FiltroAutenticacaoCustomizado;
+import com.helpdesk.config.filters.FiltroAutorizacaoCustomizado;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -12,67 +13,47 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import com.helpdesk.config.filters.FiltroAutenticacaoCustomizado;
-import com.helpdesk.config.filters.FiltroAutorizacaoCustomizado;
+
+import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
 
 @Configuration
 @EnableWebSecurity
-//@RequiredArgsConstructor
 public class Security {
 
-	private final AuthenticationConfiguration authenticationConfiguration;
-	
-	public Security(AuthenticationConfiguration authenticationConfiguration) {
-		this.authenticationConfiguration = authenticationConfiguration;
-	}
+    private final AuthenticationConfiguration authenticationConfiguration;
 
-	// acesso a autorização
-	@Bean
-	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public Security(AuthenticationConfiguration authenticationConfiguration) {
+        this.authenticationConfiguration = authenticationConfiguration;
+    }
 
-		FiltroAutenticacaoCustomizado customAuthenticationFilter = new FiltroAutenticacaoCustomizado(
-				authenticationManager());
-		customAuthenticationFilter.setFilterProcessesUrl("/login");
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        FiltroAutenticacaoCustomizado customAuthenticationFilter = new FiltroAutenticacaoCustomizado(
+                authenticationManager());
+        customAuthenticationFilter.setFilterProcessesUrl("/login");
+        http.csrf().disable();
+        http.cors();
+        http.sessionManagement().sessionCreationPolicy(STATELESS);
+        http.authorizeRequests().antMatchers(HttpMethod.POST, "/login", "/Users/**").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/Users", "/Users/solicitando-acesso")
+                .hasAuthority("ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/Users/{id}").hasAnyAuthority("ADMIN", "USER");
+        http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/Users/**").hasAuthority("ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.PUT, "/Users/{id}/alterar-acesso").hasAuthority("ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.PUT, "/Users/{id}").hasAnyAuthority("ADMIN", "USER");
+        http.authorizeRequests().anyRequest().authenticated();
+        http.addFilter(customAuthenticationFilter);
+        http.addFilterBefore(new FiltroAutorizacaoCustomizado(), UsernamePasswordAuthenticationFilter.class);
 
-		http.csrf().disable();
-		// ativar cors
-		http.cors();
-		http.sessionManagement().sessionCreationPolicy(STATELESS);
-		// login e cadastrar
-		http.authorizeRequests().antMatchers(HttpMethod.POST, "/login", "/usuarios/**").permitAll();
-		// cadastrar usuario
-		// http.authorizeRequests().antMatchers(HttpMethod.POST,
-		// "/usuarios/**").hasAuthority("ADMIN");
-		// todos usuarios
-		http.authorizeRequests().antMatchers(HttpMethod.GET, "/usuarios", "/usuarios/solicitando-acesso")
-				.hasAuthority("ADMIN");
-		// usuario unico
-		http.authorizeRequests().antMatchers(HttpMethod.GET, "/usuarios/{id}").hasAnyAuthority("ADMIN", "USER");
-		// deletar usuario
-		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/usuarios/**").hasAuthority("ADMIN");
-		// alterar acesso usuario
-		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/usuarios/{id}/alterar-acesso").hasAuthority("ADMIN");
-		// alterar usuario
-		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/usuarios/{id}").hasAnyAuthority("ADMIN", "USER");
-		// http.authorizeRequests().antMatchers(POST,
-		// "/api/user/save/**").hasAuthority("ROLE_ADMIN");
-		http.authorizeRequests().anyRequest().authenticated();
-		http.addFilter(customAuthenticationFilter);
-		http.addFilterBefore(new FiltroAutorizacaoCustomizado(), UsernamePasswordAuthenticationFilter.class);
+        return http.build();
+    }
 
-		return http.build();
-	}
+    @Bean
+    PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
-	// codificador de senha
-	// É necessário definir como bean para meu outro bean utilizar
-	@Bean
-	PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
-
-	// acesso a autenticação
-	public AuthenticationManager authenticationManager() throws Exception {
-		return authenticationConfiguration.getAuthenticationManager();
-	}
-
+    public AuthenticationManager authenticationManager() throws Exception {
+        return authenticationConfiguration.getAuthenticationManager();
+    }
 }
