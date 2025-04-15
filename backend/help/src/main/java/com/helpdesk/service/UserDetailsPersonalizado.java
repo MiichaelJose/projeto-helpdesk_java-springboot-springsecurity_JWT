@@ -3,16 +3,17 @@ package com.helpdesk.service;
 import com.helpdesk.model.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.core.GrantedAuthority;
+//import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.Collections;
 
-@Data
-@AllArgsConstructor
-public class UserDetailsPersonalizado implements UserDetails {
-    private User user;
+/*@Data
+@AllArgsConstructor*/
+public class UserDetailsPersonalizado {
+//public class UserDetailsPersonalizado implements UserDetails {
+    /*private User user;
 
     public Long getId() {
         return user.getId();
@@ -51,5 +52,5 @@ public class UserDetailsPersonalizado implements UserDetails {
     @Override
     public boolean isEnabled() {
         return false;
-    }
+    }*/
 }

@@ -3,13 +3,15 @@ package com.helpdesk.service;
 import com.helpdesk.model.entity.User;
 import com.helpdesk.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+//import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.core.userdetails.UserDetailsService;
+//import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-@Service
-public class UserDetailsServicePersonalizado implements UserDetailsService {
-    @Autowired
+//@Service
+public class UserDetailsServicePersonalizado {
+//public class UserDetailsServicePersonalizado implements UserDetailsService {
+    /*@Autowired
     private UserRepository repository;
 
     @Override
@@ -22,5 +24,5 @@ public class UserDetailsServicePersonalizado implements UserDetailsService {
 
         return new UserDetailsPersonalizado(userRepository);
     }
-
+*/
 }

@@ -34,7 +34,7 @@ public class ServiceController {
 
 	/*public ResponseEntity<List<serviceDTO>> servicesFechados() {
 		List<serviceDTO> lisTickets = new ArrayList<>();
-		
+
 		for (service service : serviceRepository.findAll()) {
 			lisTickets.add(new serviceDTO(service));
 		}

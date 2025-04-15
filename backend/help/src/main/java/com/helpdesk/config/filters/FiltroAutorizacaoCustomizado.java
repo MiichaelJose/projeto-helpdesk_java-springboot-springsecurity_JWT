@@ -5,9 +5,9 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
+//import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+//import org.springframework.security.core.authority.SimpleGrantedAuthority;
+//import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -27,6 +27,10 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 public class FiltroAutorizacaoCustomizado extends OncePerRequestFilter {
     @Override
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+
+    }
+  /*  @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
         if (request.getServletPath().equals("/login") || request.getServletPath().equals("/token/refresh")) {
@@ -68,5 +72,5 @@ public class FiltroAutorizacaoCustomizado extends OncePerRequestFilter {
                 filterChain.doFilter(request, response);
             }
         }
-    }
+    }*/
 }

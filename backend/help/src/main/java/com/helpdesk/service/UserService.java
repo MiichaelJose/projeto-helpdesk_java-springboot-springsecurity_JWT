@@ -1,27 +1,30 @@
-package com.helpdesk.controller;
+package com.helpdesk.service;
 
+import com.helpdesk.model.dtos.UserDTO;
 import com.helpdesk.model.dtos.UserResponseDTO;
 import com.helpdesk.model.entity.User;
 import com.helpdesk.repository.UserRepository;
-import com.helpdesk.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.ResponseEntity;
-//import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
-@RestController
-@RequestMapping("users")
-public class UserController {
+@Service
+public class UserService {
     @Autowired
-    private UserService userService;
+    private UserRepository userRepository;
+    /*@Autowired
+    private PasswordEncoder passwordEncoder;*/
 
-//    @PostMapping
-//    public ResponseEntity.BodyBuilder create(@Validated @RequestBody User user) {
+//    public ResponseEntity.BodyBuilder create(UserDTO user) {
 //        try {
 //            System.out.println(user);
 //            user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -36,10 +39,21 @@ public class UserController {
 //        }
 //    }
 
-    @GetMapping
-    public ResponseEntity<?> list(@RequestParam(required = false) Long id) {
-        return ResponseEntity.ok().body(userService.list(id));
+    public ResponseEntity<?> list(Long id) {
+        if (Objects.isNull(id)) {
+            List<UserResponseDTO> users = userRepository.findAll()
+                    .stream()
+                    .map(user -> new UserResponseDTO(user.getId(), user.getName(), user.getPermission()))
+                    .collect(Collectors.toList());
+            return ResponseEntity.ok(users);
+        }
+
+        return userRepository.findById(id)
+                .map(user -> new UserResponseDTO(user.getId(), user.getName(), user.getPermission()))
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
+
 
 //    public ResponseEntity<?> delete(Long id) {
 //        try {
